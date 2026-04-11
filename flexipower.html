@@ -968,10 +968,38 @@
     }
     .plan-implementos strong { color: var(--violet); }
 
+    .plan-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-wa-plan {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+    }
+    .btn-wa-plan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,211,102,0.45);
+    }
+
     .plan-btn {
       display: block;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 0;
       padding: 14px;
       text-align: center;
       border-radius: 50px;
@@ -1717,7 +1745,10 @@
           <div class="plan-implementos">
             Implementos (2 bloques + 1 liga): <strong>S/90</strong>
           </div>
-          <a href="#inscripcion" class="plan-btn">Inscribirme</a>
+          <div class="plan-btns">
+            <a href="#inscripcion" class="plan-btn">Inscribirme</a>
+            <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20en%20FLEXIPOWER%20%E2%80%94%204%20clases%20S%2F170" class="btn-wa-plan" target="_blank">Inscribirme por WhatsApp</a>
+          </div>
         </div>
 
         <!-- 8 clases — MÁS ELEGIDO -->
@@ -1736,7 +1767,10 @@
           <div class="plan-implementos">
             Implementos (2 bloques + 1 liga): <strong>S/80</strong>
           </div>
-          <a href="#inscripcion" class="plan-btn featured">Inscribirme ahora</a>
+          <div class="plan-btns">
+            <a href="#inscripcion" class="plan-btn featured">Inscribirme ahora</a>
+            <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20en%20FLEXIPOWER%20%E2%80%94%208%20clases%20S%2F290" class="btn-wa-plan" target="_blank">Inscribirme por WhatsApp</a>
+          </div>
         </div>
 
         <!-- 12 clases — MÁS AVANCE -->
@@ -1755,7 +1789,10 @@
           <div class="plan-implementos">
             Implementos (2 bloques + 1 liga): <strong>S/70</strong>
           </div>
-          <a href="#inscripcion" class="plan-btn">Inscribirme</a>
+          <div class="plan-btns">
+            <a href="#inscripcion" class="plan-btn">Inscribirme</a>
+            <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20en%20FLEXIPOWER%20%E2%80%94%2012%20clases%20S%2F420" class="btn-wa-plan" target="_blank">Inscribirme por WhatsApp</a>
+          </div>
         </div>
 
       </div>
@@ -1774,7 +1811,10 @@
         <div class="intensivo-right">
           <div class="intensivo-precio">S/250</div>
           <div class="intensivo-vigencia">Vigencia: 1 mes</div>
-          <a href="#inscripcion" class="intensivo-btn">Inscribirme</a>
+          <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+            <a href="#inscripcion" class="intensivo-btn">Inscribirme</a>
+            <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20en%20FLEXIPOWER%20%E2%80%94%204%20clases%20Intensivas%20S%2F250" class="btn-wa-plan" target="_blank" style="width:100%;">Inscribirme por WhatsApp</a>
+          </div>
         </div>
       </div>
 
