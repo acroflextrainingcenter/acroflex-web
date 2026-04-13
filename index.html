@@ -1066,7 +1066,6 @@
     .hs-photo {
       border-radius: 14px;
       overflow: hidden;
-      aspect-ratio: 3/4;
       border: 1px solid rgba(0,153,255,0.2);
       box-shadow: 0 4px 20px rgba(0,153,255,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -1077,8 +1076,7 @@
     }
     .hs-photo img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
@@ -1373,6 +1371,42 @@
     </div>
   </section>
 
+  <!-- CATE - HEAD COACH -->
+  <section class="camila-section" style="border-top: 1px solid rgba(0,153,255,0.15);">
+    <div class="camila-inner" style="direction: rtl;">
+      <div class="camila-img-wrap" style="direction: ltr;">
+        <img src="cate-garay.png" alt="Cate Head Coach AcroFlex" style="border-color: rgba(0,153,255,0.3); box-shadow: 0 8px 40px rgba(0,153,255,0.15);" />
+        <div class="camila-img-badge" style="background: linear-gradient(90deg, var(--blue2), #66d9ff); color: #000;">Head Coach</div>
+      </div>
+      <div class="camila-content" style="direction: ltr;">
+        <div class="section-tag" style="background: rgba(0,153,255,0.1); border-color: rgba(0,153,255,0.4); color: var(--blue2);">Tu instructora</div>
+        <div class="camila-name" style="background: linear-gradient(90deg, var(--blue2), #99eeff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CATE</div>
+        <div class="camila-role" style="color: var(--blue2);">Head Coach · AcroFlex Training Center</div>
+        <p class="camila-bio">
+          Cate es la Head Coach de AcroFlex y la persona que más alumnos ha llevado a su primera parada de manos.
+          Especialista en las bases del equilibrio invertido, su metodología combina técnica, fuerza y conciencia
+          corporal para que cualquier persona — sin importar su nivel — pueda sostenerse en el aire.
+          <br><br>
+          En esta masterclass te guía paso a paso desde cero hasta encontrar tu punto de equilibrio.
+        </p>
+        <div class="camila-stats">
+          <div class="camila-stat">
+            <span class="camila-stat-num" style="color: var(--blue2);">300+</span>
+            <span class="camila-stat-label">Alumnos entrenados</span>
+          </div>
+          <div class="camila-stat">
+            <span class="camila-stat-num" style="color: var(--blue2);">Head</span>
+            <span class="camila-stat-label">Coach AcroFlex</span>
+          </div>
+          <div class="camila-stat">
+            <span class="camila-stat-num" style="color: var(--blue2);">12</span>
+            <span class="camila-stat-label">Cupos disponibles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- QUÉ APRENDERÁS -->
   <section class="schedule-section">
     <div class="section" style="padding-bottom: 0; padding-top: 60px;">
@@ -1504,7 +1538,8 @@
     <h2 class="section-title">APRENDE A<br><span style="background: linear-gradient(90deg, var(--blue2), #99eeff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">QUEDARTE ARRIBA</span></h2>
     <p class="section-sub" style="margin-top: 8px;">Guía profesional en cada progresión, desde el primer intento.</p>
 
-    <div class="hs-gallery">
+    <div class="hs-gallery" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hs-photo"><img src="cate-clase.png" alt="Cate enseñando parada de manos" /></div>
       <div class="hs-photo"><img src="hs-foto-1.png" alt="Parada de manos AcroFlex" /></div>
       <div class="hs-photo"><img src="hs-foto-2.png" alt="Parada de manos AcroFlex" /></div>
       <div class="hs-photo"><img src="hs-foto-3.png" alt="Parada de manos AcroFlex" /></div>
