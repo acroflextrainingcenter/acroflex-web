@@ -11,17 +11,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:    #020c1e;
+      --navy:    #03091a;
       --navy2:   #071530;
       --purple:  #0a1f5c;
-      --blue:    #0057ff;
-      --blue2:   #0099ff;
-      --orange:  #ff6b1a;
-      --orange2: #ff8c42;
+      --blue:    #0055ff;
+      --blue2:   #00b4ff;
+      --orange:  #ff4d00;
+      --orange2: #ff7733;
       --magenta: #0088ff;
-      --gold:    #f5a623;
+      --gold:    #ffbe00;
       --white:   #ffffff;
-      --gray:    #8aabcc;
+      --gray:    #9abbdd;
       --green:   #25D366;
     }
 
@@ -119,30 +119,30 @@
       padding: 120px 48px 80px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #020c1e 0%, #051a3e 50%, #0a2560 100%);
+      background: linear-gradient(135deg, #030916 0%, #071640 50%, #0c2870 100%);
       text-align: center;
     }
 
     .hero-glow-1 {
       position: absolute;
       top: -80px; right: -80px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,136,255,0.25) 0%, transparent 65%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,180,255,0.45) 0%, transparent 65%);
       border-radius: 50%;
     }
     .hero-glow-2 {
       position: absolute;
       bottom: -100px; left: -80px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255,107,26,0.2) 0%, transparent 65%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,77,0,0.4) 0%, transparent 65%);
       border-radius: 50%;
     }
     .hero-glow-3 {
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(245,166,35,0.08) 0%, transparent 70%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(255,190,0,0.18) 0%, transparent 70%);
     }
 
     .hero-inner {
@@ -171,6 +171,7 @@
       line-height: 0.95;
       letter-spacing: 3px;
       margin-bottom: 12px;
+      filter: drop-shadow(0 0 30px rgba(0,180,255,0.4)) drop-shadow(0 0 60px rgba(255,77,0,0.2));
     }
     .hero-title .t-white { color: var(--white); }
     .hero-title .t-orange {
@@ -282,7 +283,7 @@
     .countdown-section {
       padding: 20px 48px 60px;
       text-align: center;
-      background: rgba(0,0,0,0.2);
+      background: linear-gradient(180deg, rgba(0,20,60,0.5) 0%, rgba(0,0,0,0.3) 100%);
     }
 
     .countdown-label {
@@ -305,11 +306,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,107,26,0.3);
+      background: rgba(0,30,70,0.6);
+      border: 1px solid rgba(255,77,0,0.5);
       border-radius: 12px;
       padding: 18px 24px;
       min-width: 80px;
+      box-shadow: 0 0 20px rgba(255,77,0,0.15);
     }
 
     .countdown-num {
@@ -391,11 +393,11 @@
     }
 
     .mc-card.card-hand {
-      background: linear-gradient(160deg, #001a3a 0%, #0a1f5c 100%);
-      box-shadow: 0 4px 30px rgba(0,136,255,0.15);
+      background: linear-gradient(160deg, #001830 0%, #0a2060 100%);
+      box-shadow: 0 4px 40px rgba(0,180,255,0.25), inset 0 1px 0 rgba(0,180,255,0.15);
     }
     .mc-card.card-hand:hover {
-      box-shadow: 0 12px 40px rgba(0,136,255,0.3);
+      box-shadow: 0 12px 50px rgba(0,180,255,0.45);
     }
 
     .mc-card-header {
@@ -649,9 +651,9 @@
 
     /* ─── SCHEDULE ─── */
     .schedule-section {
-      background: rgba(255,255,255,0.02);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(0,40,90,0.35) 0%, rgba(10,10,30,0.6) 100%);
+      border-top: 1px solid rgba(0,180,255,0.15);
+      border-bottom: 1px solid rgba(0,180,255,0.15);
     }
 
     .schedule-grid {
@@ -732,15 +734,16 @@
     }
 
     .noexp-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,30,70,0.5);
+      border: 1px solid rgba(0,180,255,0.2);
       border-radius: 16px;
       padding: 32px 24px;
-      transition: background 0.2s, border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
     .noexp-card:hover {
-      background: rgba(255,107,26,0.07);
-      border-color: rgba(255,107,26,0.3);
+      background: rgba(255,77,0,0.1);
+      border-color: rgba(255,77,0,0.5);
+      box-shadow: 0 0 24px rgba(255,77,0,0.2);
     }
 
     .noexp-icon {
@@ -818,8 +821,8 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(255,107,26,0.12) 0%, transparent 70%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(255,77,0,0.3) 0%, rgba(0,100,255,0.15) 50%, transparent 75%);
     }
 
     .cta-final-inner {
@@ -1315,7 +1318,7 @@
         <span class="t-blue">ACROFLEX</span><br>
         <span class="t-orange">EXPERIENCE</span>
       </h1>
-      <p class="hero-subtitle">Ven a divertirte, ejercitarte y conocer amistades acrobáticas · Sin experiencia previa · Solo 12 cupos</p>
+      <p class="hero-subtitle">Una noche para aprender cosas nuevas, moverte y conectar con personas que aman lo mismo que tú · Sin experiencia previa · Solo 12 cupos</p>
 
       <div class="info-strip">
         <div class="info-strip-item">
@@ -1446,22 +1449,17 @@
           </div>
           <div class="schedule-row">
             <span class="schedule-block-name">
-              Parada de manos — aprende a sostenerte en el aire desde cero
+              Invertidas — aprende a sostenerte en el aire desde cero
             </span>
           </div>
           <div class="schedule-row">
             <span class="schedule-block-name">
-              Mortal delante — sí, en una sola sesión y de forma segura
+              Saltos y mucho más — 2 horas llenas de adrenalina y acrobacias
             </span>
           </div>
           <div class="schedule-row">
             <span class="schedule-block-name">
-              Música, juegos grupales y adrenalina pura — 2 horas non-stop
-            </span>
-          </div>
-          <div class="schedule-row">
-            <span class="schedule-block-name">
-              Apto para todos los niveles · Sin experiencia previa necesaria
+              Música, juegos grupales y ambiente de fiesta — para todos los niveles
             </span>
           </div>
         </div>
