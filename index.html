@@ -1080,6 +1080,65 @@
       display: block;
     }
 
+    /* ─── HERO PHOTO BG ─── */
+    .hero-photos {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-photos::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(2,12,30,0.92) 0%,
+        rgba(5,26,62,0.85) 40%,
+        rgba(10,37,96,0.80) 100%);
+      z-index: 2;
+    }
+    .hero-photo-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 4px;
+      transform: scale(1.08) rotate(-2deg);
+      filter: blur(3px) saturate(0.7);
+      opacity: 0.55;
+    }
+    .hero-photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-inner { z-index: 3; }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    [data-reveal] {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    [data-reveal="up"]    { transform: translateY(40px); }
+    [data-reveal="left"]  { transform: translateX(-50px); }
+    [data-reveal="right"] { transform: translateX(50px); }
+    [data-reveal="scale"] { transform: scale(0.92); }
+    [data-reveal="fade"]  { transform: none; }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* delay helpers */
+    [data-delay="100"] { transition-delay: 0.1s; }
+    [data-delay="200"] { transition-delay: 0.2s; }
+    [data-delay="300"] { transition-delay: 0.3s; }
+    [data-delay="400"] { transition-delay: 0.4s; }
+    [data-delay="500"] { transition-delay: 0.5s; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav { padding: 14px 24px; }
@@ -1144,6 +1203,19 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- fondo de fotos difuminado -->
+    <div class="hero-photos">
+      <div class="hero-photo-grid">
+        <img src="ms-despues-1.png" alt="" />
+        <img src="hs-foto-1.png" alt="" />
+        <img src="ms-despues-2.png" alt="" />
+        <img src="hs-foto-2.png" alt="" />
+        <img src="ms-antes-3.png" alt="" />
+        <img src="hs-foto-3.png" alt="" />
+        <img src="ms-despues-3.png" alt="" />
+        <img src="camila-garay.png" alt="" />
+      </div>
+    </div>
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
     <div class="hero-glow-3"></div>
@@ -1214,14 +1286,14 @@
 
   <!-- MASTERCLASSES -->
   <section class="section" id="masterclasses">
-    <div class="section-tag">El programa</div>
-    <h2 class="section-title">DOS MASTERCLASSES<br><span style="background: linear-gradient(90deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">UN SOLO DÍA</span></h2>
-    <p class="section-sub">Cada masterclass es independiente. Puedes inscribirte a una o a las dos.</p>
+    <div class="section-tag" data-reveal="up">El programa</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">DOS MASTERCLASSES<br><span style="background: linear-gradient(90deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">UN SOLO DÍA</span></h2>
+    <p class="section-sub" data-reveal="up" data-delay="200">Cada masterclass es independiente. Puedes inscribirte a una o a las dos.</p>
 
     <div class="mc-cards">
 
       <!-- CARD 1: MIDDLE SPLIT -->
-      <div class="mc-card card-flex">
+      <div class="mc-card card-flex" data-reveal="left" data-delay="200">
         <div class="mc-card-header">
           <div class="mc-card-time">
             <span class="dot"></span>
@@ -1267,7 +1339,7 @@
       </div>
 
       <!-- CARD 2: PARADA DE MANOS -->
-      <div class="mc-card card-hand">
+      <div class="mc-card card-hand" data-reveal="right" data-delay="300">
         <div class="mc-card-header">
           <div class="mc-card-time">
             <span class="dot"></span>
@@ -1317,7 +1389,7 @@
 
   <!-- COMBO -->
   <div class="combo-section">
-    <div class="combo-banner">
+    <div class="combo-banner" data-reveal="scale">
       <div class="combo-left">
         <div class="combo-tag">Precio Promo</div>
         <div class="combo-title">LLEVA LAS DOS<br>MASTERCLASSES</div>
@@ -1337,11 +1409,11 @@
   <!-- CAMILA GARAY -->
   <section class="camila-section">
     <div class="camila-inner">
-      <div class="camila-img-wrap">
+      <div class="camila-img-wrap" data-reveal="left">
         <img src="camila-garay.png" alt="Camila Garay Coach" />
         <div class="camila-img-badge">Coach Certificada</div>
       </div>
-      <div class="camila-content">
+      <div class="camila-content" data-reveal="right" data-delay="200">
         <div class="section-tag">Tu instructora</div>
         <div class="camila-name">CAMILA GARAY</div>
         <div class="camila-role">Coach de Flexibilidad · Acroflex Training Center</div>
@@ -1374,11 +1446,11 @@
   <!-- CATE - HEAD COACH -->
   <section class="camila-section" style="border-top: 1px solid rgba(0,153,255,0.15);">
     <div class="camila-inner" style="direction: rtl;">
-      <div class="camila-img-wrap" style="direction: ltr;">
+      <div class="camila-img-wrap" style="direction: ltr;" data-reveal="right">
         <img src="cate-garay.png" alt="Cate Head Coach Acroflex" style="border-color: rgba(0,153,255,0.3); box-shadow: 0 8px 40px rgba(0,153,255,0.15);" />
         <div class="camila-img-badge" style="background: linear-gradient(90deg, var(--blue2), #66d9ff); color: #000;">Head Coach</div>
       </div>
-      <div class="camila-content" style="direction: ltr;">
+      <div class="camila-content" style="direction: ltr;" data-reveal="left" data-delay="200">
         <div class="section-tag" style="background: rgba(0,153,255,0.1); border-color: rgba(0,153,255,0.4); color: var(--blue2);">Tu instructora</div>
         <div class="camila-name" style="background: linear-gradient(90deg, var(--blue2), #99eeff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">CATE</div>
         <div class="camila-role" style="color: var(--blue2);">Head Coach · Acroflex Training Center</div>
@@ -1491,13 +1563,13 @@
 
   <!-- GALERÍA ANTES/DESPUÉS -->
   <section class="gallery-section">
-    <div class="section-tag">Resultados reales</div>
-    <h2 class="section-title">ESTO PASA EN<br><span style="background: linear-gradient(90deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">90 MINUTOS</span></h2>
-    <p class="section-sub" style="margin-top: 8px;">Fotos reales de alumnos en la masterclass de Middle Split.</p>
+    <div class="section-tag" data-reveal="up">Resultados reales</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">ESTO PASA EN<br><span style="background: linear-gradient(90deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">90 MINUTOS</span></h2>
+    <p class="section-sub" style="margin-top: 8px;" data-reveal="up" data-delay="200">Fotos reales de alumnos en la masterclass de Middle Split.</p>
 
     <div class="before-after-grid">
       <!-- PAR 1 -->
-      <div class="ba-pair">
+      <div class="ba-pair" data-reveal="up" data-delay="100">
         <div class="ba-img-wrap">
           <img src="ms-antes-1.png" alt="Antes middle split" />
           <span class="ba-label antes">Antes</span>
@@ -1508,7 +1580,7 @@
         </div>
       </div>
       <!-- PAR 2 -->
-      <div class="ba-pair">
+      <div class="ba-pair" data-reveal="up" data-delay="200">
         <div class="ba-img-wrap">
           <img src="ms-antes-2.png" alt="Antes middle split" />
           <span class="ba-label antes">Antes</span>
@@ -1519,7 +1591,7 @@
         </div>
       </div>
       <!-- PAR 3 -->
-      <div class="ba-pair">
+      <div class="ba-pair" data-reveal="up" data-delay="300">
         <div class="ba-img-wrap">
           <img src="ms-antes-3.png" alt="Antes middle split" />
           <span class="ba-label antes">Antes</span>
@@ -1653,6 +1725,20 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- SCROLL ANIMATIONS -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
   </script>
 
 </body>
