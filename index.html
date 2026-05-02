@@ -417,6 +417,14 @@
       border-radius: 20px;
     }
     .team-card.founder .team-role { color: var(--orange); }
+    .team-card-bg {
+      position: absolute;
+      inset: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: transform 0.5s ease;
+    }
+    .team-card:hover .team-card-bg { transform: scale(1.05); }
 
     @media (max-width: 1100px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1074,6 +1082,36 @@
           <div class="team-overlay">
             <div class="team-name">Coach Guillermo</div>
             <div class="team-role">Entrenador</div>
+          </div>
+          <div class="team-border"></div>
+        </div>
+
+        <!-- COACH MARCELO (mitad izquierda de imagen combinada) -->
+        <div class="team-card reveal">
+          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 200% auto; background-position: 0% top;"></div>
+          <div class="team-overlay">
+            <div class="team-name">Coach Marcelo</div>
+            <div class="team-role">Entrenador</div>
+          </div>
+          <div class="team-border"></div>
+        </div>
+
+        <!-- COACH VALENTINA (mitad derecha de imagen combinada) -->
+        <div class="team-card reveal">
+          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 200% auto; background-position: 100% top;"></div>
+          <div class="team-overlay">
+            <div class="team-name">Coach Valentina</div>
+            <div class="team-role">Entrenadora</div>
+          </div>
+          <div class="team-border"></div>
+        </div>
+
+        <!-- COACH MILLY -->
+        <div class="team-card reveal">
+          <img src="coach-milly.png" alt="Coach Milly" style="object-position: center 10%;" />
+          <div class="team-overlay">
+            <div class="team-name">Coach Milly</div>
+            <div class="team-role">Entrenadora</div>
           </div>
           <div class="team-border"></div>
         </div>
