@@ -649,68 +649,83 @@
     #horarios {
       background: var(--navy2);
     }
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      margin-top: 60px;
-      align-items: center;
+    /* ─── SCHEDULE TABS ─── */
+    .sched-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 48px; margin-bottom: 32px;
     }
-    .days-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 36px;
+    .sched-tab {
+      padding: 10px 22px; border-radius: 8px; cursor: pointer;
+      font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; border: 1px solid rgba(34,51,238,0.3);
+      background: rgba(34,51,238,0.1); color: rgba(255,255,255,0.65);
+      transition: all 0.25s;
     }
-    .day-pill {
-      background: rgba(34,51,238,0.15);
-      border: 1px solid rgba(34,51,238,0.3);
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 1px;
-      transition: all 0.3s;
+    .sched-tab:hover { border-color: var(--blue); color: var(--white); }
+    .sched-tab.active {
+      background: var(--blue); border-color: var(--blue);
+      color: var(--white); box-shadow: 0 4px 18px rgba(34,51,238,0.4);
     }
-    .day-pill:hover, .day-pill.active {
-      background: var(--blue);
-      border-color: var(--blue);
+    .sched-tab.weekend { border-color: rgba(212,160,48,0.3); color: var(--gold); }
+    .sched-tab.weekend:hover, .sched-tab.weekend.active {
+      background: var(--gold); border-color: var(--gold);
+      color: var(--navy); box-shadow: 0 4px 18px rgba(212,160,48,0.3);
     }
-    .day-pill.weekend {
-      background: rgba(212,160,48,0.12);
-      border-color: rgba(212,160,48,0.3);
-      color: var(--gold);
+    .sched-panel { display: none; }
+    .sched-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .sched-course {
+      background: rgba(10,15,60,0.7); border: 1px solid rgba(34,51,238,0.2);
+      border-radius: 14px; overflow: hidden;
     }
-    .day-pill.weekend:hover {
-      background: var(--gold);
-      color: var(--navy);
-      border-color: var(--gold);
+    .sched-course-head {
+      padding: 14px 18px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .schedule-note {
-      margin-top: 24px;
-      padding: 18px 24px;
-      background: rgba(212,160,48,0.08);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
+    .sched-course-name {
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px;
     }
-    .schedule-note strong { color: var(--gold); }
-    .schedule-visual {
-      background: linear-gradient(135deg, rgba(34,51,238,0.15), rgba(212,160,48,0.08));
-      border: 1px solid rgba(34,51,238,0.2);
-      border-radius: 16px;
-      padding: 40px;
+    .sched-course-link {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; text-decoration: none; opacity: 0.7;
+      transition: opacity 0.2s;
     }
-    .schedule-visual h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-      margin-bottom: 28px;
-      color: var(--gold);
+    .sched-course-link:hover { opacity: 1; }
+    .sched-slots { padding: 10px 0; }
+    .sched-slot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 18px; border-bottom: 1px solid rgba(255,255,255,0.04);
     }
+    .sched-slot:last-child { border-bottom: none; }
+    .sched-time { font-weight: 700; font-size: 14px; color: var(--white); }
+    .sched-new {
+      font-size: 9px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 10px;
+      background: rgba(232,0,90,0.2); color: #e8005a; border: 1px solid rgba(232,0,90,0.3);
+    }
+    .sched-intensive {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 8px; border-radius: 10px;
+      background: rgba(212,160,48,0.15); color: var(--gold); border: 1px solid rgba(212,160,48,0.3);
+    }
+    .tag-adultos { color: var(--gold); }
+    .tag-adultos .sched-course-link { color: var(--gold); }
+    .tag-adultos { border-top: 3px solid var(--gold); }
+    .tag-teens { border-top: 3px solid #4466ff; }
+    .tag-teens .sched-course-name { color: #6699ff; }
+    .tag-teens .sched-course-link { color: #6699ff; }
+    .tag-flexi { border-top: 3px solid #00c4b8; }
+    .tag-flexi .sched-course-name { color: #00d4c8; }
+    .tag-flexi .sched-course-link { color: #00d4c8; }
+    .tag-kicks { border-top: 3px solid #cc2200; }
+    .tag-kicks .sched-course-name { color: #ff4422; }
+    .tag-kicks .sched-course-link { color: #ff4422; }
+    .sched-cta {
+      margin-top: 36px; text-align: center;
+    }
+    @media (max-width: 700px) {
+      .sched-panel.active { grid-template-columns: 1fr; }
+    }
+    /* OLD kept for reference — override below */
     .schedule-row {
       display: flex;
       justify-content: space-between;
@@ -1386,57 +1401,250 @@
     <div class="container">
       <div class="section-label">Disponibilidad</div>
       <h2 class="section-title">Horarios <span>Flexibles</span></h2>
-      <p class="section-desc">Clases disponibles todos los días de la semana para que encuentres el turno que mejor se adapta a ti.</p>
+      <p class="section-desc">Selecciona el día y ve todos los cursos disponibles con sus horarios exactos.</p>
 
-      <div class="schedule-grid">
-        <div class="reveal">
-          <p style="font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 28px;">
-            En ACROFLEX sabemos que el tiempo es valioso. Por eso contamos con turnos de lunes a domingo — para niños, jóvenes y adultos.
-          </p>
-          <div class="days-strip">
-            <div class="day-pill">Lun</div>
-            <div class="day-pill">Mar</div>
-            <div class="day-pill">Mié</div>
-            <div class="day-pill">Jue</div>
-            <div class="day-pill">Vie</div>
-            <div class="day-pill weekend">Sáb</div>
-            <div class="day-pill weekend">Dom</div>
+      <!-- TABS -->
+      <div class="sched-tabs reveal">
+        <button class="sched-tab active" onclick="switchDay('lun',this)">Lunes</button>
+        <button class="sched-tab" onclick="switchDay('mar',this)">Martes</button>
+        <button class="sched-tab" onclick="switchDay('mie',this)">Miércoles</button>
+        <button class="sched-tab" onclick="switchDay('jue',this)">Jueves</button>
+        <button class="sched-tab" onclick="switchDay('vie',this)">Viernes</button>
+        <button class="sched-tab weekend" onclick="switchDay('sab',this)">Sábado</button>
+        <button class="sched-tab weekend" onclick="switchDay('dom',this)">Domingo</button>
+      </div>
+
+      <!-- LUNES -->
+      <div class="sched-panel active" id="day-lun">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
           </div>
-          <div class="schedule-note">
-            <strong>¿Quieres saber el horario exacto de tu curso?</strong><br>
-            Escríbenos por WhatsApp y te enviamos el horario completo actualizado según el curso de tu interés.
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div>
           </div>
         </div>
-
-        <div class="schedule-visual reveal">
-          <h3>Cursos Disponibles</h3>
-          <div class="schedule-row">
-            <div><div class="course-name">ACROFLEX Teens</div><div class="course-days">7–13 años</div></div>
-            <div class="schedule-dot gold"></div>
+        <div class="sched-course tag-teens">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Teens</span>
+            <a class="sched-course-link" href="teens.html">Ver curso →</a>
           </div>
-          <div class="schedule-row">
-            <div><div class="course-name">ACROFLEX Adultos</div><div class="course-days">14 años en adelante</div></div>
-            <div class="schedule-dot gold"></div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div>
           </div>
-          <div class="schedule-row">
-            <div><div class="course-name">FLEXI</div><div class="course-days">14 años en adelante</div></div>
-            <div class="schedule-dot"></div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
           </div>
-          <div class="schedule-row">
-            <div><div class="course-name">Preparación Física</div><div class="course-days">Adultos</div></div>
-            <div class="schedule-dot"></div>
-          </div>
-          <div class="schedule-row">
-            <div><div class="course-name">Power Kicks</div><div class="course-days">Adultos</div></div>
-            <div class="schedule-dot"></div>
-          </div>
-          <div style="margin-top: 28px;">
-            <a href="https://wa.me/51969622550" class="btn-primary" style="display: block; text-align: center;">
-              Consultar Horarios
-            </a>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">8:00pm</span></div>
           </div>
         </div>
       </div>
+
+      <!-- MARTES -->
+      <div class="sched-panel" id="day-mar">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div>
+            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div>
+            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div>
+            <div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-teens">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Teens</span>
+            <a class="sched-course-link" href="teens.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">6:00pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIÉRCOLES -->
+      <div class="sched-panel" id="day-mie">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-teens">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Teens</span>
+            <a class="sched-course-link" href="teens.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">9:00am</span></div>
+            <div class="sched-slot"><span class="sched-time">8:00pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUEVES -->
+      <div class="sched-panel" id="day-jue">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div>
+            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div>
+            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div>
+            <div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-teens">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Teens</span>
+            <a class="sched-course-link" href="teens.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">6:00pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIERNES -->
+      <div class="sched-panel" id="day-vie">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
+            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">9:00am</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-kicks">
+          <div class="sched-course-head">
+            <span class="sched-course-name">PowerKicks</span>
+            <a class="sched-course-link" href="powerkicks.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">6:00pm – 7:00pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SÁBADO -->
+      <div class="sched-panel" id="day-sab">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">7:30am – 8:55am</span></div>
+            <div class="sched-slot"><span class="sched-time">10:30am – 11:55am</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-teens">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Teens</span>
+            <a class="sched-course-link" href="teens.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span></div>
+            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-flexi">
+          <div class="sched-course-head">
+            <span class="sched-course-name">FlexiPower</span>
+            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">12:00pm</span><span class="sched-intensive">Intensivo 1h 30min</span></div>
+          </div>
+        </div>
+        <div class="sched-course tag-kicks">
+          <div class="sched-course-head">
+            <span class="sched-course-name">PowerKicks</span>
+            <a class="sched-course-link" href="powerkicks.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">2:00pm – 3:00pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOMINGO -->
+      <div class="sched-panel" id="day-dom">
+        <div class="sched-course tag-adultos">
+          <div class="sched-course-head">
+            <span class="sched-course-name">AcroFlex Adultos</span>
+            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
+          </div>
+          <div class="sched-slots">
+            <div class="sched-slot"><span class="sched-time">9:30am – 11:30am</span><span class="sched-intensive">Intensivo 2h</span></div>
+            <div class="sched-slot"><span class="sched-time">11:30am – 1:30pm</span><span class="sched-intensive">Intensivo 2h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sched-cta reveal">
+        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20consultar%20horarios%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank" class="btn-primary">
+          ¿Tienes dudas? Escríbenos por WhatsApp
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -1558,6 +1766,13 @@
     });
 
     // Gallery tabs
+    function switchDay(day, btn) {
+      document.querySelectorAll('.sched-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sched-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('day-' + day).classList.add('active');
+      btn.classList.add('active');
+    }
+
     function switchTab(name, btn) {
       document.querySelectorAll('.gallery-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
