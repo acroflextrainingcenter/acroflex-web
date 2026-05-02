@@ -350,7 +350,7 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       margin-top: 56px;
     }
@@ -373,15 +373,15 @@
     .team-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(5,10,46,0.95) 0%, rgba(5,10,46,0.5) 60%, transparent 100%);
-      padding: 28px 20px 22px;
+      background: linear-gradient(to top, rgba(5,10,46,0.97) 0%, rgba(5,10,46,0.6) 55%, transparent 100%);
+      padding: 32px 20px 24px;
       transform: translateY(8px);
       transition: transform 0.3s;
     }
     .team-card:hover .team-overlay { transform: translateY(0); }
     .team-card .team-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
+      font-size: 24px;
       letter-spacing: 2px;
       color: var(--white);
       margin-bottom: 4px;
@@ -402,9 +402,24 @@
       transition: border-color 0.3s;
     }
     .team-card:hover .team-border { border-color: var(--gold); }
+    .team-card.founder .team-border { border-color: rgba(255,140,0,0.35); }
+    .team-card.founder:hover .team-border { border-color: var(--orange); }
+    .founder-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .team-card.founder .team-role { color: var(--orange); }
 
     @media (max-width: 1100px) {
-      .team-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 700px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -1020,46 +1035,49 @@
       <p class="section-desc">Profesionales apasionados por el movimiento, comprometidos con el progreso de cada alumno.</p>
 
       <div class="team-grid">
+
+        <!-- FUNDADOR -->
+        <div class="team-card founder reveal">
+          <img src="guillermo-garay.png" alt="Guillermo Garay" style="object-position: center 15%;" />
+          <div class="founder-badge">Fundador</div>
+          <div class="team-overlay">
+            <div class="team-name">Guillermo Garay</div>
+            <div class="team-role">Fundador de AcroFlex</div>
+          </div>
+          <div class="team-border"></div>
+        </div>
+
+        <!-- COACH CATE -->
         <div class="team-card reveal">
-          <img src="entrenadora-1.png" alt="Coach Cate" />
+          <img src="coach-cate.png" alt="Coach Cate" style="object-position: center 10%;" />
           <div class="team-overlay">
             <div class="team-name">Coach Cate</div>
             <div class="team-role">Entrenadora</div>
           </div>
           <div class="team-border"></div>
         </div>
+
+        <!-- COACH ANDREA -->
         <div class="team-card reveal">
-          <img src="entrenadora-2.png" alt="Coach Andrea" />
+          <img src="coach-andrea.png" alt="Coach Andrea" style="object-position: center 10%;" />
           <div class="team-overlay">
             <div class="team-name">Coach Andrea</div>
             <div class="team-role">Entrenadora</div>
           </div>
           <div class="team-border"></div>
         </div>
+
+        <!-- COACH GUILLERMO -->
         <div class="team-card reveal">
-          <img src="entrenador-3.png" alt="Coach Marcelo" />
-          <div class="team-overlay">
-            <div class="team-name">Coach Marcelo</div>
-            <div class="team-role">Entrenador</div>
-          </div>
-          <div class="team-border"></div>
-        </div>
-        <div class="team-card reveal">
-          <img src="entrenadora-4.png" alt="Coach Valentina" />
-          <div class="team-overlay">
-            <div class="team-name">Coach Valentina</div>
-            <div class="team-role">Entrenadora</div>
-          </div>
-          <div class="team-border"></div>
-        </div>
-        <div class="team-card reveal">
-          <img src="entrenador-5.png" alt="Coach Guillermo" />
+          <img src="coach-guillermo.png" alt="Coach Guillermo"
+            style="object-position: center 18%; filter: brightness(1.08) contrast(1.08) saturate(1.1);" />
           <div class="team-overlay">
             <div class="team-name">Coach Guillermo</div>
             <div class="team-role">Entrenador</div>
           </div>
           <div class="team-border"></div>
         </div>
+
       </div>
     </div>
   </section>
