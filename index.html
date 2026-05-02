@@ -427,105 +427,117 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
     }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
     .course-card {
-      background: rgba(11, 18, 80, 0.6);
-      border: 1px solid rgba(34,51,238,0.2);
-      border-radius: 16px;
-      padding: 40px 32px;
       position: relative;
+      border-radius: 20px;
       overflow: hidden;
-      transition: all 0.4s;
-      cursor: default;
-    }
-    .course-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
-    }
-    .course-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s;
-    }
-    .course-card:hover::before { transform: scaleX(1); }
-    .course-card.featured {
-      background: linear-gradient(135deg, rgba(34,51,238,0.25), rgba(212,160,48,0.1));
-      border-color: var(--gold);
-    }
-    .course-card.featured::before { transform: scaleX(1); }
-    .featured-badge {
-      position: absolute;
-      top: 20px; right: 20px;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-    .course-emoji {
-      font-size: 40px;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .course-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .course-card .course-tagline {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .course-card p {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .course-ages {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(34,51,238,0.2);
-      border: 1px solid rgba(34,51,238,0.4);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--blue2);
-    }
-    .course-ages-kids {
+      min-height: 420px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 0;
+      justify-content: flex-end;
+      text-decoration: none;
+      transition: transform 0.4s, box-shadow 0.4s;
+      border: 2px solid transparent;
     }
-    .age-badge {
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 64px rgba(0,0,0,0.5);
+      border-color: var(--gold);
+    }
+    .course-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      transition: transform 0.5s;
+    }
+    .course-card:hover .course-card-bg { transform: scale(1.05); }
+    .course-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,8,40,0.97) 0%, rgba(4,8,40,0.6) 50%, rgba(4,8,40,0.1) 100%);
+      transition: background 0.4s;
+    }
+    .course-card:hover .course-card-overlay {
+      background: linear-gradient(to top, rgba(4,8,40,0.98) 0%, rgba(4,8,40,0.7) 55%, rgba(4,8,40,0.2) 100%);
+    }
+    .course-card-body {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+    }
+    .course-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .tag-gold { background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.5); color: var(--gold); }
+    .tag-blue { background: rgba(0,87,255,0.15); border: 1px solid rgba(0,87,255,0.5); color: #66aaff; }
+    .tag-red  { background: rgba(204,0,0,0.2); border: 1px solid rgba(204,0,0,0.5); color: #ff6666; }
+    .tag-teal { background: rgba(0,180,150,0.15); border: 1px solid rgba(0,180,150,0.5); color: #00d4aa; }
+    .course-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .course-card .course-tagline {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+    .course-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .course-age-pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .course-cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(34,51,238,0.2);
-      border: 1px solid rgba(34,51,238,0.4);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--blue2);
-      width: fit-content;
+      background: var(--gold);
+      color: #05082e;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .course-card:hover .course-cta { background: #ffc34d; transform: translateX(4px); }
+    .course-cta-red { background: #cc0000; color: #fff; }
+    .course-card:hover .course-cta-red { background: #ff2222; }
+    @media (max-width: 768px) {
+      .courses-grid { grid-template-columns: 1fr; }
+      .course-card { min-height: 360px; }
     }
 
     /* ─── GALLERY ─── */
@@ -1065,45 +1077,61 @@
 
       <div class="courses-grid">
 
-        <!-- ACROFLEX -->
-        <div class="course-card featured reveal">
-          <span class="featured-badge">Curso Estrella</span>
-          <span class="course-emoji">🤸‍♀️</span>
-          <h3>ACROFLEX</h3>
-          <div class="course-tagline">Acrobacias · Gimnasia Artística de Piso</div>
-          <p>Nuestro curso insignia. Aprende acrobacias y elementos de gimnasia artística de piso en un ambiente progresivo y seguro. Desde los fundamentos hasta maniobras avanzadas.</p>
-          <div class="course-ages-kids">
-            <div class="age-badge">🧒 TEENS · 7 a 13 años</div>
-            <div class="age-badge">🙋 Jóvenes & Adultos · 14 años en adelante</div>
+        <!-- ACROFLEX JÓVENES Y ADULTOS -->
+        <a class="course-card reveal" href="jovenes-adultos.html">
+          <div class="course-card-bg" style="background-image:url('adult-4.png')"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-gold">⭐ Curso estrella</span>
+            <h3>ACROFLEX<br>JÓVENES Y ADULTOS</h3>
+            <div class="course-tagline">Acrobacia · Flexibilidad · Fuerza</div>
+            <div class="course-age-pill">👤 14 años en adelante · Sin límite de edad</div>
+            <p>Aprende acrobacias, mejora tu flexibilidad y desarrolla fuerza real. Progresión segura desde donde estés, sin importar tu nivel.</p>
+            <span class="course-cta">Ver programa →</span>
           </div>
-        </div>
+        </a>
 
-        <!-- FLEXI -->
-        <div class="course-card reveal">
-          <span class="course-emoji">🧘‍♀️</span>
-          <h3>FLEXI</h3>
-          <div class="course-tagline">Flexibilidad · Todo el Cuerpo</div>
-          <p>Entrena full flexibilidad de todo tu cuerpo. Un programa completo y progresivo para ganar amplitud de movimiento, mejorar tu postura y liberar tensiones.</p>
-          <div class="course-ages">👤 14 años en adelante</div>
-        </div>
+        <!-- ACROFLEX TEENS -->
+        <a class="course-card reveal" href="teens.html">
+          <div class="course-card-bg" style="background-image:url('teens-1.png'); background-position: center 20%;"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-blue">🧒 Para niños y niñas</span>
+            <h3>ACROFLEX<br>TEENS</h3>
+            <div class="course-tagline">Acrobacia · Flexibilidad · Fuerza</div>
+            <div class="course-age-pill">👧🧒 7 a 13 años</div>
+            <p>El mismo programa que adultos, diseñado especialmente para niños y niñas. Aprenden acrobacias, flexibilidad y fuerza en un ambiente divertido y seguro.</p>
+            <span class="course-cta">Ver programa →</span>
+          </div>
+        </a>
 
-        <!-- PREP FÍSICA -->
-        <div class="course-card reveal">
-          <span class="course-emoji">💪</span>
-          <h3>Preparación Física</h3>
-          <div class="course-tagline">Fuerza · Rendimiento · ADN ACROFLEX</div>
-          <p>Entrena tu cuerpo para cualquier disciplina. Ideal para deportistas, bailarines y amantes del movimiento. No es crossfit ni gimnasio convencional — lleva el ADN ACROFLEX.</p>
-          <div class="course-ages">👤 Adultos</div>
-        </div>
+        <!-- FLEXIPOWER -->
+        <a class="course-card reveal" href="flexipower.html">
+          <div class="course-card-bg" style="background-image:url('fp-clase-1.png')"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-teal">🧘 Movilidad & Flexibilidad</span>
+            <h3>FLEXI<br>POWER</h3>
+            <div class="course-tagline">Movilidad · Flexibilidad · Todo el cuerpo</div>
+            <div class="course-age-pill">👤 15 años en adelante</div>
+            <p>Programa completo y progresivo de movilidad y flexibilidad de todo el cuerpo. Ideal si quieres ganar rango de movimiento real desde cero.</p>
+            <span class="course-cta">Ver programa →</span>
+          </div>
+        </a>
 
-        <!-- POWER KICKS -->
-        <div class="course-card reveal">
-          <span class="course-emoji">🥋</span>
-          <h3>Power Kicks</h3>
-          <div class="course-tagline">Patadas · Artes Marciales · Potencia</div>
-          <p>Potencia y flexibilidad para llevar tus patadas de artes marciales al siguiente nivel. Combinamos acondicionamiento físico con técnica de pateo para un resultado explosivo.</p>
-          <div class="course-ages">👤 Adultos</div>
-        </div>
+        <!-- POWERKICKS -->
+        <a class="course-card reveal" href="powerkicks.html">
+          <div class="course-card-bg" style="background-image:url('pk-camila-kick.png'); background-position: center 15%;"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-red">🥋 Artes Marciales</span>
+            <h3>POWER<br>KICKS</h3>
+            <div class="course-tagline">Patadas · Fuerza · Flexibilidad · Potencia</div>
+            <div class="course-age-pill">👤 Artistas marciales de cualquier nivel</div>
+            <p>Eleva tus patadas con fuerza y flexibilidad específica para artes marciales. Desarrolla altura, potencia y control con técnica real.</p>
+            <span class="course-cta course-cta-red">Ver programa →</span>
+          </div>
+        </a>
 
       </div>
     </div>
