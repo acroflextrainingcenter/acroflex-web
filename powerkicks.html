@@ -786,20 +786,74 @@
     footer a { color: var(--orange); text-decoration: none; }
 
     /* ─── WA FLOTANTE ─── */
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Delay helpers */
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* ─── WA FLOTANTE ─── */
     .wa-float {
       position: fixed;
       bottom: 28px; right: 28px;
-      width: 58px; height: 58px;
+      display: flex; align-items: center;
       background: linear-gradient(135deg, #25D366, #128C7E);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.55);
       z-index: 999;
-      transition: transform 0.3s, box-shadow 0.3s;
       text-decoration: none;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+      animation: waPulse 2.5s ease-in-out infinite;
     }
-    .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(37,211,102,0.65); }
-    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+    .wa-float:hover {
+      box-shadow: 0 10px 36px rgba(37,211,102,0.7);
+      transform: translateY(-3px);
+      animation: none;
+    }
+    .wa-float-icon {
+      width: 58px; height: 58px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-float-icon svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-float-label {
+      padding: 0 18px 0 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.55); }
+      50% { box-shadow: 0 6px 32px rgba(37,211,102,0.9), 0 0 0 8px rgba(37,211,102,0.15); }
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -909,19 +963,19 @@
     <div class="section-line"></div>
 
     <div class="fw-grid">
-      <div class="fw-card">
+      <div class="fw-card reveal d1">
         <div class="fw-card-bg" style="background-image:url('pk-patada-hombre.png')"></div>
         <div class="fw-icon">🥋</div>
         <div class="fw-title">Artes Marciales</div>
         <div class="fw-desc">Karate, taekwondo, MMA, kickboxing — si pateas, PowerKicks lleva tu técnica al siguiente nivel.</div>
       </div>
-      <div class="fw-card">
+      <div class="fw-card reveal d2">
         <div class="fw-card-bg" style="background-image:url('pk-patada-roja.png')"></div>
         <div class="fw-icon">🦵</div>
         <div class="fw-title">Más Altura</div>
         <div class="fw-desc">Trabaja la movilidad de cadera y la fuerza explosiva para patadas más altas y rápidas.</div>
       </div>
-      <div class="fw-card">
+      <div class="fw-card reveal d3">
         <div class="fw-card-bg" style="background-image:url('pk-peru-splits.png')"></div>
         <div class="fw-icon">🔥</div>
         <div class="fw-title">Cualquier Nivel</div>
@@ -943,28 +997,28 @@
         <h2 class="section-title" style="text-align:left; margin-top:12px;">TU PATADA<br><span class="accent">TRANSFORMADA</span></h2>
         <div class="section-line" style="margin-left:0;"></div>
         <div class="benefit-list">
-          <div class="benefit-item">
+          <div class="benefit-item reveal d1">
             <span class="benefit-icon">🦵</span>
             <div class="benefit-text">
               <strong>Flexibilidad funcional</strong>
               Aperturas progresivas orientadas a la patada real, no solo al split estático.
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal d2">
             <span class="benefit-icon">⚡</span>
             <div class="benefit-text">
               <strong>Potencia explosiva</strong>
               Trabajo de fuerza específico para que tus patadas tengan más velocidad e impacto.
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal d3">
             <span class="benefit-icon">🎯</span>
             <div class="benefit-text">
               <strong>Altura y control</strong>
               Aprende a llegar más arriba sin perder el equilibrio ni la técnica.
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal d4">
             <span class="benefit-icon">🛡️</span>
             <div class="benefit-text">
               <strong>Sin lesiones</strong>
@@ -988,12 +1042,12 @@
     <p style="text-align:center; color:rgba(255,255,255,0.5); font-size:0.88rem; margin-top:-24px; margin-bottom:48px;">Clases de 1 hora · Presencial en AcroFlex</p>
 
     <div class="schedule-cards">
-      <div class="sched-card">
+      <div class="sched-card reveal d1">
         <div class="sched-day">Viernes</div>
         <div class="sched-time">6:00 – 7:00<small style="font-size:1.2rem;color:rgba(255,255,255,0.5)">pm</small></div>
         <div class="sched-duration">1 hora de entrenamiento</div>
       </div>
-      <div class="sched-card">
+      <div class="sched-card reveal d2">
         <div class="sched-day">Sábados</div>
         <div class="sched-time">2:00 – 3:00<small style="font-size:1.2rem;color:rgba(255,255,255,0.5)">pm</small></div>
         <div class="sched-duration">1 hora de entrenamiento</div>
@@ -1014,7 +1068,7 @@
 
     <div class="pricing-grid">
 
-      <div class="price-card">
+      <div class="price-card reveal d1">
         <div class="pc-icon">🎟️</div>
         <div class="pc-name">Clase Suelta</div>
         <div class="pc-sub">Sin compromiso</div>
@@ -1026,7 +1080,7 @@
         </a>
       </div>
 
-      <div class="price-card featured">
+      <div class="price-card featured reveal d2">
         <div class="pc-badge">⭐ Más popular</div>
         <div class="pc-icon">🔥</div>
         <div class="pc-name">Pack Mensual</div>
@@ -1153,8 +1207,25 @@
 
   <!-- ─── WA FLOTANTE ─── -->
   <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20PowerKicks%20con%20Camila%20Garay%20%F0%9F%94%A5%F0%9F%A6%B5" target="_blank" class="wa-float" title="Escríbenos por WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="wa-float-icon">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+    <span class="wa-float-label">¡Inscríbete!</span>
   </a>
 
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
