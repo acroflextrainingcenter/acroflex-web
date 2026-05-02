@@ -11,8 +11,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:    #020c1e;
-      --navy2:   #071530;
+      --navy:    #060c3c;
+      --navy2:   #0c1870;
       --purple:  #0a1f5c;
       --blue:    #0057ff;
       --blue2:   #0099ff;
@@ -47,7 +47,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(5, 10, 46, 0.95);
+      background: rgba(6, 12, 60, 0.97);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--orange);
     }
@@ -128,7 +128,7 @@
       padding: 100px 48px 60px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #020c1e 0%, #051a3e 50%, #0a2560 100%);
+      background: linear-gradient(135deg, #060c3c 0%, #0d2080 50%, #1535bb 100%);
     }
 
     .hero-bg-photo {
@@ -362,7 +362,7 @@
     }
 
     /* ─── ABOUT ─── */
-    .about { background: linear-gradient(180deg, #020c1e, #071a3a); }
+    .about { background: linear-gradient(180deg, #060c3c, #0d1f7a); }
 
     .about-inner {
       display: grid;
@@ -424,7 +424,7 @@
     }
 
     /* ─── SKILLS ─── */
-    .skills { background: #071a3a; }
+    .skills { background: #0d1f7a; }
 
     .skills-grid {
       display: grid;
@@ -523,7 +523,7 @@
     }
 
     /* ─── SCHEDULE ─── */
-    .schedule { background: linear-gradient(180deg, #020c1e, #071a3a); }
+    .schedule { background: linear-gradient(180deg, #060c3c, #0d1f7a); }
 
     .schedule-intro {
       text-align: center;
@@ -559,7 +559,7 @@
     .dh-mart { background: linear-gradient(90deg, var(--orange), var(--orange2)); }
     .dh-vie  { background: linear-gradient(90deg, #0044cc, #0088ff); }
     .dh-sab  { background: linear-gradient(90deg, #ff6b1a, #ff9a50); }
-    .dh-dom  { background: linear-gradient(90deg, var(--gold), #f7c55a); color: #020c1e; }
+    .dh-dom  { background: linear-gradient(90deg, var(--gold), #f7c55a); color: #060c3c; }
 
     .day-slots {
       padding: 16px 12px;
@@ -614,12 +614,63 @@
     .slot-badge {
       display: inline-block;
       background: var(--gold);
-      color: #020c1e;
+      color: #060c3c;
       font-size: 0.65rem;
       font-weight: 700;
       padding: 3px 10px;
       border-radius: 50px;
       margin-top: 6px;
+    }
+    .slot-badge-new {
+      display: inline-block;
+      background: #e8005a;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .new-schedule-banner {
+      max-width: 900px;
+      margin: 0 auto 36px;
+      background: linear-gradient(90deg, #0d0a3a, #1a0560);
+      border: 2px solid #e8005a;
+      border-radius: 16px;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      text-align: center;
+      box-shadow: 0 0 24px rgba(232,0,90,0.25);
+    }
+    .new-schedule-banner .banner-icon { font-size: 1.8rem; }
+    .new-schedule-banner .banner-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #e8005a; letter-spacing: 2px; line-height: 1; }
+    .new-schedule-banner .banner-sub { font-size: 0.85rem; color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    /* Barra de anuncio top */
+    .top-announce {
+      background: linear-gradient(90deg, #c00050, #e8005a, #c00050);
+      background-size: 200% 100%;
+      animation: announcePulse 3s ease-in-out infinite;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 200;
+    }
+    .top-announce a { color: #fff; text-decoration: none; }
+    .top-announce strong { color: #ffe066; }
+    @keyframes announcePulse {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     /* Mini CTA que aparece al hover */
     .slot-cta {
@@ -641,7 +692,7 @@
     }
 
     /* ─── PRICING ─── */
-    .pricing { background: #071a3a; }
+    .pricing { background: #0d1f7a; }
 
     .pricing-intro {
       text-align: center;
@@ -802,7 +853,7 @@
     }
 
     /* ─── GALLERY ─── */
-    .gallery { background: linear-gradient(180deg, #020c1e, #071a3a); }
+    .gallery { background: linear-gradient(180deg, #060c3c, #0d1f7a); }
 
     .gallery-grid {
       columns: 3;
@@ -835,7 +886,7 @@
 
     /* ─── MULTINIVEL BANNER ─── */
     .multinivel-banner {
-      background: linear-gradient(90deg, #020c1e, #0a2560, #020c1e);
+      background: linear-gradient(90deg, #060c3c, #1535bb, #060c3c);
       padding: 60px 48px;
       text-align: center;
       border-top: 1px solid rgba(255,107,26,0.2);
@@ -885,7 +936,7 @@
     .cta-section {
       padding: 110px 48px;
       text-align: center;
-      background: linear-gradient(135deg, #020c1e 0%, #0a2560 50%, #020c1e 100%);
+      background: linear-gradient(135deg, #060c3c 0%, #1535bb 50%, #060c3c 100%);
       position: relative;
       overflow: hidden;
     }
@@ -979,7 +1030,7 @@
 
     /* ─── HABILIDADES ─── */
     .habilidades {
-      background: linear-gradient(180deg, #020c1e, #071a3a);
+      background: linear-gradient(180deg, #060c3c, #0d1f7a);
       padding: 90px 48px;
       overflow: hidden;
     }
@@ -1033,7 +1084,7 @@
     }
 
     .hab-card {
-      background: linear-gradient(145deg, #0a2560, #0d3580);
+      background: linear-gradient(145deg, #1535bb, #0d3580);
       border: 2px solid var(--gold);
       border-radius: 20px;
       padding: 0 0 28px;
@@ -1119,7 +1170,7 @@
 
     /* ─── FORMULARIO ─── */
     .form-section {
-      background: linear-gradient(180deg, #020c1e, #071a3a);
+      background: linear-gradient(180deg, #060c3c, #0d1f7a);
       padding: 90px 48px;
     }
 
@@ -1169,7 +1220,7 @@
       transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
       width: 100%;
     }
-    .form-group select option { background: #071a3a; color: #fff; }
+    .form-group select option { background: #0d1f7a; color: #fff; }
     .form-group select optgroup { color: var(--gold); font-weight: 700; }
 
     .form-group input::placeholder,
@@ -1423,6 +1474,12 @@
 </head>
 <body>
 
+  <!-- ─── ANUNCIO TOP ─── -->
+  <div class="top-announce">
+    🔥 <strong>¡NUEVOS HORARIOS!</strong> &nbsp;·&nbsp; A partir del 16 de mayo tenemos más turnos para ti &nbsp;·&nbsp;
+    <a href="#horarios">Ver horarios ↓</a> &nbsp;🔥
+  </div>
+
   <!-- ─── NAV ─── -->
   <nav>
     <div class="nav-logo">
@@ -1438,7 +1495,7 @@
       <a href="#horarios">Horarios</a>
       <a href="#precios">Precios</a>
       <a href="#galeria">Fotos</a>
-      <a href="#inscribirse" class="nav-cta">Inscribirme</a>
+      <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20inscribirme%20en%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="nav-cta">Inscribirme</a>
     </div>
   </nav>
 
@@ -1459,6 +1516,9 @@
     <div class="hero-inner">
       <div class="hero-content">
         <span class="hero-badge">Clases presenciales · Multinivel</span>
+        <div style="display:inline-block; background:linear-gradient(90deg,#e8005a,#c00050); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; padding:8px 22px; border-radius:50px; margin-top:10px; box-shadow:0 0 20px rgba(232,0,90,0.5);">
+          🗓️ ¡NUEVOS HORARIOS DESDE EL 16 DE MAYO!
+        </div>
 
         <h1>
           <span class="accent">ACROFLEX</span><br>
@@ -1700,15 +1760,24 @@
   <!-- ─── HORARIOS ─── -->
   <section class="schedule" id="horarios">
     <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">Abril 2026</span>
+      <span class="section-tag">Mayo 2026</span>
     </div>
     <h2 class="section-title">Elige tu <span class="accent">horario</span></h2>
     <div class="section-line"></div>
     <p class="schedule-intro">Clases regulares: <strong>1hr 25min</strong> &nbsp;·&nbsp; Domingos intensivos: <strong style="color:var(--gold);">2 horas</strong> &nbsp;·&nbsp; Acroflex multinivel</p>
 
-    <p style="text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:-20px; margin-bottom:40px;">
+    <p style="text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:-20px; margin-bottom:32px;">
       👆 Toca un horario para inscribirte directamente
     </p>
+
+    <div class="new-schedule-banner">
+      <span class="banner-icon">🗓️</span>
+      <div>
+        <div class="banner-text">¡Nuevos horarios!</div>
+        <div class="banner-sub">A partir del 16 de mayo — más opciones para que entrenes</div>
+      </div>
+      <span class="banner-icon">🔥</span>
+    </div>
 
     <div class="schedule-grid">
 
@@ -1726,6 +1795,12 @@
             <span class="slot-name">Acroflex multinivel</span>
             <span class="slot-cta">✦ Inscribirme</span>
           </a>
+          <a class="slot" href="#precios">
+            <span class="slot-time">8:00pm – 9:25pm</span>
+            <span class="slot-name">Acroflex multinivel</span>
+            <span class="slot-badge-new">¡Nuevo! desde 16 mayo</span>
+            <span class="slot-cta">✦ Inscribirme</span>
+          </a>
         </div>
       </div>
 
@@ -1735,6 +1810,12 @@
           <a class="slot" href="#precios">
             <span class="slot-time">6:30am – 7:55am</span>
             <span class="slot-name">Acroflex multinivel</span>
+            <span class="slot-cta">✦ Inscribirme</span>
+          </a>
+          <a class="slot" href="#precios">
+            <span class="slot-time">9:00am – 10:25am</span>
+            <span class="slot-name">Acroflex multinivel</span>
+            <span class="slot-badge-new">¡Nuevo! desde 16 mayo</span>
             <span class="slot-cta">✦ Inscribirme</span>
           </a>
           <a class="slot" href="#precios">
@@ -1763,6 +1844,12 @@
             <span class="slot-name">Acroflex multinivel</span>
             <span class="slot-cta">✦ Inscribirme</span>
           </a>
+          <a class="slot" href="#precios">
+            <span class="slot-time">6:30pm – 7:55pm</span>
+            <span class="slot-name">Acroflex multinivel</span>
+            <span class="slot-badge-new">¡Nuevo! desde 16 mayo</span>
+            <span class="slot-cta">✦ Inscribirme</span>
+          </a>
         </div>
       </div>
 
@@ -1785,6 +1872,14 @@
       <div class="day-col">
         <div class="day-header dh-dom">Domingos</div>
         <div class="day-slots">
+          <a class="slot" href="#precios">
+            <span class="slot-time">9:30am – 11:30am</span>
+            <span class="slot-name">Acroflex multinivel</span>
+            <span class="slot-badge">Intensivo 2 horas</span>
+            <span class="slot-badge-new">¡Nuevo! desde 16 mayo</span>
+            <span style="display:block; margin-top:8px; font-family:'Bebas Neue',sans-serif; font-size:1.15rem; color:var(--gold); letter-spacing:1px;">S/260 × 4 clases</span>
+            <span class="slot-cta">✦ Inscribirme</span>
+          </a>
           <a class="slot" href="#precios">
             <span class="slot-time">11:30am – 1:30pm</span>
             <span class="slot-name">Acroflex multinivel</span>
@@ -1819,7 +1914,7 @@
         <span style="font-size:2.5rem;">☀️</span>
         <div>
           <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:2px; color:var(--gold);">DOMINGOS INTENSIVOS</div>
-          <div style="font-size:0.85rem; color:rgba(255,255,255,0.65); margin-top:4px;">4 clases · 11:30am – 1:30pm</div>
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.65); margin-top:4px;">4 clases · 9:30am – 11:30am &nbsp;·&nbsp; 11:30am – 1:30pm</div>
           <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
             <span style="background:linear-gradient(90deg,var(--gold),#f7c55a); color:#1a0836; font-weight:800; font-size:0.78rem; padding:4px 14px; border-radius:50px; letter-spacing:1px;">⏱ 2 HORAS POR CLASE</span>
             <span style="background:rgba(245,166,35,0.12); border:1px solid var(--gold); color:var(--gold); font-weight:700; font-size:0.75rem; padding:4px 12px; border-radius:50px;">El doble de entrenamiento</span>
@@ -1832,7 +1927,7 @@
           <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:6px;">Vigencia: 1 mes</div>
         </div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="#inscribirse" style="background:linear-gradient(90deg,var(--orange),var(--orange2)); color:#fff; text-decoration:none; padding:11px 24px; border-radius:50px; font-weight:700; font-size:0.85rem; white-space:nowrap; text-align:center; box-shadow:0 4px 16px rgba(255,107,26,0.4);">
+          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%20Domingos%20Intensivos%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank" style="background:linear-gradient(90deg,var(--orange),var(--orange2)); color:#fff; text-decoration:none; padding:11px 24px; border-radius:50px; font-weight:700; font-size:0.85rem; white-space:nowrap; text-align:center; box-shadow:0 4px 16px rgba(255,107,26,0.4);">
             Inscribirme ahora
           </a>
           <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%20Domingos%20Intensivos%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank"
@@ -1857,7 +1952,7 @@
         <div class="pc-validity">Vigencia: 1 mes</div>
         <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
         <div class="pc-btns">
-          <a href="#inscribirse" class="pc-btn-main">Inscribirme ahora</a>
+          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%204%20clases%20(S%2F190)%20de%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
           <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%204%20clases%20(S%2F190)%20de%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="pc-btn-wa">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escribir por WhatsApp
@@ -1878,7 +1973,7 @@
         <div class="pc-validity">Vigencia: 1 mes</div>
         <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
         <div class="pc-btns">
-          <a href="#inscribirse" class="pc-btn-main">Inscribirme ahora</a>
+          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%208%20clases%20%28S%2F330%29" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
           <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%208%20clases%20%28S%2F330%29" target="_blank" class="pc-btn-wa">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escribir por WhatsApp
@@ -1899,7 +1994,7 @@
         <div class="pc-validity">Vigencia: 1 mes</div>
         <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
         <div class="pc-btns">
-          <a href="#inscribirse" class="pc-btn-main">Inscribirme ahora</a>
+          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%2012%20clases%20%28S%2F470%29" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
           <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%2012%20clases%20%28S%2F470%29" target="_blank" class="pc-btn-wa">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escribir por WhatsApp
@@ -1944,184 +2039,24 @@
 
   <div class="gold-sep"></div>
 
-  <!-- ─── FORMULARIO ─── -->
-  <section class="form-section" id="inscribirse">
-    <div style="text-align:center; margin-bottom:10px;">
-      <span class="section-tag">Es rápido y fácil</span>
-    </div>
-    <h2 class="section-title">RESERVA TU <span class="accent">LUGAR</span></h2>
-    <p style="text-align:center; color:rgba(255,255,255,0.55); font-size:0.95rem; margin-top:8px; margin-bottom:6px;">Llena el formulario y te contactamos por WhatsApp para confirmar tu inscripción.</p>
+  <!-- ─── INSCRIBIRSE ─── -->
+  <section class="form-section" id="inscribirse" style="text-align:center; padding: 80px 20px;">
+    <span class="section-tag">Es rápido y fácil</span>
+    <h2 class="section-title" style="margin-top:16px;">RESERVA TU <span class="accent">LUGAR</span></h2>
     <div class="section-line"></div>
+    <p style="color:rgba(255,255,255,0.65); font-size:1rem; max-width:480px; margin:0 auto 36px; line-height:1.7;">
+      Escríbenos por WhatsApp y te ayudamos a elegir tu horario y plan. ¡Respondemos rápido!
+    </p>
 
-    <!-- Métodos de pago y WP -->
-    <div style="max-width:820px; margin: 0 auto 28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
-
-      <div style="flex:1; min-width:220px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:24px 28px; display:flex; align-items:center; gap:16px;">
-        <div style="font-size:2.2rem; flex-shrink:0;">💜</div>
-        <div>
-          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; color:var(--white);">YAPE O PLIN</div>
-          <div style="font-size:1.4rem; font-weight:900; color:var(--gold); letter-spacing:1px; margin-top:2px;">993 813 336</div>
-          <div style="font-size:0.72rem; color:rgba(255,255,255,0.65); margin-top:3px; line-height:1.5;">Envía el <strong style="color:var(--orange);">total del plan + S/50 de matrícula</strong> en tu primer pago</div>
-        </div>
-      </div>
-
-      <div style="flex:1; min-width:220px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:24px 28px; display:flex; align-items:center; gap:16px;">
-        <div style="font-size:2.2rem; flex-shrink:0;">💬</div>
-        <div style="flex:1;">
-          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; color:var(--white);">¿PREFIERES WHATSAPP?</div>
-          <div style="font-size:0.78rem; color:rgba(255,255,255,0.5); margin:4px 0 12px;">Escríbenos directo y te ayudamos</div>
-          <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank"
-             style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; text-decoration:none; padding:9px 20px; border-radius:50px; font-weight:700; font-size:0.82rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir por WhatsApp
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="form-wrap">
-      <form id="inscripcion-form" action="https://formspree.io/f/mgopqvjg" method="POST">
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nombre completo *</label>
-            <input type="text" name="nombre" placeholder="Tu nombre y apellido" required />
-          </div>
-          <div class="form-group">
-            <label>WhatsApp *</label>
-            <input type="tel" name="whatsapp" placeholder="Ej: 999 999 999" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" name="correo" placeholder="tucorreo@gmail.com" />
-          </div>
-          <div class="form-group">
-            <label>¿Tienes experiencia previa?</label>
-            <select name="experiencia">
-              <option value="">Selecciona...</option>
-              <option>No, soy principiante total</option>
-              <option>Algo básico, poco tiempo</option>
-              <option>Sí, tengo experiencia</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Horario de preferencia *</label>
-            <select name="horario" required>
-              <option value="">Selecciona un horario...</option>
-              <optgroup label="─ Lunes y Miércoles">
-                <option>Lun y Mier – 11:30am a 12:55pm</option>
-                <option>Lun y Mier – 6:30pm a 7:55pm</option>
-              </optgroup>
-              <optgroup label="─ Martes y Jueves">
-                <option>Mar y Jue – 6:30am a 7:55am</option>
-                <option>Mar y Jue – 11:30am a 12:55pm</option>
-                <option>Mar y Jue – 7:00pm a 8:25pm</option>
-                <option>Mar y Jue – 8:30pm a 9:55pm</option>
-              </optgroup>
-              <optgroup label="─ Viernes">
-                <option>Viernes – 11:30am a 12:55pm</option>
-              </optgroup>
-              <optgroup label="─ Sábados">
-                <option>Sábados – 7:30am a 8:55am</option>
-                <option>Sábados – 10:30am a 11:55am</option>
-              </optgroup>
-              <optgroup label="─ Domingos Intensivos (2 horas)">
-                <option>Domingos – 11:30am a 1:30pm – S/260</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Plan de interés *</label>
-            <select name="plan" required>
-              <option value="">Selecciona un plan...</option>
-              <option>4 clases – S/190 (1 vez/semana)</option>
-              <option>8 clases – S/330 (2 veces/semana) ⭐ Más elegido</option>
-              <option>12 clases – S/470 (3 veces/semana) ⭐ Más avance</option>
-              <option>Domingos Intensivos – S/260 (4 clases de 2 horas)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>¿Cuándo deseas comenzar? *</label>
-            <input type="date" name="fecha_inicio" id="fecha-inicio" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>¿Algo que quieras contarnos? (opcional)</label>
-          <textarea name="mensaje" placeholder="Cuéntanos sobre ti, tus metas o cualquier consulta..." rows="3"></textarea>
-        </div>
-
-        <!-- Instrucción captura de pago -->
-        <div style="background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.3); border-radius:14px; padding:16px 20px; display:flex; align-items:center; gap:14px; margin-bottom:8px;">
-          <span style="font-size:1.6rem; flex-shrink:0;">📸</span>
-          <p style="font-size:0.85rem; color:rgba(255,255,255,0.75); line-height:1.6; margin:0;">
-            <strong style="color:var(--gold);">Captura de pago:</strong> Luego de enviar este formulario, manda tu captura de Yape o Plin por WhatsApp al
-            <a href="https://wa.me/51969622550" target="_blank" style="color:var(--orange); font-weight:700; text-decoration:none;">+51 969 622 550</a>
-            para confirmar tu lugar.
-          </p>
-        </div>
-
-        <input type="text" name="_gotcha" style="display:none" />
-        <input type="hidden" name="_subject" value="🤸 Nueva inscripción – AcroFlex Jóvenes y Adultos" />
-
-        <!-- Confirmación matrícula -->
-        <div style="background:rgba(255,107,26,0.08); border:2px solid rgba(255,107,26,0.4); border-radius:14px; padding:16px 20px; margin-bottom:24px;">
-          <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.6;">
-            <input type="checkbox" id="acepta-matricula" required style="margin-top:3px; width:18px; height:18px; flex-shrink:0; accent-color:var(--orange); cursor:pointer;" />
-            <span>Entiendo que el precio del plan <strong style="color:var(--orange);">NO incluye la matrícula</strong>. Mi primer pago será: <strong style="color:var(--gold);">el costo del plan + S/50 de matrícula</strong> (pago único, solo la primera vez).</span>
-          </label>
-        </div>
-
-        <div style="text-align:center; margin-top:32px;">
-          <button type="submit" class="form-submit">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            Enviar mi inscripción
-          </button>
-          <p style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:14px;">Te contactaremos por WhatsApp para confirmar tu lugar 🤸</p>
-        </div>
-
-      </form>
-
-      <div id="form-success" style="display:none; text-align:center; padding:60px 20px;">
-        <div style="font-size:4rem; margin-bottom:20px;">🎉</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2.2rem; letter-spacing:2px; color:var(--gold); margin-bottom:12px;">¡INSCRIPCIÓN RECIBIDA!</h3>
-        <p style="color:rgba(255,255,255,0.7); font-size:1rem; line-height:1.8; max-width:480px; margin:0 auto 16px;">Gracias por registrarte. Ahora envía tu captura de pago por WhatsApp para confirmar tu lugar.</p>
-        <p style="color:rgba(255,200,80,0.9); font-size:0.88rem; font-weight:700; background:rgba(245,166,35,0.1); border:1px solid rgba(245,166,35,0.35); border-radius:12px; padding:12px 20px; max-width:480px; margin:0 auto 24px; line-height:1.6;">⚠️ Recuerda: tu pago debe ser el <u>costo del plan elegido + S/50 de matrícula</u> (solo la primera vez).</p>
-        <a href="https://wa.me/51969622550?text=Hola!%20Acabo%20de%20llenar%20el%20formulario%20de%20inscripci%C3%B3n%20de%20AcroFlex%20y%20adjunto%20mi%20captura%20de%20pago%20%F0%9F%A4%B8" target="_blank"
-           style="display:inline-flex; align-items:center; gap:10px; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; text-decoration:none; padding:14px 32px; border-radius:50px; font-weight:700; font-size:0.95rem; box-shadow:0 4px 20px rgba(37,211,102,0.4);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Enviar captura por WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="gold-sep"></div>
-
-  <!-- ─── CTA ─── -->
-  <section class="cta-section" id="cta-final">
-    <div class="cta-glow"></div>
-    <h2>¿LISTO PARA<br><span style="background: linear-gradient(90deg, var(--orange), var(--magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">EMPEZAR?</span></h2>
-    <p>Escríbenos por WhatsApp y reserva tu lugar hoy mismo.</p>
-    <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20inscribirme%20en%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8"
-       target="_blank" class="cta-btn">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+    <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank"
+       style="display:inline-flex; align-items:center; justify-content:center; gap:12px; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; text-decoration:none; padding:18px 44px; border-radius:50px; font-weight:800; font-size:1.1rem; box-shadow:0 6px 28px rgba(37,211,102,0.45); letter-spacing:0.5px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Inscribirme por WhatsApp
     </a>
-    <p class="cta-note">Respondemos rápido · +51 969 622 550</p>
+
+    <p style="color:rgba(255,255,255,0.35); font-size:0.82rem; margin-top:18px;">+51 969 622 550 &nbsp;·&nbsp; +51 993 813 336</p>
   </section>
+
 
   <!-- ─── FOOTER ─── */
   <footer>
