@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerKicks | AcroFlex Training Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #080808;
+      --dark:    #111111;
+      --dark2:   #1a1a1a;
+      --red:     #cc0000;
+      --red2:    #ff1a1a;
+      --redglow: #ff3333;
+      --orange:  #ff6b1a;
+      --gold:    #f5a623;
+      --blue:    #0057ff;
+      --white:   #ffffff;
+      --gray:    #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 14px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8, 8, 8, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--red);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nl-top  { font-size: 0.58rem; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; }
+    .nl-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 3px; color: var(--white); }
+    .nl-sub  { font-size: 0.55rem; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--red2); }
+    .nav-cta {
+      background: linear-gradient(90deg, var(--red), #a00000);
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      font-size: 0.8rem !important;
+      box-shadow: 0 4px 16px rgba(204,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(204,0,0,0.55) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 48px 80px;
+      background: linear-gradient(135deg, #080808 0%, #1a0000 50%, #2a0000 100%);
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(204,0,0,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -80px; right: 200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,107,26,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Partículas decorativas */
+    .sparks { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .sparks span {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: var(--red2);
+      border-radius: 50%;
+      animation: sparkFloat 6s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    @keyframes sparkFloat {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+      50% { transform: translateY(-30px) scale(1.5); opacity: 1; }
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content { display: flex; flex-direction: column; gap: 0; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid rgba(204,0,0,0.5);
+      color: var(--red2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 7rem;
+      line-height: 0.9;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .hero h1 .pk-power { color: var(--white); }
+    .hero h1 .pk-kicks {
+      background: linear-gradient(90deg, var(--red), var(--red2), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-slash {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 6px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+    }
+    .hero-slash span { color: var(--orange); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 36px;
+    }
+    .hero-desc strong { color: var(--white); }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--red2); color: var(--red2); }
+
+    /* Foto hero */
+    .hero-photo { position: relative; display: flex; justify-content: center; }
+    .hero-img-wrap {
+      position: relative;
+      width: 420px;
+      max-width: 100%;
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--red), var(--orange), var(--red));
+      z-index: 0;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      object-fit: cover;
+      max-height: 560px;
+    }
+
+    /* Instructor badge */
+    .instructor-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      border: 2px solid var(--red);
+      border-radius: 16px;
+      padding: 14px 20px;
+      z-index: 3;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+    .instructor-badge .ib-label { font-size: 0.62rem; color: var(--red2); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .instructor-badge .ib-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--white); margin-top: 2px; }
+    .instructor-badge .ib-role { font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 1px; }
+
+    /* ─── SEPARADOR ─── */
+    .red-sep {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red), var(--orange), var(--red), transparent);
+    }
+
+    /* ─── SECCIÓN GENÉRICA ─── */
+    .section-tag {
+      display: inline-block;
+      background: rgba(204,0,0,0.15);
+      border: 1px solid rgba(204,0,0,0.4);
+      color: var(--red2);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .section-title .accent { color: var(--red2); }
+    .section-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      border-radius: 2px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── PARA QUIÉN ES ─── */
+    .for-who {
+      background: linear-gradient(180deg, #080808, #120000);
+      padding: 100px 48px;
+      text-align: center;
+    }
+
+    .fw-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .fw-card {
+      background: linear-gradient(135deg, #111, #1a0000);
+      border: 1px solid rgba(204,0,0,0.25);
+      border-radius: 20px;
+      padding: 32px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .fw-card:hover { border-color: var(--red); transform: translateY(-6px); }
+    .fw-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .fw-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--red2); margin-bottom: 8px; }
+    .fw-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ─── QUÉ VAS A LOGRAR ─── */
+    .benefits {
+      background: linear-gradient(180deg, #120000, #080808);
+      padding: 100px 48px;
+    }
+    .benefits-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .benefits-photo img {
+      width: 100%;
+      border-radius: 20px;
+      border: 2px solid rgba(204,0,0,0.3);
+    }
+    .benefit-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 16px 20px;
+      transition: border-color 0.2s;
+    }
+    .benefit-item:hover { border-color: rgba(204,0,0,0.4); }
+    .benefit-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .benefit-text { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+    .benefit-text strong { color: var(--white); display: block; margin-bottom: 2px; font-size: 0.95rem; }
+
+    /* ─── PHOTO BANNER ─── */
+    .photo-banner {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .photo-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,8,8,0.7) 0%, rgba(150,0,0,0.45) 50%, rgba(8,8,8,0.7) 100%);
+    }
+    .photo-banner-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .photo-banner-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 6px;
+      color: #fff;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.8);
+    }
+    .photo-banner-text p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* fw-card con foto de fondo */
+    .fw-card {
+      background: linear-gradient(135deg, #111, #1a0000);
+      border: 1px solid rgba(204,0,0,0.25);
+      border-radius: 20px;
+      padding: 32px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .fw-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      transition: opacity 0.3s;
+    }
+    .fw-card:hover .fw-card-bg { opacity: 0.28; }
+    .fw-card:hover { border-color: var(--red); transform: translateY(-6px); }
+    .fw-card > *:not(.fw-card-bg) { position: relative; z-index: 1; }
+
+    /* ─── HORARIOS ─── */
+    .schedule {
+      background: linear-gradient(rgba(8,8,8,0.82), rgba(18,0,0,0.88)), url('pk-clase-grupo.png') center/cover fixed;
+      padding: 100px 48px;
+      text-align: center;
+    }
+    .schedule-cards {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .sched-card {
+      flex: 1;
+      min-width: 260px;
+      background: linear-gradient(135deg, #111, #1c0000);
+      border: 2px solid rgba(204,0,0,0.35);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .sched-card:hover {
+      border-color: var(--red);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(204,0,0,0.25);
+    }
+    .sched-day {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    .sched-time {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .sched-duration {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── PRECIOS ─── */
+    .pricing {
+      background: linear-gradient(rgba(18,0,0,0.87), rgba(8,8,8,0.92)), url('pk-pared-piernas.png') center/cover fixed;
+      padding: 100px 48px;
+      text-align: center;
+    }
+
+    .matricula-note {
+      display: inline-block;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.35);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 22px;
+      border-radius: 50px;
+      margin-bottom: 48px;
+    }
+
+    .pricing-grid {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      flex: 1;
+      min-width: 220px;
+      max-width: 340px;
+      background: linear-gradient(135deg, #111, #1a1a1a);
+      border: 2px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card:hover {
+      border-color: var(--red);
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(204,0,0,0.2);
+    }
+    .price-card.featured {
+      border-color: var(--red);
+      background: linear-gradient(135deg, #1a0000, #2a0000);
+      box-shadow: 0 8px 40px rgba(204,0,0,0.25);
+    }
+    .pc-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pc-icon { font-size: 2rem; margin-bottom: 14px; }
+    .pc-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .pc-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .pc-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .pc-price span { font-size: 1.8rem; color: rgba(255,255,255,0.6); }
+    .pc-price-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    .pc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: #fff;
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: auto;
+    }
+    .pc-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+
+    /* ─── GALERÍA ─── */
+    .gallery {
+      background: linear-gradient(180deg, #080808, #120000);
+      padding: 100px 48px;
+    }
+    .gallery-mosaic {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 380px 280px;
+      gap: 12px;
+    }
+    .gal-item {
+      overflow: hidden;
+      border-radius: 16px;
+      position: relative;
+    }
+    .gal-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gal-item:hover img { transform: scale(1.04); }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-item.wide { grid-column: span 2; }
+    .gal-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(204,0,0,0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Strip de fotos secundarias */
+    .gallery-strip {
+      max-width: 1200px;
+      margin: 12px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gallery-strip .gal-item { height: 220px; }
+
+    @media (max-width: 900px) {
+      .gallery-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 280px 280px 280px;
+      }
+      .gal-item.tall { grid-row: span 1; }
+      .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .gallery-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gal-item { height: 260px; }
+      .gal-item.wide { grid-column: span 1; }
+      .gallery-strip { grid-template-columns: 1fr 1fr; }
+      .gallery-strip .gal-item { height: 180px; }
+    }
+
+    /* ─── INSTRUCTORA ─── */
+    .instructor {
+      background: linear-gradient(180deg, #080808, #120000);
+      padding: 100px 48px;
+    }
+    .instructor-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 160px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .instructor-photo2 img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      border: 2px solid rgba(255,107,26,0.3);
+      height: 100%;
+      object-fit: cover;
+    }
+    .instructor-photo {
+      position: relative;
+    }
+    .instructor-photo img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      border: 2px solid rgba(204,0,0,0.3);
+    }
+    .instructor-photo::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 100%; height: 100%;
+      border: 2px solid rgba(255,107,26,0.2);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .instructor-info { }
+    .instructor-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .instructor-title {
+      font-size: 0.82rem;
+      color: var(--red2);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .instructor-bio {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .instructor-bio strong { color: var(--white); }
+    .instructor-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .itag {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-section {
+      background: linear-gradient(135deg, #0d0000, #1a0000, #0d0000);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(204,0,0,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 4px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 36px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-wa-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 48px rgba(37,211,102,0.6); }
+    .cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: 16px; position: relative; z-index: 1; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 48px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+    footer a { color: var(--orange); text-decoration: none; }
+
+    /* ─── WA FLOTANTE ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      z-index: 999;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(37,211,102,0.65); }
+    .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 110px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 5rem; }
+      .hero-photo { order: -1; }
+      .hero-img-wrap { width: 280px; }
+      .fw-grid { grid-template-columns: 1fr 1fr; }
+      .benefits { padding: 80px 24px; }
+      .benefits-inner { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-photo { display: none; }
+      .instructor-inner { grid-template-columns: 1fr; gap: 40px; }
+      .instructor-photo { max-width: 300px; margin: 0 auto; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 4rem; }
+      .fw-grid { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .section-title { font-size: 2.4rem; }
+      .pricing-grid { flex-direction: column; align-items: center; }
+      .price-card { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <a href="jovenes-adultos.html" class="nav-logo">
+      <img src="logo.png" alt="AcroFlex" />
+      <div class="nav-logo-text">
+        <span class="nl-top">La primera academia de</span>
+        <span class="nl-main">GIMNASIA PARA TODOS</span>
+        <span class="nl-sub">en el Perú</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#para-quien">¿Para quién?</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#precios">Precios</a>
+      <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20PowerKicks%20en%20AcroFlex%20%F0%9F%A6%B5%E2%80%8D%E2%99%82%EF%B8%8F%F0%9F%94%A5" target="_blank" class="nav-cta">Inscribirme</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="sparks">
+      <span style="top:20%;left:10%;animation-delay:0s;animation-duration:5s"></span>
+      <span style="top:60%;left:5%;animation-delay:1.5s;animation-duration:4s;background:var(--orange)"></span>
+      <span style="top:35%;left:90%;animation-delay:0.8s;animation-duration:6s"></span>
+      <span style="top:75%;left:80%;animation-delay:2.5s;animation-duration:4.5s;background:var(--orange)"></span>
+      <span style="top:50%;left:55%;animation-delay:3s;animation-duration:5.5s"></span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-badge">AcroFlex · Lima, Perú</span>
+
+        <h1>
+          <span class="pk-power">POWER</span><br>
+          <span class="pk-kicks">KICKS</span>
+        </h1>
+
+        <div class="hero-slash">
+          Fuerza <span>·</span> Altura <span>·</span> Precisión
+        </div>
+
+        <p class="hero-desc">
+          Clases especializadas para <strong>artistas marciales</strong> que quieren elevar su patada al siguiente nivel. Desarrolla altura, fuerza explosiva y flexibilidad funcional con técnica real.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20PowerKicks%20en%20AcroFlex%20%F0%9F%A6%B5%E2%80%8D%E2%99%82%EF%B8%8F%F0%9F%94%A5" target="_blank" class="btn-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Quiero inscribirme
+          </a>
+          <a href="#horarios" class="btn-outline">Ver horarios</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="hero-img-wrap">
+          <img src="pk-camila-kick.png" alt="Camila Garay – PowerKicks" />
+        </div>
+        <div class="instructor-badge">
+          <div class="ib-label">Instructora</div>
+          <div class="ib-name">Camila Garay</div>
+          <div class="ib-role">AcroFlex Training Center</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── PARA QUIÉN ─── -->
+  <section class="for-who" id="para-quien">
+    <div style="text-align:center; margin-bottom:6px;">
+      <span class="section-tag">¿Para quién es?</span>
+    </div>
+    <h2 class="section-title">HECHO PARA <span class="accent">TI</span></h2>
+    <div class="section-line"></div>
+
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div class="fw-card-bg" style="background-image:url('pk-patada-hombre.png')"></div>
+        <div class="fw-icon">🥋</div>
+        <div class="fw-title">Artes Marciales</div>
+        <div class="fw-desc">Karate, taekwondo, MMA, kickboxing — si pateas, PowerKicks lleva tu técnica al siguiente nivel.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-bg" style="background-image:url('pk-patada-roja.png')"></div>
+        <div class="fw-icon">🦵</div>
+        <div class="fw-title">Más Altura</div>
+        <div class="fw-desc">Trabaja la movilidad de cadera y la fuerza explosiva para patadas más altas y rápidas.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-bg" style="background-image:url('pk-peru-splits.png')"></div>
+        <div class="fw-icon">🔥</div>
+        <div class="fw-title">Cualquier Nivel</div>
+        <div class="fw-desc">Desde el que recién empieza hasta el competidor que quiere más rango de movimiento.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── BENEFICIOS ─── -->
+  <section class="benefits" id="beneficios">
+    <div class="benefits-inner">
+      <div class="benefits-photo">
+        <img src="pk-patada-negro.png" alt="PowerKicks en acción" />
+      </div>
+      <div>
+        <span class="section-tag">Lo que vas a lograr</span>
+        <h2 class="section-title" style="text-align:left; margin-top:12px;">TU PATADA<br><span class="accent">TRANSFORMADA</span></h2>
+        <div class="section-line" style="margin-left:0;"></div>
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <span class="benefit-icon">🦵</span>
+            <div class="benefit-text">
+              <strong>Flexibilidad funcional</strong>
+              Aperturas progresivas orientadas a la patada real, no solo al split estático.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">⚡</span>
+            <div class="benefit-text">
+              <strong>Potencia explosiva</strong>
+              Trabajo de fuerza específico para que tus patadas tengan más velocidad e impacto.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🎯</span>
+            <div class="benefit-text">
+              <strong>Altura y control</strong>
+              Aprende a llegar más arriba sin perder el equilibrio ni la técnica.
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🛡️</span>
+            <div class="benefit-text">
+              <strong>Sin lesiones</strong>
+              Progresión segura con calentamiento correcto y técnica guiada por Camila.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── HORARIOS ─── -->
+  <section class="schedule" id="horarios">
+    <div style="text-align:center; margin-bottom:6px;">
+      <span class="section-tag">Mayo 2026</span>
+    </div>
+    <h2 class="section-title">ELIGE TU <span class="accent">TURNO</span></h2>
+    <div class="section-line"></div>
+    <p style="text-align:center; color:rgba(255,255,255,0.5); font-size:0.88rem; margin-top:-24px; margin-bottom:48px;">Clases de 1 hora · Presencial en AcroFlex</p>
+
+    <div class="schedule-cards">
+      <div class="sched-card">
+        <div class="sched-day">Viernes</div>
+        <div class="sched-time">6:00 – 7:00<small style="font-size:1.2rem;color:rgba(255,255,255,0.5)">pm</small></div>
+        <div class="sched-duration">1 hora de entrenamiento</div>
+      </div>
+      <div class="sched-card">
+        <div class="sched-day">Sábados</div>
+        <div class="sched-time">2:00 – 3:00<small style="font-size:1.2rem;color:rgba(255,255,255,0.5)">pm</small></div>
+        <div class="sched-duration">1 hora de entrenamiento</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── PRECIOS ─── -->
+  <section class="pricing" id="precios">
+    <div style="text-align:center; margin-bottom:6px;">
+      <span class="section-tag">Inversión</span>
+    </div>
+    <h2 class="section-title">ELIGE TU <span class="accent">PLAN</span></h2>
+    <div class="section-line"></div>
+    <div class="matricula-note">⭐ Matrícula única S/50 — se paga una sola vez al inscribirte</div>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="pc-icon">🎟️</div>
+        <div class="pc-name">Clase Suelta</div>
+        <div class="pc-sub">Sin compromiso</div>
+        <div class="pc-price"><span>S/</span>55</div>
+        <div class="pc-price-sub">por clase</div>
+        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20reservar%20una%20clase%20suelta%20de%20PowerKicks%20(S%2F55)%20%F0%9F%94%A5" target="_blank" class="pc-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Reservar por WhatsApp
+        </a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="pc-badge">⭐ Más popular</div>
+        <div class="pc-icon">🔥</div>
+        <div class="pc-name">Pack Mensual</div>
+        <div class="pc-sub">4 clases al mes</div>
+        <div class="pc-price"><span>S/</span>200</div>
+        <div class="pc-price-sub">S/50 por clase</div>
+        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20el%20pack%20mensual%20de%20PowerKicks%20(4%20clases%20-%20S%2F200)%20%F0%9F%94%A5" target="_blank" class="pc-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inscribirme por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── BANNER FOTO ─── -->
+  <div class="photo-banner">
+    <img src="pk-clase-grupo.png" alt="Clase PowerKicks en AcroFlex" />
+    <div class="photo-banner-text">
+      <h3>ENTRENA CON LOS MEJORES</h3>
+      <p>Clases presenciales en AcroFlex · Lima, Perú</p>
+    </div>
+  </div>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── GALERÍA ─── -->
+  <section class="gallery" id="galeria">
+    <div style="text-align:center; margin-bottom:6px;">
+      <span class="section-tag">En acción</span>
+    </div>
+    <h2 class="section-title" style="text-align:center;">ASÍ SE VE <span class="accent">POWERKICKS</span></h2>
+    <div class="section-line"></div>
+
+    <!-- Mosaico principal -->
+    <div class="gallery-mosaic">
+      <!-- Grande izquierda: patada hombre negro/rojo -->
+      <div class="gal-item tall">
+        <img src="pk-patada-hombre.png" alt="Patada alta PowerKicks" />
+      </div>
+      <!-- Derecha arriba: splits Peru -->
+      <div class="gal-item">
+        <img src="pk-peru-splits.png" alt="Equipo Perú splits" />
+      </div>
+      <!-- Derecha arriba: pared piernas -->
+      <div class="gal-item">
+        <img src="pk-pared-piernas.png" alt="Patadas contra la pared" />
+      </div>
+      <!-- Derecha abajo: Camila floor -->
+      <div class="gal-item">
+        <img src="pk-camila-floor.png" alt="Camila Garay PowerKicks" />
+      </div>
+      <!-- Derecha abajo: grupo stretch -->
+      <div class="gal-item">
+        <img src="pk-grupo-stretch.png" alt="Grupo estiramiento" />
+      </div>
+    </div>
+
+    <!-- Strip inferior -->
+    <div class="gallery-strip">
+      <div class="gal-item">
+        <img src="pk-clase-grupo.png" alt="Clase grupal PowerKicks" />
+      </div>
+      <div class="gal-item">
+        <img src="pk-splits-hombre.png" alt="Splits hombre" />
+      </div>
+      <div class="gal-item">
+        <img src="pk-grupo-flexion.png" alt="Grupo flexión" />
+      </div>
+      <div class="gal-item">
+        <img src="pk-patada-roja.png" alt="Patada alta roja" />
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── INSTRUCTORA ─── -->
+  <section class="instructor" id="instructora">
+    <div class="instructor-inner">
+      <div class="instructor-photo">
+        <img src="camila-garay.png" alt="Camila Garay" />
+      </div>
+      <div class="instructor-photo2">
+        <img src="pk-camila-floor.png" alt="Camila enseñando" />
+      </div>
+      <div class="instructor-info">
+        <span class="section-tag">Tu instructora</span>
+        <h2 class="instructor-name" style="margin-top:12px;">CAMILA<br>GARAY</h2>
+        <div class="instructor-title">Fundadora · AcroFlex Training Center</div>
+        <p class="instructor-bio">
+          Camila es la mente detrás de AcroFlex — la primera academia de gimnasia para todos en el Perú. <strong>PowerKicks nació de su experiencia combinando acrobacia, flexibilidad y preparación física</strong> para entrenar el cuerpo completo.
+          <br><br>
+          Su metodología está diseñada para que artistas marciales de cualquier nivel desarrollen patadas más altas, más fuertes y más controladas — con progresiones seguras y técnica real.
+        </p>
+        <div class="instructor-tags">
+          <span class="itag">Flexibilidad</span>
+          <span class="itag">Movilidad</span>
+          <span class="itag">Fuerza</span>
+          <span class="itag">Elasticidad</span>
+          <span class="itag">Control</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="red-sep"></div>
+
+  <!-- ─── CTA FINAL ─── -->
+  <section class="cta-section">
+    <h2>¿LISTO PARA<br><span style="background:linear-gradient(90deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ELEVAR TU PATADA?</span></h2>
+    <p>Escríbenos por WhatsApp y reserva tu lugar hoy mismo.</p>
+    <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20PowerKicks%20con%20Camila%20Garay%20%F0%9F%94%A5%F0%9F%A6%B5" target="_blank" class="cta-wa-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Inscribirme por WhatsApp
+    </a>
+    <p class="cta-note">+51 969 622 550 &nbsp;·&nbsp; +51 993 813 336 &nbsp;·&nbsp; Respondemos rápido</p>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <p><strong>ACROFLEX Training Center</strong> &nbsp;·&nbsp; Gimnasia para todos &nbsp;·&nbsp; <a href="jovenes-adultos.html">Ver más cursos</a> &nbsp;·&nbsp; © 2026</p>
+  </footer>
+
+  <!-- ─── WA FLOTANTE ─── -->
+  <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20PowerKicks%20con%20Camila%20Garay%20%F0%9F%94%A5%F0%9F%A6%B5" target="_blank" class="wa-float" title="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>
