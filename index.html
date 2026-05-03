@@ -178,8 +178,14 @@
     .section-desc { font-size: 15px; color: var(--gray); line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
 
     /* ─── REVEAL ─── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
 
     /* ─── CURSOS ─── */
     #cursos { background: linear-gradient(180deg, var(--navy2) 0%, var(--navy) 100%); }
@@ -458,11 +464,17 @@
     /* ─── WHATSAPP FLOAT ─── */
     .whatsapp-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 999;
-      width: 58px; height: 58px; border-radius: 50%; background: #25d366;
+      width: 64px; height: 64px; border-radius: 50%; background: #25d366;
       display: flex; align-items: center; justify-content: center; text-decoration: none;
-      box-shadow: 0 8px 24px rgba(37,211,102,0.4); transition: all 0.3s; font-size: 28px;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.55); transition: all 0.3s;
+      animation: waPulse 2.5s ease-in-out infinite;
     }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .whatsapp-float svg { width: 34px; height: 34px; fill: #fff; }
+    .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 14px 36px rgba(37,211,102,0.65); animation: none; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+      50% { box-shadow: 0 8px 28px rgba(37,211,102,0.55), 0 0 0 10px rgba(37,211,102,0.15); }
+    }
 
     /* ─── MEDIA QUERIES ─── */
     @media (max-width: 1100px) {
@@ -927,7 +939,7 @@
         </div>
 
         <div class="team-card reveal">
-          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 18% 20%;"></div>
+          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 9% 15%;"></div>
           <div class="team-overlay">
             <div class="team-name">Coach Marcelo</div>
             <div class="team-role">Entrenador</div>
@@ -936,7 +948,7 @@
         </div>
 
         <div class="team-card reveal">
-          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 82% 15%;"></div>
+          <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 91% 15%;"></div>
           <div class="team-overlay">
             <div class="team-name">Coach Valentina</div>
             <div class="team-role">Entrenadora</div>
@@ -1137,18 +1149,20 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/51969622550" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">💬</a>
+  <a href="https://wa.me/51993813336?text=Hola!%20Quiero%20info%20sobre%20AcroFlex%20%F0%9F%A4%B8" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script>
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
 
     window.addEventListener('scroll', () => {
