@@ -50,19 +50,55 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(34,51,238,0.4) 0%, transparent 60%),
-                  radial-gradient(ellipse at 80% 80%, rgba(240,112,32,0.15) 0%, transparent 50%), var(--navy);
+      background: var(--navy);
     }
     .hero-grid {
       position: absolute; inset: 0;
       background-image: linear-gradient(rgba(34,51,238,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(34,51,238,0.07) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-    .shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12; animation: float 8s ease-in-out infinite; }
-    .shape-1 { width: 500px; height: 500px; background: var(--blue); top: -100px; right: 30%; animation-delay: 0s; }
-    .shape-2 { width: 300px; height: 300px; background: var(--gold); bottom: -50px; left: -50px; animation-delay: 3s; }
-    .shape-3 { width: 200px; height: 200px; background: var(--blue2); bottom: 100px; right: 10%; animation-delay: 5s; }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+
+    /* ─── DYNAMIC ORBs ─── */
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .orb-1 { width: 700px; height: 700px; background: rgba(34,51,238,0.38); top: -180px; left: -80px; animation: drift1 16s ease-in-out infinite; }
+    .orb-2 { width: 520px; height: 520px; background: rgba(240,112,32,0.34); bottom: -130px; right: 8%; animation: drift2 13s ease-in-out infinite; }
+    .orb-3 { width: 420px; height: 420px; background: rgba(34,51,238,0.28); top: 25%; right: -70px; animation: drift3 19s ease-in-out infinite; }
+    .orb-4 { width: 290px; height: 290px; background: rgba(240,112,32,0.24); top: 8%; left: 40%; animation: drift4 10s ease-in-out infinite; }
+    .orb-5 { width: 380px; height: 380px; background: rgba(68,100,255,0.22); bottom: 8%; left: 12%; animation: drift2 15s ease-in-out infinite reverse; }
+    .orb-6 { width: 210px; height: 210px; background: rgba(255,140,58,0.30); top: 58%; right: 30%; animation: drift1 9s ease-in-out infinite reverse; }
+
+    @keyframes drift1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      30%     { transform: translate(70px,-90px) scale(1.1); }
+      65%     { transform: translate(-50px,45px) scale(0.93); }
+    }
+    @keyframes drift2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      40%     { transform: translate(-90px,70px) scale(1.18); }
+      75%     { transform: translate(55px,-40px) scale(0.88); }
+    }
+    @keyframes drift3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%     { transform: translate(-80px,-110px) scale(1.22); }
+    }
+    @keyframes drift4 {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.7; }
+      33%     { transform: translate(110px,50px) scale(1.35); opacity: 1; }
+      66%     { transform: translate(-55px,-65px) scale(0.75); opacity: 0.5; }
+    }
+    .hero-aurora {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg,
+        transparent 0%, rgba(34,51,238,0.13) 25%,
+        transparent 50%, rgba(240,112,32,0.09) 75%, transparent 100%);
+      background-size: 300% 300%;
+      animation: auroraSweep 22s ease-in-out infinite;
+    }
+    @keyframes auroraSweep {
+      0%   { background-position: 0% 0%; }
+      50%  { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
 
     .hero-inner {
       position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto;
@@ -100,9 +136,9 @@
       gap: 12px; height: 520px; animation: fadeInUp 0.8s ease 0.4s both;
     }
     .hero-photo {
-      border-radius: 14px; overflow: hidden; position: relative;
+      border-radius: 14px; overflow: hidden; position: relative; background: var(--navy2);
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s; }
     .hero-photo:hover img { transform: scale(1.05); }
     .hero-photo-label {
       position: absolute; bottom: 0; left: 0; right: 0;
@@ -211,10 +247,10 @@
       grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto;
       gap: 12px;
     }
-    .gallery-item { border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 1; }
+    .gallery-item { border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 1; background: var(--navy2); }
     .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
     .gallery-item.wide { grid-column: span 2; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.4s; }
     .gallery-item:hover img { transform: scale(1.05); }
     .gallery-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
@@ -473,9 +509,13 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="orb orb-5"></div>
+    <div class="orb orb-6"></div>
+    <div class="hero-aurora"></div>
     <div class="hero-inner">
       <div class="hero-text">
         <div class="hero-tag">Lima, Perú · Jesús María</div>
@@ -510,7 +550,7 @@
           <div class="hero-photo-label" style="color:var(--gold);">Jóvenes y Adultos</div>
         </div>
         <div class="hero-photo">
-          <img src="teens-2.png" alt="AcroFlex teens" style="object-position: center 30%;" />
+          <img src="teens-2.png" alt="AcroFlex teens" />
           <div class="hero-photo-label" style="color:#6699ff;">Teens</div>
         </div>
         <div class="hero-photo">
@@ -518,7 +558,7 @@
           <div class="hero-photo-label" style="color:#00d4c8;">FlexiPower</div>
         </div>
         <div class="hero-photo">
-          <img src="pk-camila-kick.png" alt="PowerKicks" style="object-position: center 15%;" />
+          <img src="pk-camila-kick.png" alt="PowerKicks" />
           <div class="hero-photo-label" style="color:#ff4422;">PowerKicks</div>
         </div>
       </div>
