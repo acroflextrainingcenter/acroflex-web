@@ -536,10 +536,16 @@
       .marquee-section { padding: 24px 0; }
 
       /* ─── SCHEDULE TABS ─── */
-      .sched-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .sched-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 6px; }
       .sched-tabs::-webkit-scrollbar { display: none; }
-      .sched-tab { white-space: nowrap; flex-shrink: 0; font-size: 11px; padding: 7px 14px; }
-      .sched-panel.active { grid-template-columns: 1fr; gap: 14px; }
+      .sched-tab { white-space: nowrap; flex-shrink: 0; font-size: 11px; padding: 8px 16px; border-radius: 8px; }
+      .sched-panel.active { display: grid !important; grid-template-columns: 1fr !important; gap: 12px; }
+      .sched-course { overflow: visible; }
+      .sched-course-head { flex-wrap: wrap; gap: 6px; padding: 12px 14px; }
+      .sched-course-name { font-size: 16px; }
+      .sched-slot { padding: 10px 14px; flex-wrap: wrap; gap: 6px; }
+      .sched-time { font-size: 15px; }
+      .sched-new, .sched-intensive { font-size: 10px; flex-shrink: 0; }
 
       /* ─── GALLERY ─── */
       .gallery-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -593,7 +599,6 @@
     <a href="#" class="nav-logo">ACRO<span>FLEX</span></a>
     <ul class="nav-links">
       <li><a href="#cursos">Cursos</a></li>
-      <li><a href="#galeria">Galería</a></li>
       <li><a href="#testimonios">Reseñas</a></li>
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="#horarios">Horarios</a></li>
@@ -750,60 +755,6 @@
       <div class="marquee-photo"><img src="pk-grupo-flexion.png" alt="" /></div>
     </div>
   </div>
-
-  <!-- GALERÍA -->
-  <section id="galeria">
-    <div class="container">
-      <div class="section-label reveal">En acción</div>
-      <h2 class="section-title reveal">El gimnasio <span>por dentro</span></h2>
-      <div class="gallery-tabs reveal">
-        <button class="gallery-tab active" onclick="switchTab('teens',this)">AcroFlex Teens</button>
-        <button class="gallery-tab" onclick="switchTab('adultos',this)">AcroFlex Adultos</button>
-        <button class="gallery-tab" onclick="switchTab('flexi',this)">FlexiPower</button>
-        <button class="gallery-tab" onclick="switchTab('kicks',this)">PowerKicks</button>
-      </div>
-
-      <div class="gallery-panel gallery-grid active" id="tab-teens">
-        <div class="gallery-item tall"><img src="accion-1.png" alt="Acrobacias teens" /><div class="gallery-caption"><span>Acrobacias</span></div></div>
-        <div class="gallery-item"><img src="accion-2.png" alt="Entrenamiento" /><div class="gallery-caption"><span>Entrenamiento</span></div></div>
-        <div class="gallery-item"><img src="accion-3.png" alt="Flexibilidad" /><div class="gallery-caption"><span>Flexibilidad</span></div></div>
-        <div class="gallery-item"><img src="accion-4.png" alt="Clase grupal" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
-        <div class="gallery-item"><img src="teens-6.png" alt="Teens" /><div class="gallery-caption"><span>Teens en acción</span></div></div>
-        <div class="gallery-item"><img src="teens-7.png" alt="Teens" /><div class="gallery-caption"><span>Progresión</span></div></div>
-        <div class="gallery-item"><img src="teens-8.png" alt="Teens" /><div class="gallery-caption"><span>Técnica</span></div></div>
-      </div>
-
-      <div class="gallery-panel gallery-grid" id="tab-adultos">
-        <div class="gallery-item tall"><img src="adultos-1.png" alt="Adultos" /><div class="gallery-caption"><span>Clase adultos</span></div></div>
-        <div class="gallery-item"><img src="adultos-2.png" alt="Parada de manos" /><div class="gallery-caption"><span>Parada de manos</span></div></div>
-        <div class="gallery-item"><img src="adultos-3.png" alt="Vertical" /><div class="gallery-caption"><span>Vertical</span></div></div>
-        <div class="gallery-item"><img src="adultos-4.png" alt="Apoyo coach" /><div class="gallery-caption"><span>Apoyo personalizado</span></div></div>
-        <div class="gallery-item"><img src="adult-6.png" alt="Adultos" /><div class="gallery-caption"><span>Acrobacia</span></div></div>
-        <div class="gallery-item"><img src="adult-7.png" alt="Adultos" /><div class="gallery-caption"><span>Fuerza</span></div></div>
-        <div class="gallery-item"><img src="adult-8.png" alt="Adultos" /><div class="gallery-caption"><span>Progreso</span></div></div>
-      </div>
-
-      <div class="gallery-panel gallery-grid" id="tab-flexi">
-        <div class="gallery-item tall"><img src="fp-clase-1.png" alt="FlexiPower" /><div class="gallery-caption"><span>Movilidad</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-2.png" alt="FlexiPower" /><div class="gallery-caption"><span>Flexibilidad</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-3.png" alt="FlexiPower" /><div class="gallery-caption"><span>Técnica</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-4.png" alt="FlexiPower" /><div class="gallery-caption"><span>Progresión</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-6.png" alt="FlexiPower" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-7.png" alt="FlexiPower" /><div class="gallery-caption"><span>Entrenamiento</span></div></div>
-        <div class="gallery-item"><img src="fp-clase-8.png" alt="FlexiPower" /><div class="gallery-caption"><span>Resultados</span></div></div>
-      </div>
-
-      <div class="gallery-panel gallery-grid" id="tab-kicks">
-        <div class="gallery-item tall"><img src="pk-patada-hombre.png" alt="PowerKicks" style="object-position:center 20%;"/><div class="gallery-caption"><span>High kick</span></div></div>
-        <div class="gallery-item"><img src="pk-camila-floor.png" alt="PowerKicks" /><div class="gallery-caption"><span>Coach Camila</span></div></div>
-        <div class="gallery-item"><img src="pk-patada-roja.png" alt="PowerKicks" /><div class="gallery-caption"><span>Patada alta</span></div></div>
-        <div class="gallery-item"><img src="pk-clase-grupo.png" alt="PowerKicks" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
-        <div class="gallery-item"><img src="pk-peru-splits.png" alt="PowerKicks" /><div class="gallery-caption"><span>Flexibilidad extrema</span></div></div>
-        <div class="gallery-item"><img src="pk-splits-hombre.png" alt="PowerKicks" /><div class="gallery-caption"><span>Splits</span></div></div>
-        <div class="gallery-item"><img src="pk-pared-piernas.png" alt="PowerKicks" /><div class="gallery-caption"><span>Fuerza de piernas</span></div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- POR QUÉ ACROFLEX -->
   <section id="nosotros">
