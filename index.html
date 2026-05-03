@@ -487,27 +487,78 @@
       .courses-grid { grid-template-columns: repeat(2, 1fr); }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .testi-grid { grid-template-columns: repeat(2, 1fr); }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
       .founder-grid { grid-template-columns: 1fr; gap: 48px; }
       .location-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 700px) {
       nav { padding: 14px 20px; }
-      section { padding: 80px 20px; }
+      section { padding: 64px 20px; }
       .container { padding: 0 20px; }
-      #hero { padding: 100px 20px 60px; }
+      #hero { padding: 90px 20px 56px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .courses-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
+
+      /* Grids */
+      .courses-grid { grid-template-columns: 1fr; gap: 16px; }
+      .features-grid { grid-template-columns: 1fr; gap: 16px; }
       .testi-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .founder-mosaic { grid-template-rows: 240px 180px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+      /* Course cards shorter on mobile */
+      .course-card { min-height: 320px; }
+
+      /* Marquee photos smaller on mobile */
+      .marquee-photo { width: 220px; height: 280px; }
+      .marquee-section { padding: 32px 0; }
+
+      /* Schedule tabs scrollable */
+      .sched-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+      .sched-tab { white-space: nowrap; flex-shrink: 0; font-size: 12px; padding: 8px 16px; }
       .sched-panel.active { grid-template-columns: 1fr; }
+
+      /* Gallery tabs scrollable */
+      .gallery-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+      .gallery-tab { white-space: nowrap; flex-shrink: 0; }
+      .gallery-item { aspect-ratio: 1; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; min-height: auto; }
+      .gallery-item.wide { grid-column: span 1; }
+
+      /* Team cards */
+      .team-card { min-height: 280px; }
+
+      /* Founder mosaic stacked */
+      .founder-mosaic { grid-template-columns: 1fr; grid-template-rows: 300px 200px 200px; }
+      .fphoto-main { grid-column: 1; grid-row: 1; }
+      .fphoto-top  { grid-column: 1; grid-row: 2; }
+      .fphoto-bottom { grid-column: 1; grid-row: 3; }
+
+      /* Footer */
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .cta-final-buttons { flex-direction: column; align-items: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+      .cta-final-buttons { flex-direction: column; align-items: center; gap: 14px; }
+      .cta-final-buttons a { width: 100%; max-width: 320px; text-align: center; }
+
+      /* Feature cards */
+      .feature-stat { font-size: 56px; }
+      .feature-icon { font-size: 44px; }
+
+      /* Hero stats */
+      .hero-stats { gap: 24px; }
+      .stat-number { font-size: 36px; }
+
+      /* WhatsApp float reposition */
+      .whatsapp-float { bottom: 20px; right: 16px; width: 56px; height: 56px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+    }
+
+    @media (max-width: 400px) {
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .hero-buttons a { text-align: center; }
     }
   </style>
 </head>
@@ -523,7 +574,7 @@
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="#horarios">Horarios</a></li>
       <li><a href="#ubicacion">Ubicación</a></li>
-      <li><a href="https://wa.me/51969622550" class="nav-cta" target="_blank">Inscríbete</a></li>
+      <li><a href="https://wa.me/51993813336?text=Hola!%20Quiero%20info%20sobre%20AcroFlex%20%F0%9F%A4%B8" class="nav-cta" target="_blank">Inscríbete</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -987,7 +1038,6 @@
       </div>
 
       <div class="sched-panel active" id="day-lun">
-        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div><div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div></div></div>
         <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div></div></div>
         <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">8:00pm</span></div></div></div>
       </div>
