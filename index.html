@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    /* ─── RESET & BASE ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --navy:   #050a2e;
@@ -17,699 +16,322 @@
       --blue2:  #4455ff;
       --gold:   #f07020;
       --gold2:  #ff8c3a;
+      --orange: #f07020;
       --white:  #ffffff;
       --gray:   #a0a8cc;
     }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--navy);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ─── SCROLLBAR ─── */
+    body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
     /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 18px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(5, 10, 46, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 160, 48, 0.2);
-      transition: padding 0.3s;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 48px; display: flex; align-items: center; justify-content: space-between;
+      background: rgba(5,10,46,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(240,112,32,0.2); transition: padding 0.3s;
     }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 3px;
-      color: var(--white);
-      text-decoration: none;
-    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); text-decoration: none; }
     .nav-logo span { color: var(--gold); }
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--gray);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 10px 22px;
-      border-radius: 4px;
-      font-weight: 700 !important;
-      transition: background 0.3s !important;
-    }
-    .nav-cta:hover { background: var(--gold2) !important; color: var(--navy) !important; }
-
-    /* Hamburger */
+    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 10px 22px; border-radius: 4px; font-weight: 700 !important; }
+    .nav-cta:hover { background: var(--gold2) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; }
 
     /* ─── HERO ─── */
     #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 24px 80px;
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 120px 48px 80px;
     }
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 60% 40%, rgba(34, 51, 238, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 80%, rgba(212, 160, 48, 0.2) 0%, transparent 50%),
-        var(--navy);
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(34,51,238,0.4) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 80%, rgba(240,112,32,0.15) 0%, transparent 50%), var(--navy);
     }
-    /* Animated grid lines */
     .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(34,51,238,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,51,238,0.08) 1px, transparent 1px);
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(34,51,238,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(34,51,238,0.07) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-    /* Floating shapes */
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.15;
-      animation: float 8s ease-in-out infinite;
-    }
-    .shape-1 { width: 500px; height: 500px; background: var(--blue); top: -100px; right: -100px; animation-delay: 0s; }
+    .shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12; animation: float 8s ease-in-out infinite; }
+    .shape-1 { width: 500px; height: 500px; background: var(--blue); top: -100px; right: 30%; animation-delay: 0s; }
     .shape-2 { width: 300px; height: 300px; background: var(--gold); bottom: -50px; left: -50px; animation-delay: 3s; }
-    .shape-3 { width: 200px; height: 200px; background: var(--blue2); bottom: 100px; right: 200px; animation-delay: 5s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-30px); }
-    }
+    .shape-3 { width: 200px; height: 200px; background: var(--blue2); bottom: 100px; right: 10%; animation-delay: 5s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-inner {
+      position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero-text { }
     .hero-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(212,160,48,0.4);
-      padding: 6px 18px;
-      border-radius: 20px;
-      margin-bottom: 28px;
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); border: 1px solid rgba(240,112,32,0.4);
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 28px;
       animation: fadeInDown 0.8s ease both;
     }
     .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(72px, 14vw, 160px);
-      line-height: 0.9;
-      letter-spacing: 4px;
-      animation: fadeInUp 0.8s ease 0.2s both;
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 10vw, 140px);
+      line-height: 0.9; letter-spacing: 4px; animation: fadeInUp 0.8s ease 0.2s both;
     }
     .hero-title .highlight { color: var(--gold); }
     .hero-subtitle {
-      font-size: clamp(14px, 2vw, 18px);
-      font-weight: 400;
-      color: var(--gray);
-      margin: 24px 0 44px;
-      line-height: 1.7;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: clamp(14px, 1.8vw, 17px); font-weight: 400; color: var(--gray);
+      margin: 24px 0 40px; line-height: 1.7; max-width: 520px;
       animation: fadeInUp 0.8s ease 0.4s both;
     }
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.8s ease 0.6s both;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 4px;
-      transition: all 0.3s;
-    }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(212,160,48,0.3); }
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 4px;
-      border: 1px solid rgba(255,255,255,0.3);
-      transition: all 0.3s;
-    }
-    .btn-secondary:hover { border-color: var(--blue2); color: var(--blue2); transform: translateY(-2px); }
-
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s both; }
     .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 72px;
-      padding-top: 48px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; gap: 40px; margin-top: 56px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;
       animation: fadeInUp 0.8s ease 0.8s both;
-      flex-wrap: wrap;
     }
-    .stat-item { text-align: center; }
-    .stat-number {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 52px;
-      color: var(--gold);
-      line-height: 1;
+    .stat-item { text-align: left; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
+
+    .hero-photos {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      gap: 12px; height: 520px; animation: fadeInUp 0.8s ease 0.4s both;
     }
-    .stat-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-top: 6px;
+    .hero-photo {
+      border-radius: 14px; overflow: hidden; position: relative;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s; }
+    .hero-photo:hover img { transform: scale(1.05); }
+    .hero-photo-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(5,10,46,0.95) 0%, transparent 100%);
+      padding: 20px 14px 12px;
+      font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
     }
 
-    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
-    @keyframes fadeInUp { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp   { from { opacity: 0; transform: translateY(30px);  } to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── SECTION BASE ─── */
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 4px; transition: all 0.3s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(240,112,32,0.3); }
+    .btn-secondary {
+      display: inline-block; background: transparent; color: var(--white);
+      font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
     section { padding: 100px 48px; }
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
     }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1;
-      letter-spacing: 2px;
-    }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 64px); letter-spacing: 2px; margin-bottom: 20px; line-height: 1; }
     .section-title span { color: var(--gold); }
-    .section-desc {
-      color: var(--gray);
-      font-size: 15px;
-      line-height: 1.8;
-      max-width: 560px;
-      margin-top: 16px;
-    }
-    .container { max-width: 1200px; margin: 0 auto; }
+    .section-desc { font-size: 15px; color: var(--gray); line-height: 1.8; max-width: 600px; margin-bottom: 56px; }
 
-    /* ─── ABOUT ─── */
-    #nosotros { background: var(--navy); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-top: 60px;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-card {
-      background: linear-gradient(135deg, var(--navy2), rgba(34,51,238,0.15));
-      border: 1px solid rgba(34,51,238,0.3);
-      border-radius: 16px;
-      padding: 56px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,160,48,0.2), transparent 70%);
-    }
-    .about-icon {
-      width: 100px; height: 100px;
-      margin: 0 auto 24px;
-      background: linear-gradient(135deg, var(--blue), var(--blue2));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-    }
-    .about-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .about-card .role {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .about-card p {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.8;
-    }
-    .about-text .values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 36px;
-    }
-    .value-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    .value-icon {
-      width: 36px; height: 36px;
-      min-width: 36px;
-      background: rgba(212,160,48,0.12);
-      border: 1px solid rgba(212,160,48,0.3);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-    .value-item h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-    .value-item p { font-size: 12px; color: var(--gray); line-height: 1.5; }
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── TEAM ─── */
-    #equipo {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%);
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .team-card {
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      aspect-ratio: 3/4;
-      cursor: default;
-    }
-    .team-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      transition: transform 0.5s ease;
-      display: block;
-    }
-    .team-card:hover img { transform: scale(1.05); }
-    .team-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(4,8,40,1) 0%, rgba(4,8,40,1) 38%, rgba(4,8,40,0.4) 62%, transparent 100%);
-      padding: 32px 20px 24px;
-      transform: translateY(8px);
-      transition: transform 0.3s;
-    }
-    .team-card:hover .team-overlay { transform: translateY(0); }
-    .team-card .team-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-    .team-card .team-role {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .team-border {
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      border: 1px solid rgba(34,51,238,0.2);
-      pointer-events: none;
-      transition: border-color 0.3s;
-    }
-    .team-card:hover .team-border { border-color: var(--gold); }
-    .team-card.founder .team-border { border-color: rgba(255,140,0,0.35); }
-    .team-card.founder:hover .team-border { border-color: var(--orange); }
-    .founder-badge {
-      position: absolute;
-      top: 16px; left: 16px;
-      background: var(--orange);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-    .team-card.founder .team-role { color: var(--orange); }
-    .team-card-bg {
-      position: absolute;
-      inset: 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      transition: transform 0.5s ease;
-    }
-    .team-card:hover .team-card-bg { transform: scale(1.05); }
-
-    @media (max-width: 1100px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 700px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    }
-
-    /* ─── COURSES ─── */
-    #cursos {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%);
-    }
-    .courses-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 56px;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+    /* ─── CURSOS ─── */
+    #cursos { background: linear-gradient(180deg, var(--navy2) 0%, var(--navy) 100%); }
+    .courses-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 48px; }
+    .courses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .course-card {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      text-decoration: none;
-      transition: transform 0.4s, box-shadow 0.4s;
-      border: 2px solid transparent;
+      position: relative; border-radius: 20px; overflow: hidden;
+      min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end;
+      text-decoration: none; transition: transform 0.4s, box-shadow 0.4s; border: 2px solid transparent;
     }
-    .course-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 28px 64px rgba(0,0,0,0.5);
-      border-color: var(--gold);
-    }
-    .course-card-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center top;
-      transition: transform 0.5s;
-    }
+    .course-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    .course-card-bg { position: absolute; inset: 0; background-size: cover; background-position: center top; transition: transform 0.5s; }
     .course-card:hover .course-card-bg { transform: scale(1.05); }
-    .course-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(4,8,40,0.97) 0%, rgba(4,8,40,0.6) 50%, rgba(4,8,40,0.1) 100%);
-      transition: background 0.4s;
-    }
-    .course-card:hover .course-card-overlay {
-      background: linear-gradient(to top, rgba(4,8,40,0.98) 0%, rgba(4,8,40,0.7) 55%, rgba(4,8,40,0.2) 100%);
-    }
-    .course-card-body {
-      position: relative;
-      z-index: 2;
-      padding: 32px;
-    }
+    .course-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,8,40,0.97) 0%, rgba(4,8,40,0.6) 50%, rgba(4,8,40,0.1) 100%); transition: opacity 0.3s; }
+    .course-card:hover .course-card-overlay { opacity: 0.85; }
+    .course-card-body { position: relative; z-index: 2; padding: 28px; }
     .course-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 50px;
-      margin-bottom: 12px;
+      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
     }
-    .tag-gold { background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.5); color: var(--gold); }
-    .tag-blue { background: rgba(0,87,255,0.15); border: 1px solid rgba(0,87,255,0.5); color: #66aaff; }
-    .tag-red  { background: rgba(204,0,0,0.2); border: 1px solid rgba(204,0,0,0.5); color: #ff6666; }
-    .tag-teal { background: rgba(0,180,150,0.15); border: 1px solid rgba(0,180,150,0.5); color: #00d4aa; }
-    .course-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem;
-      letter-spacing: 3px;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-    .course-card .course-tagline {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 14px;
-      letter-spacing: 0.5px;
-    }
-    .course-card p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .course-age-pill {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.75);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-    }
+    .tag-gold { background: rgba(240,112,32,0.2); color: var(--gold); border: 1px solid rgba(240,112,32,0.4); }
+    .tag-blue { background: rgba(34,51,238,0.2); color: #6699ff; border: 1px solid rgba(34,51,238,0.4); }
+    .tag-teal { background: rgba(0,196,184,0.2); color: #00d4c8; border: 1px solid rgba(0,196,184,0.4); }
+    .tag-red  { background: rgba(204,34,0,0.2); color: #ff4422; border: 1px solid rgba(204,34,0,0.4); }
+    .course-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 8px; color: var(--white); }
+    .course-card p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; margin-bottom: 16px; }
     .course-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: #05082e;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 10px 22px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
+      display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); transition: transform 0.3s;
     }
-    .course-card:hover .course-cta { background: #ffc34d; transform: translateX(4px); }
-    .course-cta-red { background: #cc0000; color: #fff; }
-    .course-card:hover .course-cta-red { background: #ff2222; }
-    @media (max-width: 768px) {
-      .courses-grid { grid-template-columns: 1fr; }
-      .course-card { min-height: 360px; }
+    .course-cta-red { color: #ff4422; }
+    .course-card:hover .course-cta { transform: translateX(4px); }
+
+    /* ─── PHOTO MARQUEE ─── */
+    .marquee-section { overflow: hidden; padding: 0; background: var(--navy2); }
+    .marquee-track {
+      display: flex; gap: 12px; width: max-content;
+      animation: marqueeScroll 35s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-photo {
+      width: 240px; height: 180px; flex-shrink: 0; border-radius: 10px; overflow: hidden;
+    }
+    .marquee-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s; }
+    .marquee-photo:hover img { transform: scale(1.08); }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
 
-    /* ─── GALLERY ─── */
-    #galeria {
-      background: var(--navy);
-    }
-    .gallery-tabs {
-      display: flex;
-      gap: 8px;
-      margin-top: 40px;
-      margin-bottom: 32px;
-    }
+    /* ─── GALERÍA ─── */
+    #galeria { background: var(--navy); }
+    .gallery-tabs { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
     .gallery-tab {
-      padding: 10px 28px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--gray);
-      background: transparent;
-      transition: all 0.3s;
+      padding: 10px 24px; border-radius: 6px; cursor: pointer; background: transparent;
+      border: 1px solid rgba(255,255,255,0.15); color: var(--gray);
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      transition: all 0.25s;
     }
     .gallery-tab:hover { border-color: var(--gold); color: var(--gold); }
-    .gallery-tab.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy);
-    }
+    .gallery-tab.active { background: var(--gold); border-color: var(--gold); color: var(--navy); }
     .gallery-panel { display: none; }
     .gallery-panel.active { display: grid; }
     .gallery-grid {
-      grid-template-columns: 1.3fr 1fr 1fr;
-      grid-template-rows: 300px 300px;
-      gap: 6px;
+      grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto;
+      gap: 12px;
     }
-    .gallery-item {
-      overflow: hidden;
-      position: relative;
-      border-radius: 4px;
-    }
-    .gallery-item.tall { grid-row: span 2; }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      transition: transform 0.6s ease;
-      display: block;
-    }
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item .gallery-caption {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(5,10,46,0.85) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
+    .gallery-item { border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 1; }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(5,10,46,0.9) 0%, transparent 100%);
+      padding: 20px 14px 10px; opacity: 0; transition: opacity 0.3s;
     }
     .gallery-item:hover .gallery-caption { opacity: 1; }
-    .gallery-caption span {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .gallery-item.tall { grid-row: span 1; }
-      .gallery-item { height: 220px; }
-    }
-    @media (max-width: 500px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
-      .gallery-item { height: 180px; }
-    }
+    .gallery-caption span { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
 
-    /* ─── SCHEDULE ─── */
-    #horarios {
-      background: var(--navy2);
+    /* ─── POR QUÉ ACROFLEX ─── */
+    #nosotros { background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%); }
+    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+    .feature-card {
+      background: rgba(34,51,238,0.08); border: 1px solid rgba(34,51,238,0.2);
+      border-radius: 16px; padding: 32px 24px; text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
     }
-    /* ─── SCHEDULE TABS ─── */
-    .sched-tabs {
-      display: flex; gap: 8px; flex-wrap: wrap;
-      margin-top: 48px; margin-bottom: 32px;
+    .feature-card:hover { transform: translateY(-6px); border-color: rgba(240,112,32,0.4); }
+    .feature-photo {
+      width: 100%; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden;
+      margin-bottom: 20px;
     }
+    .feature-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .feature-icon { font-size: 36px; margin-bottom: 16px; }
+    .feature-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; margin-bottom: 10px; color: var(--white); }
+    .feature-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+    /* ─── TESTIMONIOS ─── */
+    #testimonios { background: var(--navy2); }
+    .testi-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-bottom: 48px; }
+    .testi-rating {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(240,112,32,0.1); border: 1px solid rgba(240,112,32,0.25);
+      padding: 10px 20px; border-radius: 40px;
+    }
+    .testi-rating-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); line-height: 1; }
+    .testi-stars { font-size: 18px; letter-spacing: 2px; }
+    .testi-rating-label { font-size: 11px; font-weight: 700; color: var(--gray); letter-spacing: 1px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .testi-card {
+      background: rgba(5,10,46,0.8); border: 1px solid rgba(34,51,238,0.2);
+      border-radius: 16px; padding: 28px; display: flex; flex-direction: column;
+      gap: 16px; transition: transform 0.3s, border-color 0.3s;
+    }
+    .testi-card:hover { transform: translateY(-4px); border-color: rgba(240,112,32,0.3); }
+    .testi-stars-row { color: var(--gold); font-size: 14px; letter-spacing: 3px; }
+    .testi-text {
+      font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.7;
+      font-style: italic; flex: 1;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 14px; }
+    .testi-avatar {
+      width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px; flex-shrink: 0;
+    }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--white); }
+    .testi-source { font-size: 10px; font-weight: 600; letter-spacing: 1px; color: var(--gray); text-transform: uppercase; margin-top: 2px; }
+    .google-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .google-g { font-size: 10px; font-weight: 800; color: #4285F4; }
+
+    /* ─── EQUIPO ─── */
+    #equipo { background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%); }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+    .team-card { border-radius: 16px; overflow: hidden; position: relative; aspect-ratio: 3/4; cursor: default; }
+    .team-card img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s ease; display: block; }
+    .team-card:hover img { transform: scale(1.05); }
+    .team-card-bg { position: absolute; inset: 0; background-repeat: no-repeat; background-size: cover; transition: transform 0.5s ease; }
+    .team-card:hover .team-card-bg { transform: scale(1.05); }
+    .team-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(4,8,40,1) 0%, rgba(4,8,40,1) 38%, rgba(4,8,40,0.4) 62%, transparent 100%);
+      padding: 32px 20px 24px; transform: translateY(8px); transition: transform 0.3s;
+    }
+    .team-card:hover .team-overlay { transform: translateY(0); }
+    .team-card .team-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--white); margin-bottom: 4px; }
+    .team-card .team-role { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+    .team-border { position: absolute; inset: 0; border-radius: 16px; border: 1px solid rgba(34,51,238,0.2); pointer-events: none; transition: border-color 0.3s; }
+    .team-card:hover .team-border { border-color: var(--gold); }
+    .team-card.founder .team-border { border-color: rgba(240,112,32,0.35); }
+    .team-card.founder:hover .team-border { border-color: var(--orange); }
+    .founder-badge {
+      position: absolute; top: 16px; left: 16px; background: var(--orange); color: #fff;
+      font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .team-card.founder .team-role { color: var(--orange); }
+
+    /* ─── HORARIOS ─── */
+    #horarios { background: var(--navy2); }
+    .sched-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 48px; margin-bottom: 32px; }
     .sched-tab {
       padding: 10px 22px; border-radius: 8px; cursor: pointer;
-      font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
-      text-transform: uppercase; border: 1px solid rgba(34,51,238,0.3);
-      background: rgba(34,51,238,0.1); color: rgba(255,255,255,0.65);
+      font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      border: 1px solid rgba(34,51,238,0.3); background: rgba(34,51,238,0.1); color: rgba(255,255,255,0.65);
       transition: all 0.25s;
     }
     .sched-tab:hover { border-color: var(--blue); color: var(--white); }
-    .sched-tab.active {
-      background: var(--blue); border-color: var(--blue);
-      color: var(--white); box-shadow: 0 4px 18px rgba(34,51,238,0.4);
-    }
-    .sched-tab.weekend { border-color: rgba(212,160,48,0.3); color: var(--gold); }
-    .sched-tab.weekend:hover, .sched-tab.weekend.active {
-      background: var(--gold); border-color: var(--gold);
-      color: var(--navy); box-shadow: 0 4px 18px rgba(212,160,48,0.3);
-    }
+    .sched-tab.active { background: var(--blue); border-color: var(--blue); color: var(--white); box-shadow: 0 4px 18px rgba(34,51,238,0.4); }
+    .sched-tab.weekend { border-color: rgba(240,112,32,0.3); color: var(--gold); }
+    .sched-tab.weekend:hover, .sched-tab.weekend.active { background: var(--gold); border-color: var(--gold); color: var(--navy); box-shadow: 0 4px 18px rgba(240,112,32,0.3); }
     .sched-panel { display: none; }
     .sched-panel.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .sched-course {
-      background: rgba(10,15,60,0.7); border: 1px solid rgba(34,51,238,0.2);
-      border-radius: 14px; overflow: hidden;
-    }
-    .sched-course-head {
-      padding: 14px 18px; display: flex; align-items: center;
-      justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .sched-course-name {
-      font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px;
-    }
-    .sched-course-link {
-      font-size: 11px; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; text-decoration: none; opacity: 0.7;
-      transition: opacity 0.2s;
-    }
+    .sched-course { background: rgba(10,15,60,0.7); border: 1px solid rgba(34,51,238,0.2); border-radius: 14px; overflow: hidden; }
+    .sched-course-head { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .sched-course-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; }
+    .sched-course-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
     .sched-course-link:hover { opacity: 1; }
     .sched-slots { padding: 10px 0; }
-    .sched-slot {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 18px; border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
+    .sched-slot { display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; border-bottom: 1px solid rgba(255,255,255,0.04); }
     .sched-slot:last-child { border-bottom: none; }
     .sched-time { font-weight: 700; font-size: 14px; color: var(--white); }
-    .sched-new {
-      font-size: 9px; font-weight: 800; letter-spacing: 1px;
-      text-transform: uppercase; padding: 3px 8px; border-radius: 10px;
-      background: rgba(232,0,90,0.2); color: #e8005a; border: 1px solid rgba(232,0,90,0.3);
-    }
-    .sched-intensive {
-      font-size: 10px; font-weight: 700; letter-spacing: 1px;
-      padding: 3px 8px; border-radius: 10px;
-      background: rgba(212,160,48,0.15); color: var(--gold); border: 1px solid rgba(212,160,48,0.3);
-    }
-    .tag-adultos { color: var(--gold); }
-    .tag-adultos .sched-course-link { color: var(--gold); }
+    .sched-new { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 10px; background: rgba(232,0,90,0.2); color: #e8005a; border: 1px solid rgba(232,0,90,0.3); }
+    .sched-intensive { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border-radius: 10px; background: rgba(240,112,32,0.15); color: var(--gold); border: 1px solid rgba(240,112,32,0.3); }
     .tag-adultos { border-top: 3px solid var(--gold); }
+    .tag-adultos .sched-course-name { color: var(--gold); }
+    .tag-adultos .sched-course-link { color: var(--gold); }
     .tag-teens { border-top: 3px solid #4466ff; }
     .tag-teens .sched-course-name { color: #6699ff; }
     .tag-teens .sched-course-link { color: #6699ff; }
@@ -719,292 +341,112 @@
     .tag-kicks { border-top: 3px solid #cc2200; }
     .tag-kicks .sched-course-name { color: #ff4422; }
     .tag-kicks .sched-course-link { color: #ff4422; }
-    .sched-cta {
-      margin-top: 36px; text-align: center;
-    }
-    @media (max-width: 700px) {
-      .sched-panel.active { grid-template-columns: 1fr; }
-    }
-    /* OLD kept for reference — override below */
-    .schedule-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 14px;
-    }
-    .schedule-row:last-child { border-bottom: none; }
-    .schedule-row .course-name { font-weight: 600; color: var(--white); }
-    .schedule-row .course-days { color: var(--gray); font-size: 12px; }
-    .schedule-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--blue2);
-      flex-shrink: 0;
-    }
-    .schedule-dot.gold { background: var(--gold); }
-
-    /* ─── LOCATION ─── */
-    #ubicacion {
-      background: var(--navy);
-    }
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin-top: 60px;
-      align-items: start;
-    }
-    .location-info { }
-    .location-detail {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 32px;
-      align-items: flex-start;
-    }
-    .location-icon {
-      width: 48px; height: 48px;
-      min-width: 48px;
-      background: rgba(34,51,238,0.15);
-      border: 1px solid rgba(34,51,238,0.3);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-    .location-detail h4 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .location-detail p {
-      font-size: 15px;
-      color: var(--white);
-      line-height: 1.6;
-    }
-    .location-detail p span { color: var(--gray); font-size: 13px; }
-    .map-container {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(34,51,238,0.3);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      height: 400px;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: invert(90%) hue-rotate(180deg);
-    }
-    .cta-box {
-      margin-top: 40px;
-      background: linear-gradient(135deg, rgba(34,51,238,0.2), rgba(212,160,48,0.1));
-      border: 1px solid rgba(212,160,48,0.3);
-      border-radius: 16px;
-      padding: 36px;
-      text-align: center;
-    }
-    .cta-box h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-    .cta-box p {
-      color: var(--gray);
-      font-size: 14px;
-      margin-bottom: 24px;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #020614;
-      padding: 60px 48px 32px;
-      border-top: 1px solid rgba(34,51,238,0.2);
-    }
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 48px;
-    }
-    .footer-brand .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      letter-spacing: 3px;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-    .footer-brand .logo span { color: var(--gold); }
-    .footer-brand p {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.8;
-      max-width: 300px;
-    }
-    .footer-col h4 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li {
-      font-size: 14px;
-      color: var(--gray);
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .footer-col ul li:hover { color: var(--white); }
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-bottom p {
-      font-size: 12px;
-      color: rgba(160,168,204,0.5);
-    }
-    .footer-bottom span { color: var(--gold); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 80px 24px; }
-      .about-grid,
-      .schedule-grid,
-      .location-grid { grid-template-columns: 1fr; gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero-stats { gap: 36px; }
-    }
-    @media (max-width: 600px) {
-      .courses-grid { grid-template-columns: 1fr; }
-      .about-text .values { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
-
-    /* ─── SCROLL ANIMATIONS ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* WhatsApp floating button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
-      z-index: 200;
-      transition: all 0.3s;
-      font-size: 28px;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+    .sched-cta { margin-top: 36px; text-align: center; }
 
     /* ─── FUNDADORA ─── */
-    #fundadora { background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%); }
-    .founder-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-      margin-top: 56px;
-    }
+    #fundadora { background: linear-gradient(180deg, var(--navy2) 0%, var(--navy) 100%); }
+    .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 56px; }
     .founder-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
     .founder-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,140,0,0.12); border: 1px solid rgba(255,140,0,0.35);
-      color: var(--orange); font-size: 12px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 20px;
+      background: rgba(240,112,32,0.12); border: 1px solid rgba(240,112,32,0.35);
+      color: var(--orange); font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 20px;
     }
-    .founder-text p {
-      color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75;
-      margin-bottom: 18px;
-    }
-    .founder-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 36px;
-      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;
-    }
-    .founder-stat-num {
-      font-family: 'Bebas Neue', sans-serif; font-size: 38px;
-      color: var(--gold); line-height: 1;
-    }
-    .founder-stat-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: rgba(255,255,255,0.55);
-      margin-top: 4px;
-    }
-    .founder-mosaic {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 280px 220px;
-      gap: 12px;
-    }
-    .fphoto {
-      border-radius: 16px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      overflow: hidden;
-      transition: transform 0.5s;
-    }
+    .founder-text p { color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; margin-bottom: 18px; }
+    .founder-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+    .founder-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: var(--gold); line-height: 1; }
+    .founder-stat-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 4px; }
+    .founder-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 280px 220px; gap: 12px; }
+    .fphoto { border-radius: 16px; background-size: cover; background-repeat: no-repeat; overflow: hidden; transition: transform 0.5s; }
     .fphoto:hover { transform: scale(1.02); }
-    .fphoto-main {
-      grid-column: 1;
-      grid-row: 1 / 3;
-      background-position: center 20%;
+    .fphoto-main { grid-column: 1; grid-row: 1 / 3; background-position: center 20%; }
+    .fphoto-top  { grid-column: 2; grid-row: 1; background-position: center 15%; }
+    .fphoto-bottom { grid-column: 2; grid-row: 2; background-position: center 30%; }
+
+    /* ─── UBICACIÓN ─── */
+    #ubicacion { background: var(--navy2); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 56px; align-items: start; }
+    .location-detail { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+    .location-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .location-detail h4 { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+    .location-detail p { color: var(--gray); font-size: 13px; line-height: 1.6; }
+    .location-detail span { color: var(--gray); }
+    .cta-box { background: rgba(240,112,32,0.08); border: 1px solid rgba(240,112,32,0.25); border-radius: 16px; padding: 32px; margin-top: 32px; }
+    .cta-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 10px; }
+    .cta-box p { color: var(--gray); font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+    .map-container { border-radius: 16px; overflow: hidden; height: 450px; border: 1px solid rgba(34,51,238,0.2); }
+    .map-container iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ─── CTA FINAL ─── */
+    #cta-final {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, rgba(34,51,238,0.5) 0%, rgba(240,112,32,0.3) 100%), var(--navy);
+      text-align: center; padding: 120px 48px;
     }
-    .fphoto-top {
-      grid-column: 2; grid-row: 1;
-      background-position: center 15%;
+    .cta-final-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    #cta-final h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 80px); letter-spacing: 3px; margin-bottom: 20px; line-height: 1; }
+    #cta-final h2 span { color: var(--gold); }
+    #cta-final p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 40px; }
+    .cta-final-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-final-shape { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.2; }
+    .cta-final-shape-1 { width: 500px; height: 500px; background: var(--blue); top: -100px; left: -100px; }
+    .cta-final-shape-2 { width: 400px; height: 400px; background: var(--gold); bottom: -100px; right: -100px; }
+
+    /* ─── FOOTER ─── */
+    footer { background: rgba(3,6,20,0.95); padding: 60px 48px 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 3px; margin-bottom: 16px; }
+    .logo span { color: var(--gold); }
+    .footer-brand p { font-size: 13px; color: var(--gray); line-height: 1.7; max-width: 300px; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { font-size: 13px; color: var(--gray); margin-bottom: 10px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 12px; color: rgba(160,168,204,0.6); }
+    .footer-bottom span { color: var(--gold); }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%; background: #25d366;
+      display: flex; align-items: center; justify-content: center; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4); transition: all 0.3s; font-size: 28px;
     }
-    .fphoto-bottom {
-      grid-column: 2; grid-row: 2;
-      background-position: center 30%;
-    }
-    @media (max-width: 900px) {
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+
+    /* ─── MEDIA QUERIES ─── */
+    @media (max-width: 1100px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photos { display: none; }
+      .hero-text { text-align: center; }
+      .hero-stats { justify-content: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .courses-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
       .founder-grid { grid-template-columns: 1fr; gap: 48px; }
-      .founder-mosaic { grid-template-rows: 240px 180px; }
-      .founder-stats { grid-template-columns: repeat(3, 1fr); }
+      .location-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 600px) {
-      .founder-mosaic { grid-template-columns: 1fr; grid-template-rows: 260px 200px 180px; }
-      .fphoto-main { grid-column: 1; grid-row: 1; }
-      .fphoto-top { grid-column: 1; grid-row: 2; }
-      .fphoto-bottom { grid-column: 1; grid-row: 3; }
-      .founder-stats { grid-template-columns: 1fr; }
+    @media (max-width: 700px) {
+      nav { padding: 14px 20px; }
+      section { padding: 80px 20px; }
+      .container { padding: 0 20px; }
+      #hero { padding: 100px 20px 60px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .founder-mosaic { grid-template-rows: 240px 180px; }
+      .sched-panel.active { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cta-final-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -1012,15 +454,15 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">ACRO<span>FLEX</span></a>
+    <a href="#" class="nav-logo">ACRO<span>FLEX</span></a>
     <ul class="nav-links">
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#equipo">Equipo</a></li>
       <li><a href="#cursos">Cursos</a></li>
       <li><a href="#galeria">Galería</a></li>
+      <li><a href="#testimonios">Reseñas</a></li>
+      <li><a href="#equipo">Equipo</a></li>
       <li><a href="#horarios">Horarios</a></li>
       <li><a href="#ubicacion">Ubicación</a></li>
-      <li><a href="https://wa.me/51969622550" class="nav-cta">Inscríbete</a></li>
+      <li><a href="https://wa.me/51969622550" class="nav-cta" target="_blank">Inscríbete</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -1034,140 +476,346 @@
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Lima, Perú · Jesús María</div>
-      <h1 class="hero-title">
-        ACRO<span class="highlight">FLEX</span>
-      </h1>
-      <p class="hero-subtitle">
-        Gimnasia para todos. Acrobacias, flexibilidad y fuerza para niños, jóvenes y adultos sin límite de edad.
-      </p>
-      <div class="hero-buttons">
-        <a href="#cursos" class="btn-primary">Ver Cursos</a>
-        <a href="#ubicacion" class="btn-secondary">Cómo llegar</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">Lima, Perú · Jesús María</div>
+        <h1 class="hero-title">ACRO<span class="highlight">FLEX</span></h1>
+        <p class="hero-subtitle">Gimnasia para todos. Acrobacias, flexibilidad y fuerza para niños, jóvenes y adultos — sin límite de edad.</p>
+        <div class="hero-buttons">
+          <a href="#cursos" class="btn-primary">Ver Cursos</a>
+          <a href="https://wa.me/51969622550" class="btn-secondary" target="_blank">Escribir por WhatsApp</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Cursos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Años en adelante</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Días a la semana</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5★</div>
+            <div class="stat-label">Google Reviews</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Cursos</div>
+      <div class="hero-photos reveal">
+        <div class="hero-photo">
+          <img src="adult-2.png" alt="AcroFlex adultos" />
+          <div class="hero-photo-label" style="color:var(--gold);">Jóvenes y Adultos</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">7+</div>
-          <div class="stat-label">Años en adelante</div>
+        <div class="hero-photo">
+          <img src="teens-2.png" alt="AcroFlex teens" style="object-position: center 30%;" />
+          <div class="hero-photo-label" style="color:#6699ff;">Teens</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">7</div>
-          <div class="stat-label">Días a la semana</div>
+        <div class="hero-photo">
+          <img src="fp-clase-2.png" alt="FlexiPower" />
+          <div class="hero-photo-label" style="color:#00d4c8;">FlexiPower</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Sin límite de edad</div>
+        <div class="hero-photo">
+          <img src="pk-camila-kick.png" alt="PowerKicks" style="object-position: center 15%;" />
+          <div class="hero-photo-label" style="color:#ff4422;">PowerKicks</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NOSOTROS -->
+  <!-- CURSOS -->
+  <section id="cursos">
+    <div class="container">
+      <div class="courses-header">
+        <div>
+          <div class="section-label reveal">Lo que enseñamos</div>
+          <h2 class="section-title reveal">Nuestros <span>Cursos</span></h2>
+        </div>
+        <p class="section-desc reveal" style="margin:0; max-width: 360px;">Cada curso está diseñado con la metodología ACROFLEX para maximizar tu progreso.</p>
+      </div>
+      <div class="courses-grid">
+        <a class="course-card reveal" href="jovenes-adultos.html">
+          <div class="course-card-bg" style="background-image:url('adult-4.png')"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-gold">★ Más popular</span>
+            <h3>AcroFlex Adultos</h3>
+            <p>Acrobacias, flexibilidad y fuerza desde cero. Para jóvenes y adultos de 14 años en adelante.</p>
+            <span class="course-cta">Ver horarios y precios →</span>
+          </div>
+        </a>
+        <a class="course-card reveal" href="teens.html">
+          <div class="course-card-bg" style="background-image:url('teens-1.png'); background-position: center 20%;"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-blue">Para niños</span>
+            <h3>AcroFlex Teens</h3>
+            <p>Gimnasia artística y acrobacias para niños y niñas de 7 a 13 años. ¡Aprenden jugando!</p>
+            <span class="course-cta">Ver horarios y precios →</span>
+          </div>
+        </a>
+        <a class="course-card reveal" href="flexipower.html">
+          <div class="course-card-bg" style="background-image:url('fp-clase-1.png')"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-teal">Movilidad</span>
+            <h3>FlexiPower</h3>
+            <p>Movilidad y flexibilidad de todo el cuerpo, progresivo y accesible. Para mayores de 15 años.</p>
+            <span class="course-cta">Ver horarios y precios →</span>
+          </div>
+        </a>
+        <a class="course-card reveal" href="powerkicks.html">
+          <div class="course-card-bg" style="background-image:url('pk-camila-kick.png'); background-position: center 15%;"></div>
+          <div class="course-card-overlay"></div>
+          <div class="course-card-body">
+            <span class="course-tag tag-red">Nuevo 🔥</span>
+            <h3>PowerKicks</h3>
+            <p>Eleva tus patadas con fuerza y flexibilidad. Para artistas marciales y deportistas.</p>
+            <span class="course-cta course-cta-red">Ver horarios y precios →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-photo"><img src="adult-1.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-patada-negro.png" alt="" /></div>
+      <div class="marquee-photo"><img src="adult-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-4.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-4.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-clase-grupo.png" alt="" /></div>
+      <div class="marquee-photo"><img src="adult-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-grupo-flexion.png" alt="" /></div>
+      <!-- duplicado para loop infinito -->
+      <div class="marquee-photo"><img src="adult-1.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-patada-negro.png" alt="" /></div>
+      <div class="marquee-photo"><img src="adult-3.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-4.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-4.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-clase-grupo.png" alt="" /></div>
+      <div class="marquee-photo"><img src="adult-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="teens-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="fp-clase-5.png" alt="" /></div>
+      <div class="marquee-photo"><img src="pk-grupo-flexion.png" alt="" /></div>
+    </div>
+  </div>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-label reveal">En acción</div>
+      <h2 class="section-title reveal">El gimnasio <span>por dentro</span></h2>
+      <div class="gallery-tabs reveal">
+        <button class="gallery-tab active" onclick="switchTab('teens',this)">AcroFlex Teens</button>
+        <button class="gallery-tab" onclick="switchTab('adultos',this)">AcroFlex Adultos</button>
+        <button class="gallery-tab" onclick="switchTab('flexi',this)">FlexiPower</button>
+        <button class="gallery-tab" onclick="switchTab('kicks',this)">PowerKicks</button>
+      </div>
+
+      <div class="gallery-panel gallery-grid active" id="tab-teens">
+        <div class="gallery-item tall"><img src="accion-1.png" alt="Acrobacias teens" /><div class="gallery-caption"><span>Acrobacias</span></div></div>
+        <div class="gallery-item"><img src="accion-2.png" alt="Entrenamiento" /><div class="gallery-caption"><span>Entrenamiento</span></div></div>
+        <div class="gallery-item"><img src="accion-3.png" alt="Flexibilidad" /><div class="gallery-caption"><span>Flexibilidad</span></div></div>
+        <div class="gallery-item"><img src="accion-4.png" alt="Clase grupal" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
+        <div class="gallery-item"><img src="teens-6.png" alt="Teens" /><div class="gallery-caption"><span>Teens en acción</span></div></div>
+        <div class="gallery-item"><img src="teens-7.png" alt="Teens" /><div class="gallery-caption"><span>Progresión</span></div></div>
+        <div class="gallery-item"><img src="teens-8.png" alt="Teens" /><div class="gallery-caption"><span>Técnica</span></div></div>
+      </div>
+
+      <div class="gallery-panel gallery-grid" id="tab-adultos">
+        <div class="gallery-item tall"><img src="adultos-1.png" alt="Adultos" /><div class="gallery-caption"><span>Clase adultos</span></div></div>
+        <div class="gallery-item"><img src="adultos-2.png" alt="Parada de manos" /><div class="gallery-caption"><span>Parada de manos</span></div></div>
+        <div class="gallery-item"><img src="adultos-3.png" alt="Vertical" /><div class="gallery-caption"><span>Vertical</span></div></div>
+        <div class="gallery-item"><img src="adultos-4.png" alt="Apoyo coach" /><div class="gallery-caption"><span>Apoyo personalizado</span></div></div>
+        <div class="gallery-item"><img src="adult-6.png" alt="Adultos" /><div class="gallery-caption"><span>Acrobacia</span></div></div>
+        <div class="gallery-item"><img src="adult-7.png" alt="Adultos" /><div class="gallery-caption"><span>Fuerza</span></div></div>
+        <div class="gallery-item"><img src="adult-8.png" alt="Adultos" /><div class="gallery-caption"><span>Progreso</span></div></div>
+      </div>
+
+      <div class="gallery-panel gallery-grid" id="tab-flexi">
+        <div class="gallery-item tall"><img src="fp-clase-1.png" alt="FlexiPower" /><div class="gallery-caption"><span>Movilidad</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-2.png" alt="FlexiPower" /><div class="gallery-caption"><span>Flexibilidad</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-3.png" alt="FlexiPower" /><div class="gallery-caption"><span>Técnica</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-4.png" alt="FlexiPower" /><div class="gallery-caption"><span>Progresión</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-6.png" alt="FlexiPower" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-7.png" alt="FlexiPower" /><div class="gallery-caption"><span>Entrenamiento</span></div></div>
+        <div class="gallery-item"><img src="fp-clase-8.png" alt="FlexiPower" /><div class="gallery-caption"><span>Resultados</span></div></div>
+      </div>
+
+      <div class="gallery-panel gallery-grid" id="tab-kicks">
+        <div class="gallery-item tall"><img src="pk-patada-hombre.png" alt="PowerKicks" style="object-position:center 20%;"/><div class="gallery-caption"><span>High kick</span></div></div>
+        <div class="gallery-item"><img src="pk-camila-floor.png" alt="PowerKicks" /><div class="gallery-caption"><span>Coach Camila</span></div></div>
+        <div class="gallery-item"><img src="pk-patada-roja.png" alt="PowerKicks" /><div class="gallery-caption"><span>Patada alta</span></div></div>
+        <div class="gallery-item"><img src="pk-clase-grupo.png" alt="PowerKicks" /><div class="gallery-caption"><span>Clase grupal</span></div></div>
+        <div class="gallery-item"><img src="pk-peru-splits.png" alt="PowerKicks" /><div class="gallery-caption"><span>Flexibilidad extrema</span></div></div>
+        <div class="gallery-item"><img src="pk-splits-hombre.png" alt="PowerKicks" /><div class="gallery-caption"><span>Splits</span></div></div>
+        <div class="gallery-item"><img src="pk-pared-piernas.png" alt="PowerKicks" /><div class="gallery-caption"><span>Fuerza de piernas</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ACROFLEX -->
   <section id="nosotros">
     <div class="container">
-      <div class="section-label">Sobre nosotros</div>
-      <h2 class="section-title">Gimnasia para <span>todos</span></h2>
-      <p class="section-desc">Somos el espacio donde el movimiento no tiene edad ni límites. Formamos cuerpos fuertes, flexibles y seguros con el ADN ACROFLEX.</p>
-
-      <div class="about-grid">
-        <div class="about-visual reveal">
-          <div class="about-card">
-            <div class="about-icon">🤸</div>
-            <h3>Camila Garay</h3>
-            <div class="role">Fundadora & Directora</div>
-            <p>Entrenadora especializada en gimnasia artística, acrobacias y flexibilidad. Fundadora de ACROFLEX Training Center en Lima, Perú, con una metodología propia que combina técnica, disciplina y disfrute del movimiento.</p>
+      <div class="section-label reveal">¿Por qué elegirnos?</div>
+      <h2 class="section-title reveal">El ADN <span>ACROFLEX</span></h2>
+      <p class="section-desc reveal">Somos el espacio donde el movimiento no tiene edad ni límites. Lo que nos hace únicos:</p>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-photo">
+            <img src="adult-9.png" alt="Para todos" />
           </div>
+          <h3>Para Todos</h3>
+          <p>Desde 7 años hasta adultos sin límite de edad. No importa tu nivel — empezamos desde cero contigo.</p>
         </div>
-        <div class="about-text reveal">
-          <p style="color: var(--gray); font-size: 15px; line-height: 1.8; margin-bottom: 28px;">
-            En ACROFLEX creemos que la gimnasia no es solo para élites. Nuestro equipo de entrenadores trabaja cada día para que niños, jóvenes y adultos descubran todo lo que su cuerpo puede hacer.
-          </p>
-          <p style="color: var(--gray); font-size: 15px; line-height: 1.8;">
-            Ubicados en Jesús María, Lima, ofrecemos un espacio seguro, profesional y motivador donde cada alumno progresa a su ritmo con acompañamiento personalizado.
-          </p>
-          <div class="values">
-            <div class="value-item">
-              <div class="value-icon">🎯</div>
-              <div>
-                <h4>Metodología propia</h4>
-                <p>El ADN ACROFLEX: técnica + progresión + pasión</p>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon">🏆</div>
-              <div>
-                <h4>Para todos</h4>
-                <p>Desde 7 años hasta adultos sin límite de edad</p>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon">👥</div>
-              <div>
-                <h4>Equipo profesional</h4>
-                <p>Entrenadores certificados y con experiencia</p>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon">📅</div>
-              <div>
-                <h4>Todos los días</h4>
-                <p>Horarios de lunes a domingo para tu conveniencia</p>
-              </div>
-            </div>
+        <div class="feature-card reveal">
+          <div class="feature-photo">
+            <img src="fp-clase-9.png" alt="Metodología" />
           </div>
+          <h3>Metodología Propia</h3>
+          <p>El ADN ACROFLEX: técnica + progresión + pasión. Cada clase está diseñada para que avances de forma segura y real.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-photo">
+            <img src="teens-9.png" alt="Resultados" />
+          </div>
+          <h3>Resultados Reales</h3>
+          <p>Nuestros alumnos ven resultados desde las primeras semanas. Cuerpos más fuertes, flexibles y seguros.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-photo">
+            <img src="adult-1.png" alt="Equipo" />
+          </div>
+          <h3>Equipo Profesional</h3>
+          <p>8 entrenadores certificados, un ambiente seguro y un acompañamiento personalizado en cada clase.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FUNDADORA -->
-  <section id="fundadora">
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
     <div class="container">
-      <div class="section-label">Fundadora &amp; Directora</div>
-      <h2 class="section-title">La historia de <span>Camila Garay</span></h2>
-
-      <div class="founder-grid">
-
-        <!-- TEXTO -->
-        <div class="founder-text reveal">
-          <div class="founder-tags">
-            <span class="founder-tag">🩰 Bailarina Clásica</span>
-            <span class="founder-tag">🤸 Atleta Acrobática</span>
-            <span class="founder-tag">🏆 Competidora Internacional</span>
+      <div class="testi-header">
+        <div>
+          <div class="section-label reveal">Lo que dicen nuestros alumnos</div>
+          <h2 class="section-title reveal">Reseñas <span>Google</span></h2>
+        </div>
+        <div class="testi-rating reveal">
+          <div class="testi-rating-num">5.0</div>
+          <div>
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-rating-label">Google Reviews</div>
           </div>
+        </div>
+      </div>
+      <div class="testi-grid">
 
-          <p>Camila Garay es bailarina clásica, artista acrobática y deportista de alto rendimiento con más de 15 años de trayectoria. Inició su formación en ballet desde niña y evolucionó hacia la acrobacia, el cheer y la danza contemporánea, compitiendo a nivel internacional y siendo parte del equipo de coaches en competencias oficiales.</p>
-
-          <p>Su pasión por el movimiento y su visión pedagógica la llevaron a fundar <strong style="color:var(--gold)">AcroFlex Training Center</strong> en Lima: un espacio donde cualquier persona — sin importar edad ni nivel — puede descubrir su potencial físico, desarrollar flexibilidad real y construir una relación poderosa con su cuerpo.</p>
-
-          <p>Hoy dirige el equipo de entrenadores y diseña la metodología de cada programa, combinando rigor técnico con una enseñanza accesible y progresiva.</p>
-
-          <div class="founder-stats">
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Un excelente lugar para iniciar desde nivel cero. Estoy feliz de que sean parte de mi proceso. Me encanta entrenar en Acroflex ❤️ mi lugar"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JG</div>
             <div>
-              <div class="founder-stat-num">15+</div>
-              <div class="founder-stat-label">Años de experiencia</div>
-            </div>
-            <div>
-              <div class="founder-stat-num">3</div>
-              <div class="founder-stat-label">Disciplinas dominadas</div>
-            </div>
-            <div>
-              <div class="founder-stat-num">∞</div>
-              <div class="founder-stat-label">Alumnos transformados</div>
+              <div class="testi-name">Jackelyn Giuliana Gutierrez</div>
+              <div class="testi-source">Google · Hace un año</div>
             </div>
           </div>
         </div>
 
-        <!-- FOTOS -->
-        <div class="founder-mosaic reveal">
-          <div class="fphoto fphoto-main" style="background-image: url('camila-deporte.png'); background-position: center 15%;"></div>
-          <div class="fphoto fphoto-top"  style="background-image: url('camila-ballet.png'); background-position: center 10%;"></div>
-          <div class="fphoto fphoto-bottom" style="background-image: url('camila-salto.png'); background-position: center 20%;"></div>
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Gran escuela de Acrobacias y Flexibilidad 💪. Lo que más me ha enseñado es manejar mi miedo y confiar en mi proceso. Gracias Acroflex ❤️"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div>
+              <div class="testi-name">Samantha del Carmen Molina Nalvarte</div>
+              <div class="testi-source">Google · Hace un año</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Es una super academia! Puedes ingresar desde el nivel básico y te enseñan técnicas para que puedas ir avanzando. También si ya tienes experiencia aquí puedes perfeccionar junto a los profesores 💪 hay una gran variedad de horarios también!!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">PG</div>
+            <div>
+              <div class="testi-name">Pierina Galvez</div>
+              <div class="testi-source">Google · Local Guide · Hace un año</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Excelente lugar para aprender gimnasia desde cero, el ambiente apto, los instructores muy preocupados siempre por la mejora de cada uno, siempre cuidando la técnica que es lo más importante. Muy recomendado para todas las edades."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">BM</div>
+            <div>
+              <div class="testi-name">Beatriz Muñoz Lora</div>
+              <div class="testi-source">Google · Hace 2 años</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Le doy 5 estrellas porque el lugar es perfecto simplemente. Un lugar en donde tienen bastante paciencia y te enseñan que todo es un proceso. Desde que entré me encantó todo, el ambiente, las personas, todas son muy buenas y amables."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">LS</div>
+            <div>
+              <div class="testi-name">Luciana Sáenz</div>
+              <div class="testi-source">Google · Hace 3 años</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"El mejor lugar para aprender a amar los ejercicios, tu cuerpo y tu bienestar. Es increíble el espacio seguro y acogedor que se arma en cada clase. Los resultados son progresivos y evidentes, hay mucho respeto hacia tu proceso."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">LC</div>
+            <div>
+              <div class="testi-name">Lucero Carrillo</div>
+              <div class="testi-source">Google · Hace 3 años</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Todo el staff que trabaja con Camila son A1, te ayudan y acompañan en el proceso personal de cada una de sus alumnas, te motivan a continuar, y los resultados son notorios. Gracias Camila por tu compromiso."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">GR</div>
+            <div>
+              <div class="testi-name">Gladys Rosales</div>
+              <div class="testi-source">Google · Hace 3 años</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-stars-row">★★★★★</div>
+          <p class="testi-text">"Un buen lugar para aprender acrobacia y flexibilidad, la maestra muy buena amable y paciente con las alumnas, tienen distintos horarios en lo que se puedan adaptar y el precio no es carito 😉😁"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">II</div>
+            <div>
+              <div class="testi-name">Ines Dacia Inga Sanchez</div>
+              <div class="testi-source">Google · Local Guide · Hace 2 años</div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1177,13 +825,11 @@
   <!-- EQUIPO -->
   <section id="equipo">
     <div class="container">
-      <div class="section-label">Conoce al equipo</div>
-      <h2 class="section-title">Nuestro <span>Equipo</span></h2>
-      <p class="section-desc">Fundadores y entrenadores apasionados por el movimiento, comprometidos con el progreso de cada alumno.</p>
-
+      <div class="section-label reveal">Conoce al equipo</div>
+      <h2 class="section-title reveal">Nuestro <span>Equipo</span></h2>
+      <p class="section-desc reveal">Fundadores y entrenadores apasionados por el movimiento, comprometidos con el progreso de cada alumno.</p>
       <div class="team-grid">
 
-        <!-- FUNDADOR -->
         <div class="team-card founder reveal">
           <img src="guillermo-garay.png" alt="Guillermo Garay" style="object-position: center 15%;" />
           <div class="founder-badge">Fundador</div>
@@ -1194,7 +840,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- DIRECTORA -->
         <div class="team-card founder reveal">
           <img src="camila-garay.png" alt="Camila Garay" style="object-position: center 8%;" />
           <div class="founder-badge">Directora</div>
@@ -1205,7 +850,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH CATE -->
         <div class="team-card reveal">
           <img src="coach-cate.png" alt="Coach Cate" style="object-position: center 10%;" />
           <div class="team-overlay">
@@ -1215,7 +859,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH ANDREA -->
         <div class="team-card reveal">
           <img src="coach-andrea.png" alt="Coach Andrea" style="object-position: center 10%;" />
           <div class="team-overlay">
@@ -1225,10 +868,8 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH GUILLERMO -->
         <div class="team-card reveal">
-          <img src="coach-guillermo.png" alt="Coach Guillermo"
-            style="object-position: center 18%; filter: brightness(1.08) contrast(1.08) saturate(1.1);" />
+          <img src="coach-guillermo.png" alt="Coach Guillermo" style="object-position: center 18%; filter: brightness(1.08) contrast(1.08) saturate(1.1);" />
           <div class="team-overlay">
             <div class="team-name">Coach Guillermo</div>
             <div class="team-role">Entrenador</div>
@@ -1236,7 +877,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH MARCELO (mitad izquierda de imagen combinada, zoom 260%) -->
         <div class="team-card reveal">
           <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 18% 20%;"></div>
           <div class="team-overlay">
@@ -1246,7 +886,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH VALENTINA (mitad derecha de imagen combinada, zoom 260%) -->
         <div class="team-card reveal">
           <div class="team-card-bg" style="background-image: url('coach-marcelo-valentina.png'); background-size: 260% auto; background-position: 82% 15%;"></div>
           <div class="team-overlay">
@@ -1256,7 +895,6 @@
           <div class="team-border"></div>
         </div>
 
-        <!-- COACH MILLY -->
         <div class="team-card reveal">
           <img src="coach-milly.png" alt="Coach Milly" style="object-position: center 10%;" />
           <div class="team-overlay">
@@ -1270,140 +908,13 @@
     </div>
   </section>
 
-  <!-- CURSOS -->
-  <section id="cursos">
-    <div class="container">
-      <div class="courses-header">
-        <div>
-          <div class="section-label">Lo que enseñamos</div>
-          <h2 class="section-title">Nuestros <span>Cursos</span></h2>
-        </div>
-        <p class="section-desc" style="margin: 0;">Cada curso está diseñado con la metodología ACROFLEX para maximizar tu progreso.</p>
-      </div>
-
-      <div class="courses-grid">
-
-        <!-- ACROFLEX JÓVENES Y ADULTOS -->
-        <a class="course-card reveal" href="jovenes-adultos.html">
-          <div class="course-card-bg" style="background-image:url('adult-4.png')"></div>
-          <div class="course-card-overlay"></div>
-          <div class="course-card-body">
-            <span class="course-tag tag-gold">⭐ Curso estrella</span>
-            <h3>ACROFLEX<br>JÓVENES Y ADULTOS</h3>
-            <div class="course-tagline">Acrobacia · Flexibilidad · Fuerza</div>
-            <div class="course-age-pill">👤 14 años en adelante · Sin límite de edad</div>
-            <p>Aprende acrobacias, mejora tu flexibilidad y desarrolla fuerza real. Progresión segura desde donde estés, sin importar tu nivel.</p>
-            <span class="course-cta">Ver programa →</span>
-          </div>
-        </a>
-
-        <!-- ACROFLEX TEENS -->
-        <a class="course-card reveal" href="teens.html">
-          <div class="course-card-bg" style="background-image:url('teens-1.png'); background-position: center 20%;"></div>
-          <div class="course-card-overlay"></div>
-          <div class="course-card-body">
-            <span class="course-tag tag-blue">🧒 Para niños y niñas</span>
-            <h3>ACROFLEX<br>TEENS</h3>
-            <div class="course-tagline">Acrobacia · Flexibilidad · Fuerza</div>
-            <div class="course-age-pill">👧🧒 7 a 13 años</div>
-            <p>El mismo programa que adultos, diseñado especialmente para niños y niñas. Aprenden acrobacias, flexibilidad y fuerza en un ambiente divertido y seguro.</p>
-            <span class="course-cta">Ver programa →</span>
-          </div>
-        </a>
-
-        <!-- FLEXIPOWER -->
-        <a class="course-card reveal" href="flexipower.html">
-          <div class="course-card-bg" style="background-image:url('fp-clase-1.png')"></div>
-          <div class="course-card-overlay"></div>
-          <div class="course-card-body">
-            <span class="course-tag tag-teal">🧘 Movilidad & Flexibilidad</span>
-            <h3>FLEXI<br>POWER</h3>
-            <div class="course-tagline">Movilidad · Flexibilidad · Todo el cuerpo</div>
-            <div class="course-age-pill">👤 15 años en adelante</div>
-            <p>Programa completo y progresivo de movilidad y flexibilidad de todo el cuerpo. Ideal si quieres ganar rango de movimiento real desde cero.</p>
-            <span class="course-cta">Ver programa →</span>
-          </div>
-        </a>
-
-        <!-- POWERKICKS -->
-        <a class="course-card reveal" href="powerkicks.html">
-          <div class="course-card-bg" style="background-image:url('pk-camila-kick.png'); background-position: center 15%;"></div>
-          <div class="course-card-overlay"></div>
-          <div class="course-card-body">
-            <span class="course-tag tag-red">🥋 Artes Marciales</span>
-            <h3>POWER<br>KICKS</h3>
-            <div class="course-tagline">Patadas · Fuerza · Flexibilidad · Potencia</div>
-            <div class="course-age-pill">👤 Artistas marciales de cualquier nivel</div>
-            <p>Eleva tus patadas con fuerza y flexibilidad específica para artes marciales. Desarrolla altura, potencia y control con técnica real.</p>
-            <span class="course-cta course-cta-red">Ver programa →</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section id="galeria">
-    <div class="container">
-      <div class="section-label reveal">En acción</div>
-      <h2 class="section-title reveal">El gimnasio <span>por dentro</span></h2>
-
-      <div class="gallery-tabs reveal">
-        <button class="gallery-tab active" onclick="switchTab('teens', this)">ACROFLEX Teens</button>
-        <button class="gallery-tab" onclick="switchTab('adultos', this)">ACROFLEX Adultos</button>
-      </div>
-
-      <!-- Teens -->
-      <div class="gallery-panel gallery-grid active" id="tab-teens">
-        <div class="gallery-item tall">
-          <img src="accion-1.png" alt="Teens acrobacia" />
-          <div class="gallery-caption"><span>Acrobacias · Teens</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="accion-2.png" alt="Entrenamiento personalizado" />
-          <div class="gallery-caption"><span>Entrenamiento personalizado</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="accion-3.png" alt="Puente" />
-          <div class="gallery-caption"><span>Flexibilidad</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="accion-4.png" alt="Clase grupal" />
-          <div class="gallery-caption"><span>Clases grupales</span></div>
-        </div>
-      </div>
-
-      <!-- Adultos -->
-      <div class="gallery-panel gallery-grid" id="tab-adultos">
-        <div class="gallery-item tall">
-          <img src="adultos-1.png" alt="Clase adultos" />
-          <div class="gallery-caption"><span>Clase adultos</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="adultos-2.png" alt="Parada de manos" />
-          <div class="gallery-caption"><span>Parada de manos</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="adultos-3.png" alt="Vertical en pared" />
-          <div class="gallery-caption"><span>Vertical en pared</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="adultos-4.png" alt="Apoyo con coach" />
-          <div class="gallery-caption"><span>Apoyo personalizado</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- HORARIOS -->
   <section id="horarios">
     <div class="container">
-      <div class="section-label">Disponibilidad</div>
-      <h2 class="section-title">Horarios <span>Flexibles</span></h2>
-      <p class="section-desc">Selecciona el día y ve todos los cursos disponibles con sus horarios exactos.</p>
+      <div class="section-label reveal">Disponibilidad</div>
+      <h2 class="section-title reveal">Horarios <span>Flexibles</span></h2>
+      <p class="section-desc reveal">Selecciona el día y ve todos los cursos disponibles con sus horarios exactos.</p>
 
-      <!-- TABS -->
       <div class="sched-tabs reveal">
         <button class="sched-tab active" onclick="switchDay('lun',this)">Lunes</button>
         <button class="sched-tab" onclick="switchDay('mar',this)">Martes</button>
@@ -1414,295 +925,132 @@
         <button class="sched-tab weekend" onclick="switchDay('dom',this)">Domingo</button>
       </div>
 
-      <!-- LUNES -->
       <div class="sched-panel active" id="day-lun">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-teens">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Teens</span>
-            <a class="sched-course-link" href="teens.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">8:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div><div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div></div></div>
+        <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">8:00pm</span></div></div></div>
       </div>
 
-      <!-- MARTES -->
       <div class="sched-panel" id="day-mar">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div>
-            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div>
-            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div>
-            <div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-teens">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Teens</span>
-            <a class="sched-course-link" href="teens.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">6:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div><div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div><div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div></div></div>
+        <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">6:00pm</span></div></div></div>
       </div>
 
-      <!-- MIÉRCOLES -->
       <div class="sched-panel" id="day-mie">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-teens">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Teens</span>
-            <a class="sched-course-link" href="teens.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">9:00am</span></div>
-            <div class="sched-slot"><span class="sched-time">8:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div><div class="sched-slot"><span class="sched-time">8:00pm – 9:25pm</span><span class="sched-new">★ Nuevo</span></div></div></div>
+        <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">5:00pm – 6:25pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">9:00am</span></div><div class="sched-slot"><span class="sched-time">8:00pm</span></div></div></div>
       </div>
 
-      <!-- JUEVES -->
       <div class="sched-panel" id="day-jue">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div>
-            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div>
-            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div>
-            <div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-teens">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Teens</span>
-            <a class="sched-course-link" href="teens.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">6:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">6:30am – 7:55am</span></div><div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span><span class="sched-new">★ Nuevo</span></div><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">7:00pm – 8:25pm</span></div><div class="sched-slot"><span class="sched-time">8:30pm – 9:55pm</span><span class="sched-new">★ Nuevo</span></div></div></div>
+        <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">6:00pm</span></div></div></div>
       </div>
 
-      <!-- VIERNES -->
       <div class="sched-panel" id="day-vie">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div>
-            <div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">9:00am</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-kicks">
-          <div class="sched-course-head">
-            <span class="sched-course-name">PowerKicks</span>
-            <a class="sched-course-link" href="powerkicks.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">6:00pm – 7:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">11:30am – 12:55pm</span></div><div class="sched-slot"><span class="sched-time">6:30pm – 7:55pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">9:00am</span></div></div></div>
+        <div class="sched-course tag-kicks"><div class="sched-course-head"><span class="sched-course-name">PowerKicks</span><a class="sched-course-link" href="powerkicks.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">6:00pm – 7:00pm</span></div></div></div>
       </div>
 
-      <!-- SÁBADO -->
       <div class="sched-panel" id="day-sab">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">7:30am – 8:55am</span></div>
-            <div class="sched-slot"><span class="sched-time">10:30am – 11:55am</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-teens">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Teens</span>
-            <a class="sched-course-link" href="teens.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span></div>
-            <div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-flexi">
-          <div class="sched-course-head">
-            <span class="sched-course-name">FlexiPower</span>
-            <a class="sched-course-link" href="flexipower.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">12:00pm</span><span class="sched-intensive">Intensivo 1h 30min</span></div>
-          </div>
-        </div>
-        <div class="sched-course tag-kicks">
-          <div class="sched-course-head">
-            <span class="sched-course-name">PowerKicks</span>
-            <a class="sched-course-link" href="powerkicks.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">2:00pm – 3:00pm</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">7:30am – 8:55am</span></div><div class="sched-slot"><span class="sched-time">10:30am – 11:55am</span></div></div></div>
+        <div class="sched-course tag-teens"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Teens</span><a class="sched-course-link" href="teens.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">9:00am – 10:25am</span></div><div class="sched-slot"><span class="sched-time">4:30pm – 5:55pm</span></div></div></div>
+        <div class="sched-course tag-flexi"><div class="sched-course-head"><span class="sched-course-name">FlexiPower</span><a class="sched-course-link" href="flexipower.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">12:00pm</span><span class="sched-intensive">Intensivo 1h 30min</span></div></div></div>
+        <div class="sched-course tag-kicks"><div class="sched-course-head"><span class="sched-course-name">PowerKicks</span><a class="sched-course-link" href="powerkicks.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">2:00pm – 3:00pm</span></div></div></div>
       </div>
 
-      <!-- DOMINGO -->
       <div class="sched-panel" id="day-dom">
-        <div class="sched-course tag-adultos">
-          <div class="sched-course-head">
-            <span class="sched-course-name">AcroFlex Adultos</span>
-            <a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a>
-          </div>
-          <div class="sched-slots">
-            <div class="sched-slot"><span class="sched-time">9:30am – 11:30am</span><span class="sched-intensive">Intensivo 2h</span></div>
-            <div class="sched-slot"><span class="sched-time">11:30am – 1:30pm</span><span class="sched-intensive">Intensivo 2h</span></div>
-          </div>
-        </div>
+        <div class="sched-course tag-adultos"><div class="sched-course-head"><span class="sched-course-name">AcroFlex Adultos</span><a class="sched-course-link" href="jovenes-adultos.html">Ver curso →</a></div><div class="sched-slots"><div class="sched-slot"><span class="sched-time">9:30am – 11:30am</span><span class="sched-intensive">Intensivo 2h</span></div><div class="sched-slot"><span class="sched-time">11:30am – 1:30pm</span><span class="sched-intensive">Intensivo 2h</span></div></div></div>
       </div>
 
       <div class="sched-cta reveal">
-        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20consultar%20horarios%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank" class="btn-primary">
-          ¿Tienes dudas? Escríbenos por WhatsApp
-        </a>
+        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20consultar%20horarios%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank" class="btn-primary">¿Tienes dudas? Escríbenos por WhatsApp</a>
       </div>
+    </div>
+  </section>
 
+  <!-- FUNDADORA -->
+  <section id="fundadora">
+    <div class="container">
+      <div class="section-label reveal">Fundadora &amp; Directora</div>
+      <h2 class="section-title reveal">La historia de <span>Camila Garay</span></h2>
+      <div class="founder-grid">
+        <div class="founder-text reveal">
+          <div class="founder-tags">
+            <span class="founder-tag">🩰 Bailarina Clásica</span>
+            <span class="founder-tag">🤸 Atleta Acrobática</span>
+            <span class="founder-tag">🏆 Competidora Internacional</span>
+          </div>
+          <p>Camila Garay es bailarina clásica, artista acrobática y deportista de alto rendimiento con más de 15 años de trayectoria. Inició su formación en ballet desde niña y evolucionó hacia la acrobacia, el cheer y la danza contemporánea, compitiendo a nivel internacional.</p>
+          <p>Su pasión por el movimiento y su visión pedagógica la llevaron a fundar <strong style="color:var(--gold)">AcroFlex Training Center</strong> en Lima: un espacio donde cualquier persona puede descubrir su potencial físico y construir una relación poderosa con su cuerpo.</p>
+          <p>Hoy dirige el equipo de entrenadores y diseña la metodología de cada programa, combinando rigor técnico con una enseñanza accesible y progresiva.</p>
+          <div class="founder-stats">
+            <div><div class="founder-stat-num">15+</div><div class="founder-stat-label">Años de experiencia</div></div>
+            <div><div class="founder-stat-num">3</div><div class="founder-stat-label">Disciplinas dominadas</div></div>
+            <div><div class="founder-stat-num">∞</div><div class="founder-stat-label">Alumnos transformados</div></div>
+          </div>
+        </div>
+        <div class="founder-mosaic reveal">
+          <div class="fphoto fphoto-main" style="background-image: url('camila-deporte.png'); background-position: center 15%;"></div>
+          <div class="fphoto fphoto-top"  style="background-image: url('camila-ballet.png'); background-position: center 10%;"></div>
+          <div class="fphoto fphoto-bottom" style="background-image: url('camila-salto.png'); background-position: center 20%;"></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- UBICACIÓN -->
   <section id="ubicacion">
     <div class="container">
-      <div class="section-label">Encuéntranos</div>
-      <h2 class="section-title">Nuestra <span>Ubicación</span></h2>
-      <p class="section-desc">Estamos en el corazón de Jesús María, Lima. Fácil acceso desde cualquier punto de la ciudad.</p>
-
+      <div class="section-label reveal">Encuéntranos</div>
+      <h2 class="section-title reveal">Nuestra <span>Ubicación</span></h2>
+      <p class="section-desc reveal">Estamos en el corazón de Jesús María, Lima. Fácil acceso desde cualquier punto de la ciudad.</p>
       <div class="location-grid">
         <div class="reveal">
           <div class="location-detail">
             <div class="location-icon">📍</div>
-            <div>
-              <h4>Dirección</h4>
-              <p>Av. Usores de Junín 374<br><span>Jesús María, Lima, Perú</span></p>
-            </div>
+            <div><h4>Dirección</h4><p>Av. Husares de Junín 374<br><span>Jesús María, Lima, Perú</span></p></div>
           </div>
           <div class="location-detail">
             <div class="location-icon">🕐</div>
-            <div>
-              <h4>Horario de atención</h4>
-              <p>Lunes a Domingo<br><span>Consulta horarios por curso</span></p>
-            </div>
+            <div><h4>Horario de atención</h4><p>Lunes a Domingo<br><span>Consulta horarios por curso</span></p></div>
           </div>
           <div class="location-detail">
             <div class="location-icon">📱</div>
-            <div>
-              <h4>Contáctanos</h4>
-              <p>WhatsApp disponible<br><span>Respuesta rápida</span></p>
-            </div>
+            <div><h4>Contáctanos</h4><p>+51 969 622 550<br><span>Respuesta rápida por WhatsApp</span></p></div>
           </div>
           <div class="location-detail">
             <div class="location-icon">📷</div>
-            <div>
-              <h4>Síguenos</h4>
-              <p>@acroflex_<br><span>Instagram · TikTok · Facebook</span></p>
-            </div>
+            <div><h4>Síguenos</h4><p>@acroflex_<br><span>Instagram · TikTok · Facebook</span></p></div>
           </div>
-
           <div class="cta-box">
             <h3>¿Listo para empezar?</h3>
             <p>Escríbenos y te asesoramos sobre el curso ideal para ti o tu hijo.</p>
-            <a href="https://wa.me/51969622550" class="btn-primary">Escribir por WhatsApp</a>
+            <a href="https://wa.me/51969622550" class="btn-primary" target="_blank">Escribir por WhatsApp</a>
           </div>
         </div>
-
         <div class="reveal">
           <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.0!2d-77.0428!3d-12.0731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.+Usores+de+Jun%C3%ADn+374%2C+Jes%C3%BAs+Mar%C3%ADa%2C+Lima!5e0!3m2!1ses!2spe!4v1"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.0!2d-77.0428!3d-12.0731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAv.+Husares+de+Jun%C3%ADn+374%2C+Jes%C3%BAs+Mar%C3%ADa%2C+Lima!5e0!3m2!1ses!2spe!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <div class="cta-final-shape cta-final-shape-1"></div>
+    <div class="cta-final-shape cta-final-shape-2"></div>
+    <div class="cta-final-inner reveal">
+      <h2>¿Lista para <span>transformar</span> tu cuerpo?</h2>
+      <p>Únete a la familia AcroFlex. Da el primer paso hoy — te esperamos en Jesús María, Lima.</p>
+      <div class="cta-final-buttons">
+        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20AcroFlex%20%F0%9F%A4%B8" class="btn-primary" target="_blank">Inscríbete por WhatsApp</a>
+        <a href="#cursos" class="btn-secondary">Ver todos los cursos</a>
       </div>
     </div>
   </section>
@@ -1717,37 +1065,32 @@
       <div class="footer-col">
         <h4>Cursos</h4>
         <ul>
-          <li>ACROFLEX Teens</li>
-          <li>ACROFLEX Adultos</li>
-          <li>FLEXI</li>
-          <li>Preparación Física</li>
-          <li>Power Kicks</li>
+          <li><a href="jovenes-adultos.html" style="color:inherit;text-decoration:none;">AcroFlex Adultos</a></li>
+          <li><a href="teens.html" style="color:inherit;text-decoration:none;">AcroFlex Teens</a></li>
+          <li><a href="flexipower.html" style="color:inherit;text-decoration:none;">FlexiPower</a></li>
+          <li><a href="powerkicks.html" style="color:inherit;text-decoration:none;">PowerKicks</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
         <ul>
-          <li>Av. Usores de Junín 374</li>
+          <li>Av. Husares de Junín 374</li>
           <li>Jesús María, Lima</li>
           <li>Lun – Dom</li>
-          <li>WhatsApp</li>
+          <li>+51 969 622 550</li>
           <li>@acroflex_</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 <span>ACROFLEX Training Center</span>. Todos los derechos reservados.</p>
+      <p>&copy; 2025 <span>ACROFLEX Training Center</span>. Todos los derechos reservados.</p>
       <p>Hecho con ❤️ en Lima, Perú</p>
     </div>
   </footer>
 
-  <!-- WhatsApp float -->
-  <a href="https://wa.me/51969622550" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
-    💬
-  </a>
+  <a href="https://wa.me/51969622550" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">💬</a>
 
   <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1759,13 +1102,11 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Nav scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       nav.style.padding = window.scrollY > 50 ? '12px 48px' : '18px 48px';
     });
 
-    // Gallery tabs
     function switchDay(day, btn) {
       document.querySelectorAll('.sched-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.sched-tab').forEach(t => t.classList.remove('active'));
@@ -1780,7 +1121,6 @@
       btn.classList.add('active');
     }
 
-    // Mobile menu
     function toggleMenu() {
       const links = document.querySelector('.nav-links');
       if (links.style.display === 'flex') {
@@ -1792,7 +1132,7 @@
         links.style.top = '70px';
         links.style.left = '0';
         links.style.right = '0';
-        links.style.background = 'rgba(5, 10, 46, 0.98)';
+        links.style.background = 'rgba(5,10,46,0.98)';
         links.style.padding = '24px';
         links.style.gap = '20px';
       }
