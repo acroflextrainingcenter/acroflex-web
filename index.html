@@ -265,18 +265,31 @@
     .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
     .feature-card {
       background: rgba(34,51,238,0.08); border: 1px solid rgba(34,51,238,0.2);
-      border-radius: 16px; padding: 32px 24px; text-align: center;
-      transition: transform 0.3s, border-color 0.3s;
+      border-radius: 20px; padding: 44px 28px 36px; text-align: center;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+      position: relative; overflow: hidden;
     }
-    .feature-card:hover { transform: translateY(-6px); border-color: rgba(240,112,32,0.4); }
-    .feature-photo {
-      width: 100%; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden;
-      margin-bottom: 20px;
+    .feature-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(240,112,32,0.12) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.3s;
     }
-    .feature-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-    .feature-icon { font-size: 36px; margin-bottom: 16px; }
-    .feature-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; margin-bottom: 10px; color: var(--white); }
-    .feature-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+    .feature-card:hover { transform: translateY(-8px); border-color: rgba(240,112,32,0.5); background: rgba(34,51,238,0.14); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      font-size: 52px; margin-bottom: 20px; display: block;
+      filter: drop-shadow(0 0 16px rgba(240,112,32,0.4));
+    }
+    .feature-stat {
+      font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1;
+      color: var(--gold); letter-spacing: 2px; margin-bottom: 4px;
+      text-shadow: 0 0 30px rgba(240,112,32,0.35);
+    }
+    .feature-card h3 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px;
+      margin-bottom: 14px; color: var(--white); text-transform: uppercase;
+    }
+    .feature-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
 
     /* ─── TESTIMONIOS ─── */
     #testimonios { background: var(--navy2); }
@@ -713,32 +726,28 @@
       <p class="section-desc reveal">Somos el espacio donde el movimiento no tiene edad ni límites. Lo que nos hace únicos:</p>
       <div class="features-grid">
         <div class="feature-card reveal">
-          <div class="feature-photo">
-            <img src="adult-9.png" alt="Para todos" />
-          </div>
+          <span class="feature-icon">🤸</span>
+          <div class="feature-stat">7+</div>
           <h3>Para Todos</h3>
-          <p>Desde 7 años hasta adultos sin límite de edad. No importa tu nivel — empezamos desde cero contigo.</p>
+          <p>Desde los 7 años hasta adultos sin límite de edad. No importa tu nivel — empezamos desde cero contigo.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-photo">
-            <img src="fp-clase-9.png" alt="Metodología" />
-          </div>
+          <span class="feature-icon">⚡</span>
+          <div class="feature-stat">100%</div>
           <h3>Metodología Propia</h3>
-          <p>El ADN ACROFLEX: técnica + progresión + pasión. Cada clase está diseñada para que avances de forma segura y real.</p>
+          <p>Técnica + progresión + pasión. Cada clase está diseñada para que avances de forma segura y real.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-photo">
-            <img src="teens-9.png" alt="Resultados" />
-          </div>
-          <h3>Resultados Reales</h3>
-          <p>Nuestros alumnos ven resultados desde las primeras semanas. Cuerpos más fuertes, flexibles y seguros.</p>
+          <span class="feature-icon">🏆</span>
+          <div class="feature-stat">7</div>
+          <h3>Días a la Semana</h3>
+          <p>Horarios flexibles todos los días para que nunca pierdas tu ritmo de entrenamiento.</p>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-photo">
-            <img src="adult-1.png" alt="Equipo" />
-          </div>
+          <span class="feature-icon">❤️</span>
+          <div class="feature-stat">★5.0</div>
           <h3>Equipo Profesional</h3>
-          <p>8 entrenadores certificados, un ambiente seguro y un acompañamiento personalizado en cada clase.</p>
+          <p>Entrenadores certificados, ambiente seguro y acompañamiento personalizado en cada clase.</p>
         </div>
       </div>
     </div>
