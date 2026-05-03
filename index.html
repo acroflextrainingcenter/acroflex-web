@@ -33,8 +33,8 @@
       background: rgba(5,10,46,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(240,112,32,0.2); transition: padding 0.3s;
     }
-    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .nav-logo img { height: 52px; width: auto; display: block; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--gray); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--gold); }
@@ -517,6 +517,7 @@
     @media (max-width: 700px) {
       /* ─── BASE ─── */
       nav { padding: 12px 18px; }
+      .nav-logo img { height: 42px; }
       section { padding: 56px 18px; }
       .container { padding: 0 18px; }
       #hero { padding: 88px 18px 52px; min-height: 100svh; }
@@ -618,7 +619,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">ACRO<span>FLEX</span></a>
+    <a href="#" class="nav-logo"><img src="logo.png" alt="AcroFlex Training Center" /></a>
     <ul class="nav-links">
       <li><a href="#cursos">Cursos</a></li>
       <li><a href="#testimonios">Reseñas</a></li>
@@ -1103,7 +1104,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo">ACRO<span>FLEX</span></div>
+        <img src="logo.png" alt="AcroFlex Training Center" style="height:90px; width:auto; display:block; margin-bottom:16px;" />
         <p>Academia de gimnasia artística, acrobacias y flexibilidad en Lima, Perú. Gimnasia para todos — desde los 7 años sin límite de edad.</p>
       </div>
       <div class="footer-col">
