@@ -38,8 +38,15 @@
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--gray); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 10px 22px; border-radius: 4px; font-weight: 700 !important; }
-    .nav-cta:hover { background: var(--gold2) !important; }
+    .nav-cta {
+      background: linear-gradient(90deg, var(--gold), #ff9a3c, var(--gold)) !important;
+      background-size: 200% auto !important;
+      color: var(--navy) !important; padding: 10px 24px; border-radius: 6px;
+      font-weight: 800 !important; letter-spacing: 1px;
+      box-shadow: 0 4px 18px rgba(240,112,32,0.45) !important;
+      animation: btnShine 2.8s linear infinite !important;
+    }
+    .nav-cta:hover { transform: translateY(-1px) !important; box-shadow: 0 6px 24px rgba(240,112,32,0.6) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; }
 
@@ -151,20 +158,35 @@
     @keyframes fadeInUp   { from { opacity: 0; transform: translateY(30px);  } to { opacity: 1; transform: translateY(0); } }
 
     /* ─── BUTTONS ─── */
+    @keyframes btnShine {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
     .btn-primary {
-      display: inline-block; background: var(--gold); color: var(--navy);
+      display: inline-block;
+      background: linear-gradient(90deg, #e86510, #ff9a3c, #f07020, #ff9a3c, #e86510);
+      background-size: 300% auto;
+      color: var(--navy);
       font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
       letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
-      padding: 16px 36px; border-radius: 4px; transition: all 0.3s;
+      padding: 18px 40px; border-radius: 6px;
+      box-shadow: 0 6px 24px rgba(240,112,32,0.45);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: btnShine 3s linear infinite;
+      position: relative; overflow: hidden;
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(240,112,32,0.3); }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(240,112,32,0.6);
+    }
     .btn-secondary {
       display: inline-block; background: transparent; color: var(--white);
       font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
-      padding: 16px 36px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s;
+      padding: 18px 40px; border-radius: 6px;
+      border: 2px solid rgba(240,112,32,0.5); transition: all 0.3s;
     }
-    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(240,112,32,0.2); }
 
     /* ─── LAYOUT ─── */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
@@ -627,7 +649,7 @@
         <p class="hero-subtitle">Gimnasia para todos. Acrobacias, flexibilidad y fuerza para niños, jóvenes y adultos — sin límite de edad.</p>
         <div class="hero-buttons">
           <a href="#cursos" class="btn-primary">Ver Cursos</a>
-          <a href="https://wa.me/51969622550" class="btn-secondary" target="_blank">Escribir por WhatsApp</a>
+          <a href="https://wa.me/51993813336" class="btn-secondary" target="_blank">Escribir por WhatsApp</a>
         </div>
         <div class="hero-stats">
           <div class="stat-item">
@@ -1051,7 +1073,7 @@
           <div class="cta-box">
             <h3>¿Listo para empezar?</h3>
             <p>Escríbenos y te asesoramos sobre el curso ideal para ti o tu hijo.</p>
-            <a href="https://wa.me/51969622550" class="btn-primary" target="_blank">Escribir por WhatsApp</a>
+            <a href="https://wa.me/51993813336" class="btn-primary" target="_blank">Escribir por WhatsApp</a>
           </div>
         </div>
         <div class="reveal">
@@ -1071,7 +1093,7 @@
       <h2>¿Lista para <span>transformar</span> tu cuerpo?</h2>
       <p>Únete a la familia AcroFlex. Da el primer paso hoy — te esperamos en Jesús María, Lima.</p>
       <div class="cta-final-buttons">
-        <a href="https://wa.me/51969622550?text=Hola!%20Quiero%20inscribirme%20en%20AcroFlex%20%F0%9F%A4%B8" class="btn-primary" target="_blank">Inscríbete por WhatsApp</a>
+        <a href="https://wa.me/51993813336?text=Hola!%20Quiero%20inscribirme%20en%20AcroFlex%20%F0%9F%A4%B8" class="btn-primary" target="_blank">Inscríbete por WhatsApp</a>
         <a href="#cursos" class="btn-secondary">Ver todos los cursos</a>
       </div>
     </div>
