@@ -21,7 +21,7 @@
       --gray:   #a0a8cc;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-text-size-adjust: 100%; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
@@ -493,72 +493,96 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 700px) {
-      nav { padding: 14px 20px; }
-      section { padding: 64px 20px; }
-      .container { padding: 0 20px; }
-      #hero { padding: 90px 20px 56px; }
+      /* ─── BASE ─── */
+      nav { padding: 12px 18px; }
+      section { padding: 56px 18px; }
+      .container { padding: 0 18px; }
+      #hero { padding: 88px 18px 52px; min-height: 100svh; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
-      /* Grids */
+      /* ─── HERO ─── */
+      .hero-title { font-size: 52px; letter-spacing: 2px; }
+      .hero-subtitle { font-size: 14px; margin: 16px 0 28px; }
+      .hero-tag { margin-bottom: 18px; font-size: 10px; }
+      .hero-buttons { flex-direction: column; gap: 12px; align-items: stretch; }
+      .hero-buttons a { text-align: center; padding: 14px 24px; font-size: 12px; }
+      .hero-stats {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 20px 16px; margin-top: 32px; padding-top: 28px;
+      }
+      .stat-item { text-align: left; }
+      .stat-number { font-size: 34px; }
+      .stat-label { font-size: 10px; letter-spacing: 1px; }
+
+      /* ─── GRIDS ─── */
       .courses-grid { grid-template-columns: 1fr; gap: 16px; }
-      .features-grid { grid-template-columns: 1fr; gap: 16px; }
-      .testi-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; gap: 14px; }
+      .testi-grid { grid-template-columns: 1fr; gap: 14px; }
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
-      /* Course cards shorter on mobile */
-      .course-card { min-height: 320px; }
+      /* ─── SECTION TITLES ─── */
+      .section-title { font-size: 36px; }
+      .section-desc { font-size: 14px; margin-bottom: 36px; }
+      .courses-header { margin-bottom: 28px; }
 
-      /* Marquee photos smaller on mobile */
-      .marquee-photo { width: 220px; height: 280px; }
-      .marquee-section { padding: 32px 0; }
+      /* ─── COURSE CARDS ─── */
+      .course-card { min-height: 280px; border-radius: 14px; }
+      .course-card-body { padding: 20px; }
 
-      /* Schedule tabs scrollable */
-      .sched-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
-      .sched-tab { white-space: nowrap; flex-shrink: 0; font-size: 12px; padding: 8px 16px; }
-      .sched-panel.active { grid-template-columns: 1fr; }
+      /* ─── MARQUEE ─── */
+      .marquee-photo { width: 180px; height: 240px; border-radius: 10px; }
+      .marquee-section { padding: 24px 0; }
 
-      /* Gallery tabs scrollable */
-      .gallery-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
-      .gallery-tab { white-space: nowrap; flex-shrink: 0; }
+      /* ─── SCHEDULE TABS ─── */
+      .sched-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .sched-tabs::-webkit-scrollbar { display: none; }
+      .sched-tab { white-space: nowrap; flex-shrink: 0; font-size: 11px; padding: 7px 14px; }
+      .sched-panel.active { grid-template-columns: 1fr; gap: 14px; }
+
+      /* ─── GALLERY ─── */
+      .gallery-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .gallery-tabs::-webkit-scrollbar { display: none; }
+      .gallery-tab { white-space: nowrap; flex-shrink: 0; font-size: 12px; padding: 8px 18px; }
       .gallery-item { aspect-ratio: 1; }
       .gallery-item.tall { grid-row: span 1; aspect-ratio: 1; min-height: auto; }
       .gallery-item.wide { grid-column: span 1; }
 
-      /* Team cards */
-      .team-card { min-height: 280px; }
+      /* ─── FEATURE CARDS ─── */
+      .feature-card { padding: 32px 20px 28px; }
+      .feature-stat { font-size: 52px; }
+      .feature-icon { font-size: 40px; margin-bottom: 12px; }
+      .feature-card h3 { font-size: 18px; }
+      .feature-card p { font-size: 13px; }
 
-      /* Founder mosaic stacked */
-      .founder-mosaic { grid-template-columns: 1fr; grid-template-rows: 300px 200px 200px; }
+      /* ─── TEAM ─── */
+      .team-card { min-height: 240px; border-radius: 12px; }
+      .team-name { font-size: 14px; }
+      .team-role { font-size: 10px; }
+
+      /* ─── TESTIMONIALS ─── */
+      .testi-card { padding: 20px; }
+      .testi-text { font-size: 13px; }
+
+      /* ─── FOUNDER ─── */
+      .founder-mosaic { grid-template-columns: 1fr; grid-template-rows: 280px 190px 190px; gap: 10px; }
       .fphoto-main { grid-column: 1; grid-row: 1; }
       .fphoto-top  { grid-column: 1; grid-row: 2; }
       .fphoto-bottom { grid-column: 1; grid-row: 3; }
+      .founder-grid { gap: 36px; }
 
-      /* Footer */
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
-      .cta-final-buttons { flex-direction: column; align-items: center; gap: 14px; }
-      .cta-final-buttons a { width: 100%; max-width: 320px; text-align: center; }
+      /* ─── CTA FINAL ─── */
+      .cta-final-buttons { flex-direction: column; align-items: center; gap: 12px; }
+      .cta-final-buttons a { width: 100%; max-width: 300px; text-align: center; padding: 14px 20px; }
 
-      /* Feature cards */
-      .feature-stat { font-size: 56px; }
-      .feature-icon { font-size: 44px; }
+      /* ─── FOOTER ─── */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
 
-      /* Hero stats */
-      .hero-stats { gap: 24px; }
-      .stat-number { font-size: 36px; }
-
-      /* WhatsApp float reposition */
-      .whatsapp-float { bottom: 20px; right: 16px; width: 56px; height: 56px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
-    }
-
-    @media (max-width: 400px) {
-      .team-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .courses-grid { grid-template-columns: 1fr; }
-      .hero-buttons { flex-direction: column; gap: 12px; }
-      .hero-buttons a { text-align: center; }
+      /* ─── WHATSAPP ─── */
+      .whatsapp-float { bottom: 18px; right: 14px; width: 54px; height: 54px; }
+      .whatsapp-float svg { width: 26px; height: 26px; }
     }
   </style>
 </head>
