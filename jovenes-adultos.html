@@ -25,7 +25,7 @@
       --gray:    #8aabcc;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--announce-h, 42px) + 80px); }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -663,8 +663,18 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.05rem;
       letter-spacing: 2px;
-      position: relative;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       z-index: 200;
+    }
+    /* La tira va fija arriba y el menú justo debajo (altura medida por JS) */
+    body { padding-top: var(--announce-h, 42px); }
+    nav { top: var(--announce-h, 42px) !important; }
+    .announce-short { display: none; }
+    @media (max-width: 600px) {
+      .top-announce { font-size: 0.95rem; letter-spacing: 1.5px; padding: 9px 12px; }
+      .announce-long { display: none; }
+      .announce-short { display: inline; }
     }
     .top-announce a { color: #fff; text-decoration: none; }
     .top-announce strong { color: #ffe066; }
@@ -1433,14 +1443,14 @@
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
 
-      .hero { padding: 100px 24px 60px; }
+      .hero { padding: 130px 24px 60px; }
       .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
       .hero h1 { font-size: 3.8rem; }
       .hero-desc { margin: 0 auto 32px; }
       .hero-actions { justify-content: center; }
       .hero-img-wrap { width: 300px; height: 370px; }
       .hero-stat.top-left { left: -10px; }
-      .hero-stat.bottom-right { right: -10px; }
+      .hero-stat.bottom-right { right: -10px; bottom: auto; top: 20px; }
 
       section { padding: 70px 24px; }
 
@@ -1482,6 +1492,11 @@
     .miedo-q::after { content:'”'; color:var(--gold); }
     .miedo-a { font-size:0.88rem; color:rgba(255,255,255,0.72); line-height:1.7; }
     .miedo-a strong { color:#fff; }
+    .comunidad { max-width:1100px; margin:48px auto 0; position:relative; border-radius:22px; overflow:hidden; border:1px solid rgba(255,107,26,0.3); }
+    .comunidad img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+    .comunidad figcaption { position:absolute; left:0; right:0; bottom:0; padding:60px 28px 22px; background:linear-gradient(to top, rgba(6,12,60,0.92), transparent); font-size:1rem; color:rgba(255,255,255,0.85); text-align:center; }
+    .comunidad figcaption strong { color:#fff; }
+    @media (max-width:600px) { .comunidad figcaption { position:static; background:rgba(255,255,255,0.04); padding:14px 16px; font-size:0.88rem; } }
     .pasos { max-width:1000px; margin:56px auto 0; text-align:center; }
     .pasos h3 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1.5px; margin-bottom:26px; }
     .pasos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:34px; }
@@ -1527,8 +1542,9 @@
 
   <!-- ─── ANUNCIO TOP ─── -->
   <div class="top-announce">
-    🔥 <strong>¡HORARIOS DE OCTUBRE!</strong> &nbsp;·&nbsp; Nuevo turno: sábados 3:00 pm &nbsp;·&nbsp;
-    <a href="#horarios">Ver horarios ↓</a> &nbsp;🔥
+    <span class="announce-long">🔥 <strong>¡HORARIOS DE OCTUBRE!</strong> &nbsp;·&nbsp; Nuevo turno: sábados 3:00 pm &nbsp;·&nbsp;
+    <a href="#horarios">Ver horarios ↓</a> &nbsp;🔥</span>
+    <a href="#horarios" class="announce-short">🔥 <strong>Nuevo turno:</strong> sábados 3:00 pm ↓</a>
   </div>
 
   <!-- ─── NAV ─── -->
@@ -1602,7 +1618,7 @@
 
       <div class="hero-photo">
         <div class="hero-img-wrap">
-          <img src="adult-4.png" alt="Clase AcroFlex Jóvenes y Adultos" />
+          <img src="hero-parada.jpg" alt="Alumna de Acroflex haciendo parada de manos con split en el salón" style="object-position:center center;" />
           <div class="hero-stat top-left">
             <div class="stat-num" style="font-size:1.2rem; letter-spacing:1px;">LUN–DOM</div>
             <div class="stat-label">Todos los días</div>
@@ -1751,6 +1767,11 @@
       </div>
     </div>
 
+    <figure class="comunidad">
+      <img src="grupo-acroflex.jpg" alt="Grupo de alumnos y entrenadores de Acroflex sonriendo en el salón" loading="lazy" />
+      <figcaption>Aquí no entrenas solo: <strong>una comunidad que entrena, evoluciona y disfruta junta.</strong></figcaption>
+    </figure>
+
     <div class="pasos">
       <h3>Empezar es así de <span style="color:var(--orange2);">simple</span></h3>
       <div class="pasos-grid">
@@ -1773,8 +1794,8 @@
     <div class="section-line"></div>
 
     <div class="about-inner">
-      <div class="about-img">
-        <img src="adult-3.png" alt="Clase de acrobacia" />
+      <div class="about-img" style="height:auto;">
+        <img src="entrenadora-asiste.jpg" alt="Entrenadora de Acroflex asistiendo a un alumno en su parada de manos" style="height:auto;" />
       </div>
       <div class="about-text">
         <h3>Técnica, seguridad y avance real</h3>
@@ -2176,6 +2197,12 @@
   </a>
 
   <script>
+    // ─── ALTURA DE LA TIRA SUPERIOR ───
+    const announce = document.querySelector('.top-announce');
+    const setAnnounceH = () => document.documentElement.style.setProperty('--announce-h', announce.offsetHeight + 'px');
+    setAnnounceH();
+    window.addEventListener('resize', setAnnounceH);
+
     // ─── MEDICIÓN (Meta Pixel) ───
     // Cada clic a WhatsApp se cuenta como "Contact" (evento estándar de Meta).
     // data-cta indica desde qué botón fue: hero, miedos, precios-suelta, final, plan-4, etc.
