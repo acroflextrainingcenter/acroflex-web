@@ -31,7 +31,7 @@
     fbq('track', 'PageView');
     (function(){
       var q=new URLSearchParams(location.search);
-      if (q.get('n')) fbq('track','Lead',{content_name:'matricula-50',content_category:q.get('f')||'',value:25,currency:'PEN'});
+      if (q.get('n')) fbq('track','Lead',{content_name:'formulario-landing',content_category:q.get('f')||''});
     })();
   </script>
 </head>
@@ -39,8 +39,7 @@
   <div class="card">
     <img class="logo" src="logo.png" alt="Acroflex" />
     <h1>¡Listo, <span id="nombre">ya casi</span>! 🎉</h1>
-    <p>Tu <strong>matrícula a S/25</strong> está reservada:</p>
-    <div class="oferta">🎁 Matrícula <s>S/50</s> <b>S/25</b><br><span style="font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75);">Pago único al ingresar, aparte de tu mensualidad</span><br><span style="font-size:.8rem;color:#ffb3c7;">⏰ Inscríbete hasta el viernes 9 de octubre</span></div>
+    <p>Recibimos tus datos 🙌</p>
     <p>Último paso: <strong>envíanos el mensaje por WhatsApp</strong> y te ayudamos a elegir tu horario.</p>
     <a id="wa" class="btn" href="https://wa.me/51969622550" target="_self">Enviar mi mensaje por WhatsApp</a>
     <div class="nota">Se abrirá WhatsApp con tu mensaje ya escrito.</div>
@@ -49,7 +48,7 @@
   <script>
     var q=new URLSearchParams(location.search), n=(q.get('n')||'').trim();
     if(n){ document.getElementById('nombre').textContent=n.split(' ')[0]; }
-    var msg='¡Hola! Soy '+(n||'')+' y vengo de la web 🤸 Quiero mi 50% de descuento en la matrícula de Acroflex Jóvenes y Adultos.\nHorario que me acomoda: '+(q.get('h')||'-')+'\nPlan que me interesa: '+(q.get('p')||'Aún no sé');
+    var msg='¡Hola! Soy '+(n||'')+' y vengo de la web 🤸 Quiero empezar en Acroflex Jóvenes y Adultos.\nHorario que me acomoda: '+(q.get('h')||'-')+'\nPlan que me interesa: '+(q.get('p')||'Aún no sé');
     var wa='https://wa.me/51969622550?text='+encodeURIComponent(msg);
     document.getElementById('wa').href=wa;
     document.getElementById('wa').addEventListener('click',function(){ if(typeof fbq==='function') fbq('track','Contact',{content_name:'lead-whatsapp',content_category:'gracias'}); });
