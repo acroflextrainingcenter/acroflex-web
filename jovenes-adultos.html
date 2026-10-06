@@ -1675,7 +1675,7 @@
               <option value="">Elige una opción</option>
               <option>Mañana (6:30 – 11:30 am)</option>
               <option>Mediodía (11:30 am)</option>
-              <option>Noche (6:30 – 8:30 pm)</option>
+              <option>Noche (6:30 – 10:00 pm)</option>
               <option>Fin de semana</option>
             </select>
           </label>
@@ -1883,7 +1883,7 @@
               <option value="">Elige una opción</option>
               <option>Mañana (6:30 – 11:30 am)</option>
               <option>Mediodía (11:30 am)</option>
-              <option>Noche (6:30 – 8:30 pm)</option>
+              <option>Noche (6:30 – 10:00 pm)</option>
               <option>Fin de semana</option>
             </select>
           </label>
@@ -1944,7 +1944,7 @@
           body: JSON.stringify({ name: d.nombre.trim(), phone: d.whatsapp.trim(), schedule: d.horario, plan: d.plan || '',
                                  offer: '', source: 'landing jovenes-adultos', form: f.dataset.cta, website: d.website || '' })
         }).catch(() => null);
-        Promise.race([envio, new Promise(r => setTimeout(r, 2500))]).then(irAGracias);
+        Promise.race([envio, new Promise(r => setTimeout(r, 4000))]).then(irAGracias);
       });
     });
     // El WhatsApp flotante aparece recién después del formulario de la portada (para no taparlo)
