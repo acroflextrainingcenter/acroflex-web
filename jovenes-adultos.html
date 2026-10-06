@@ -2215,15 +2215,16 @@
       });
     });
     // Llegó a ver precios → "ViewContent"
-    const precios = document.getElementById('precios');
-    if (precios) {
+    // Se observa el título de la sección (no la sección entera, que en celular es más alta que la pantalla).
+    const preciosTitulo = document.querySelector('#precios .section-title');
+    if (preciosTitulo) {
       const ioP = new IntersectionObserver(es => {
         if (es.some(e => e.isIntersecting)) {
           if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: 'precios' });
           ioP.disconnect();
         }
-      }, { threshold: 0.3 });
-      ioP.observe(precios);
+      }, { threshold: 0, rootMargin: '0px 0px -15% 0px' });
+      ioP.observe(preciosTitulo);
     }
 
     // ─── SCROLL REVEAL ───
