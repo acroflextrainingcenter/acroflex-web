@@ -1588,6 +1588,18 @@
     .final-form-wrap { display:flex; justify-content:center; }
     .nav-logo { margin: 0 auto; }
     @media (max-width: 960px) { .lead-form { margin: 0 auto; } .hero-photo { display:none; } .hero h1 { font-size:3.2rem; } }
+    @media (max-width: 600px) {
+      .hero { padding: 112px 16px 36px !important; }
+      .hero h1 { font-size: 2.7rem !important; line-height: 0.95; margin: 8px 0 4px; }
+      .hero-badge { margin-bottom: 4px; }
+      .hero-offer { margin: 8px 0 12px; padding: 6px 12px; }
+      .lead-form { padding: 16px 16px; gap: 7px; }
+      .lf-title { font-size: 1.25rem; }
+      .lead-form input, .lead-form select { padding: 9px 11px; }
+      .lf-btn { padding: 13px; }
+    }
+    .wa-float { transition: opacity .25s, transform .25s; }
+    .wa-float.oculto { opacity:0; transform:scale(.6); pointer-events:none; }
   </style>
   <!-- ─── META PIXEL ─── Pega aquí el ID del píxel (Administrador de eventos → Orígenes de datos) -->
   <script>
@@ -1651,7 +1663,7 @@
 
         
 
-        <p class="hero-desc">Empieza <strong>desde cero</strong>, sin ser flexible y sin experiencia. Avanzas paso a paso, con técnica y entrenadores que te cuidan.</p>
+        
 
         <div id="oferta">
         <form class="lead-form" id="form-hero" data-cta="form-hero" novalidate>
@@ -1935,6 +1947,13 @@
         Promise.race([envio, new Promise(r => setTimeout(r, 2500))]).then(irAGracias);
       });
     });
+    // El WhatsApp flotante aparece recién después del formulario de la portada (para no taparlo)
+    (function(){
+      const fl = document.querySelector('.wa-float'), fh = document.getElementById('form-hero');
+      if (!fl || !fh) return;
+      const upd = () => fl.classList.toggle('oculto', fh.getBoundingClientRect().bottom > 0);
+      upd(); window.addEventListener('scroll', upd, { passive: true });
+    })();
     // Botones de plan → bajan al formulario final con el plan elegido
     document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => {
       const sel = document.querySelector('#form-final select[name="plan"]');
