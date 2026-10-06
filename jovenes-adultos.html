@@ -1522,6 +1522,72 @@
       .miedos-grid { grid-template-columns:1fr; }
       .prueba-box { padding:22px 20px; }
     }
+
+    /* ─── V2 compacta ─── */
+    .hab-card { padding-bottom: 0 !important; }
+    .hab-gif { margin-bottom: 0 !important; }
+    .hab-card-body { padding: 12px 10px 14px; }
+    .fq-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+    .fq { background:rgba(255,255,255,0.04); border:1px solid rgba(255,107,26,0.2); border-radius:14px; padding:14px 18px; display:grid; grid-template-columns: 230px 1fr; gap:14px; align-items:center; }
+    .fq-q { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1px; color:var(--orange2); line-height:1.1; }
+    .fq-a { font-size:0.9rem; color:rgba(255,255,255,0.8); line-height:1.5; }
+    .fotos-duo { max-width:1000px; margin:40px auto 0; display:grid; grid-template-columns:1fr 1.5fr; gap:14px; }
+    .fotos-duo figure { position:relative; border-radius:18px; overflow:hidden; margin:0; }
+    .fotos-duo img { width:100%; height:340px; object-fit:cover; display:block; }
+    .fotos-duo figcaption { position:absolute; left:0; right:0; bottom:0; padding:30px 14px 12px; background:linear-gradient(to top, rgba(6,12,60,0.9), transparent); font-size:0.85rem; font-weight:600; }
+    .hr-list { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+    .hr-row { display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:12px 16px; }
+    .hr-day { font-weight:800; font-size:0.95rem; }
+    .hr-times { display:flex; flex-wrap:wrap; gap:8px; }
+    .hr-chip { background:rgba(255,107,26,0.12); border:1px solid rgba(255,107,26,0.4); color:#fff; border-radius:50px; padding:5px 12px; font-size:0.85rem; font-weight:700; }
+    .hr-chip em { font-style:normal; font-weight:500; color:rgba(255,255,255,0.6); font-size:0.75rem; }
+    .hr-chip .nuevo { color:var(--gold); }
+    .hr-note { text-align:center; color:rgba(255,255,255,0.5); font-size:0.85rem; margin-top:16px; }
+    .planes { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch; }
+    .plan { position:relative; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:26px 20px; text-align:center; display:flex; flex-direction:column; gap:6px; }
+    .plan-dest { border:2px solid var(--gold); background:linear-gradient(160deg, rgba(245,166,35,0.12), rgba(255,255,255,0.04)); }
+    .plan-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--gold); color:#1a0836; font-weight:800; font-size:0.72rem; padding:4px 12px; border-radius:50px; white-space:nowrap; }
+    .plan-n { font-weight:700; color:rgba(255,255,255,0.75); }
+    .plan-p { font-family:'Bebas Neue',sans-serif; font-size:3rem; letter-spacing:1px; line-height:1; }
+    .plan-f { font-size:0.88rem; color:rgba(255,255,255,0.7); }
+    .plan-x { font-size:0.8rem; color:var(--gold); }
+    .plan-btn { margin-top:auto; padding-top:0; display:block; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; text-decoration:none; font-weight:800; padding:12px; border-radius:50px; margin-top:12px; }
+    .plan-nota { text-align:center; color:rgba(255,255,255,0.65); font-size:0.85rem; margin:20px auto 0; max-width:640px; }
+    .plan-extras { max-width:760px; margin:18px auto 0; display:flex; flex-direction:column; gap:10px; }
+    .plan-extras a { display:block; text-decoration:none; color:#fff; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:12px 16px; font-size:0.9rem; }
+    @media (max-width: 760px) {
+      .fq { grid-template-columns:1fr; gap:4px; padding:12px 14px; }
+      .fotos-duo { grid-template-columns:1fr 1fr; }
+      .fotos-duo img { height:220px; }
+      .fotos-duo figcaption { font-size:0.72rem; padding:24px 10px 10px; }
+      .hab-gif { height:170px !important; }
+      .hab-name { font-size:1.2rem !important; }
+      .pasos-grid { grid-template-columns:repeat(3,1fr) !important; gap:8px !important; }
+      .paso { padding:14px 8px !important; }
+      .paso p { font-size:0.75rem !important; }
+      .paso strong { font-size:0.82rem !important; }
+      .paso-num { width:30px !important; height:30px !important; font-size:1.1rem !important; }
+      .hr-row { grid-template-columns:1fr; gap:8px; }
+      .planes { grid-template-columns:1fr; gap:20px; }
+      .plan-dest { order:-1; }
+    }
+
+    /* ─── Inbound ─── */
+    .hero-offer { display:inline-block; margin:14px 0 6px; background:rgba(245,166,35,0.12); border:1px solid var(--gold); color:#fff; padding:8px 16px; border-radius:12px; font-weight:700; font-size:1rem; }
+    .hero-deadline { display:block; margin-top:4px; font-size:0.8rem; font-weight:700; color:#ffb3c7; }
+    .hero-offer s { color:rgba(255,255,255,0.5); } .hero-offer b { color:var(--gold); font-size:1.15rem; }
+    .lead-form { background:#fff; color:#0a0f3d; border-radius:20px; padding:22px 20px; max-width:420px; text-align:left; box-shadow:0 18px 50px rgba(0,0,0,0.35); display:flex; flex-direction:column; gap:10px; }
+    .lf-title { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:1px; line-height:1.1; color:#0a0f3d; }
+    .lead-form label { font-size:0.78rem; font-weight:700; color:#33395f; display:flex; flex-direction:column; gap:4px; }
+    .lead-form input, .lead-form select { font:inherit; font-size:1rem; font-weight:500; padding:11px 12px; border:1.5px solid #d5d8e6; border-radius:10px; background:#f7f8fc; color:#0a0f3d; }
+    .lead-form input:focus, .lead-form select:focus { outline:none; border-color:#ff6b1a; background:#fff; }
+    .lf-btn { margin-top:4px; border:0; cursor:pointer; background:linear-gradient(90deg,var(--orange),var(--orange2)); color:#fff; font-weight:800; font-size:1.02rem; padding:15px; border-radius:50px; box-shadow:0 6px 20px rgba(255,107,26,0.4); }
+    .lf-title small { display:block; font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:0; color:#ff6b1a; font-weight:800; margin-top:2px; }
+    .lf-err { color:#c0103a; font-size:0.8rem; font-weight:700; }
+    .lf-legal { font-size:0.72rem; color:#7a7f99; text-align:center; }
+    .final-form-wrap { display:flex; justify-content:center; }
+    .nav-logo { margin: 0 auto; }
+    @media (max-width: 960px) { .lead-form { margin: 0 auto; } .hero-photo { display:none; } .hero h1 { font-size:3.2rem; } }
   </style>
   <!-- ─── META PIXEL ─── Pega aquí el ID del píxel (Administrador de eventos → Orígenes de datos) -->
   <script>
@@ -1542,9 +1608,7 @@
 
   <!-- ─── ANUNCIO TOP ─── -->
   <div class="top-announce">
-    <span class="announce-long">🔥 <strong>¡HORARIOS DE OCTUBRE!</strong> &nbsp;·&nbsp; Nuevo turno: sábados 3:00 pm &nbsp;·&nbsp;
-    <a href="#horarios">Ver horarios ↓</a> &nbsp;🔥</span>
-    <a href="#horarios" class="announce-short">🔥 <strong>Nuevo turno:</strong> sábados 3:00 pm ↓</a>
+    <a href="#oferta">🎁 <strong>MATRÍCULA AL 50%</strong> · HASTA EL VIERNES 9 ↓</a>
   </div>
 
   <!-- ─── NAV ─── -->
@@ -1557,13 +1621,7 @@
         <span class="nl-sub">en el Perú</span>
       </div>
     </div>
-    <div class="nav-links">
-      <a href="#programa">Programa</a>
-      <a href="#horarios">Horarios</a>
-      <a href="#precios">Precios</a>
-      <a href="#galeria">Fotos</a>
-      <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20inscribirme%20en%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="nav-cta">Inscribirme</a>
-    </div>
+    
   </nav>
 
   <!-- ─── HERO ─── -->
@@ -1582,37 +1640,47 @@
 
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="hero-badge">Clases presenciales · Multinivel</span>
-        <div style="display:inline-block; background:linear-gradient(90deg,#e8005a,#c00050); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; padding:8px 22px; border-radius:50px; margin-top:10px; box-shadow:0 0 20px rgba(232,0,90,0.5);">
-          🗓️ ¡INSCRIPCIONES ABIERTAS · OCTUBRE!
-        </div>
+        <span class="hero-badge">Jóvenes y adultos · 14+</span>
+        
 
         <h1>
-          <span class="accent">ACROFLEX</span><br>
-          JÓVENES Y<br>ADULTOS
+          APRENDE<br><span class="accent">ACROBACIAS</span><br>DESDE CERO
         </h1>
 
-        <div class="hero-sub">Acrobacia · Flexibilidad · Fuerza</div>
+        <div class="hero-offer">🎁 Matrícula al <strong>50%</strong>: <s>S/50</s> <b>S/25</b><span class="hero-deadline">⏰ Solo hasta el viernes 9 de octubre</span></div>
 
-        <div class="hero-age">
-          ⭐ Desde los 14 años · Sin límite de edad
-        </div>
+        
 
-        <p class="hero-desc">
-          ¿Siempre quisiste aprender acrobacias pero no sabes por dónde empezar?
-          Aquí <strong>empiezas desde cero</strong>, sin ser flexible y sin experiencia: avanzas paso a paso,
-          con técnica real y entrenadores que te cuidan. Y de paso, tu momento del día para desconectarte.
-        </p>
+        <p class="hero-desc">Empieza <strong>desde cero</strong>, sin ser flexible y sin experiencia. Avanzas paso a paso, con técnica y entrenadores que te cuidan.</p>
 
-        <div class="hero-actions">
-          <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20empezar%20en%20Acroflex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8%20%C2%BFMe%20ayudan%20a%20elegir%20horario%3F"
-             target="_blank" class="btn-wa" data-cta="hero">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Quiero empezar
-          </a>
-          <a href="#horarios" class="btn-outline">Ver horarios</a>
+        <div id="oferta">
+        <form class="lead-form" id="form-hero" data-cta="form-hero" novalidate>
+          <div class="lf-title">Reserva tu matrícula a S/25 <small>(50% de descuento)</small></div>
+          <label>Tu nombre<input name="nombre" type="text" autocomplete="given-name" placeholder="Ej: Valeria" required></label>
+          <label>Tu WhatsApp<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej: 987 654 321" required></label>
+          <label>¿Qué horario te acomoda?
+            <select name="horario" required>
+              <option value="">Elige una opción</option>
+              <option>Mañana (6:30 – 11:30 am)</option>
+              <option>Mediodía (11:30 am)</option>
+              <option>Noche (6:30 – 8:30 pm)</option>
+              <option>Fin de semana</option>
+            </select>
+          </label>
+          <label>¿Qué plan te interesa?
+            <select name="plan">
+              <option value="Aún no sé">Aún no sé, quiero asesoría</option>
+              <option value="4 clases (S/190)">4 clases · S/190</option>
+              <option value="8 clases (S/330)">8 clases · S/330</option>
+              <option value="12 clases (S/470)">12 clases · S/470</option>
+              <option value="Domingos intensivos (S/260)">Domingos intensivos · S/260</option>
+            </select>
+          </label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button type="submit" class="lf-btn">Quiero mi matrícula a S/25</button>
+          <div class="lf-err" hidden>Completa tu nombre, WhatsApp y horario 🙏</div>
+          <div class="lf-legal">El 50% de descuento aplica solo a la matrícula (S/50 → S/25), con tu primera mensualidad. Alumnos nuevos, hasta el viernes 9 de octubre.</div>
+        </form>
         </div>
       </div>
 
@@ -1639,35 +1707,8 @@
     <div style="text-align:center; margin-bottom:10px;">
       <span class="section-tag">Mes a mes, paso a paso</span>
     </div>
-    <h2 class="section-title" style="font-size:3.4rem;">APRENDERÁS A <span class="accent">HACERLO</span></h2>
-    <p style="text-align:center; color:rgba(255,255,255,0.55); font-size:0.95rem; max-width:560px; margin:0 auto 14px;">De la mano de nuestro cronograma de clases mensual, progresarás hasta dominar cada uno de estos elementos.</p>
-    <div class="section-line"></div>
-
-    <!-- Ticker / marquee -->
-    <div class="skills-ticker-wrap">
-      <div class="skills-ticker">
-        <span>PARARSE DE MANOS</span><span class="ticker-dot">✦</span>
-        <span>ASPAS</span><span class="ticker-dot">✦</span>
-        <span>ARCOS</span><span class="ticker-dot">✦</span>
-        <span>FLIC FLAC</span><span class="ticker-dot">✦</span>
-        <span>MORTALES</span><span class="ticker-dot">✦</span>
-        <span>PARARSE DE MANOS</span><span class="ticker-dot">✦</span>
-        <span>ASPAS</span><span class="ticker-dot">✦</span>
-        <span>ARCOS</span><span class="ticker-dot">✦</span>
-        <span>FLIC FLAC</span><span class="ticker-dot">✦</span>
-        <span>MORTALES</span><span class="ticker-dot">✦</span>
-        <span>PARARSE DE MANOS</span><span class="ticker-dot">✦</span>
-        <span>ASPAS</span><span class="ticker-dot">✦</span>
-        <span>ARCOS</span><span class="ticker-dot">✦</span>
-        <span>FLIC FLAC</span><span class="ticker-dot">✦</span>
-        <span>MORTALES</span><span class="ticker-dot">✦</span>
-        <span>PARARSE DE MANOS</span><span class="ticker-dot">✦</span>
-        <span>ASPAS</span><span class="ticker-dot">✦</span>
-        <span>ARCOS</span><span class="ticker-dot">✦</span>
-        <span>FLIC FLAC</span><span class="ticker-dot">✦</span>
-        <span>MORTALES</span><span class="ticker-dot">✦</span>
-      </div>
-    </div>
+    <h2 class="section-title" style="font-size:3.4rem;">ESTO VAS A <span class="accent">LOGRAR</span></h2>
+        <div class="section-line"></div>
 
     <!-- Cards de habilidades -->
     <div class="hab-grid">
@@ -1675,8 +1716,7 @@
       <div class="hab-card">
         <img src="Parada de manos.gif" alt="Parada de manos" class="hab-gif" />
         <div class="hab-card-body">
-          <div class="hab-name">Pararse<br>de Manos</div>
-          <div class="hab-desc">El elemento base de la acrobacia. Lo desarrollamos desde cero con técnica y fuerza.</div>
+          <div class="hab-name">Parada de manos</div>
         </div>
         <div class="hab-glow"></div>
       </div>
@@ -1685,7 +1725,6 @@
         <img src="Aspa.gif" alt="Aspas" class="hab-gif" />
         <div class="hab-card-body">
           <div class="hab-name">Aspas</div>
-          <div class="hab-desc">Coordinación, ritmo y control lateral con ambos lados del cuerpo.</div>
         </div>
         <div class="hab-glow"></div>
       </div>
@@ -1694,7 +1733,6 @@
         <img src="Arco.gif" alt="Arcos" class="hab-gif" />
         <div class="hab-card-body">
           <div class="hab-name">Arcos</div>
-          <div class="hab-desc">Flexibilidad de espalda progresiva: puentes, arcos con pies y manos, y más.</div>
         </div>
         <div class="hab-glow"></div>
       </div>
@@ -1703,7 +1741,6 @@
         <img src="Flic Flac.gif" alt="Flic Flac" class="hab-gif" />
         <div class="hab-card-body">
           <div class="hab-name">Flic Flac</div>
-          <div class="hab-desc">El salto atrás con manos. Un hito en tu camino acrobático.</div>
         </div>
         <div class="hab-glow"></div>
       </div>
@@ -1712,473 +1749,148 @@
         <img src="Mortal.gif" alt="Mortales" class="hab-gif" />
         <div class="hab-card-body">
           <div class="hab-name">Mortales</div>
-          <div class="hab-desc">El elemento más emocionante. Frontales y laterales según tu progresión.</div>
         </div>
         <div class="hab-glow"></div>
       </div>
 
     </div>
 
-    <div style="text-align:center; margin-top:44px;">
-      <div style="display:inline-flex; align-items:center; gap:14px; background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.35); border-radius:16px; padding:18px 32px;">
-        <span style="font-size:1.5rem;">📅</span>
-        <p style="font-size:0.92rem; color:rgba(255,255,255,0.75); text-align:left; line-height:1.6;">
-          Todo esto lo aprenderás siguiendo nuestro <strong style="color:var(--gold);">cronograma de clases mes a mes</strong>,<br>diseñado para que progreses de forma real y segura desde tu nivel actual.
-        </p>
-      </div>
-    </div>
   </section>
 
   <div class="gold-sep"></div>
 
   <!-- ─── MIEDOS ─── -->
   <section class="miedos" id="dudas">
-    <div style="text-align:center; margin-bottom:6px;">
-      <span class="section-tag">¿Te identificas?</span>
-    </div>
+    <div style="text-align:center; margin-bottom:6px;"><span class="section-tag">¿Te identificas?</span></div>
     <h2 class="section-title">Si estás pensando <span class="accent">esto…</span></h2>
     <div class="section-line"></div>
-    <p class="miedos-intro">Es lo que casi todos nuestros alumnos pensaban antes de su primera clase. Así lo resolvemos:</p>
-
-    <div class="miedos-grid">
-      <div class="miedo-card">
-        <div class="miedo-q">No sé por dónde empezar</div>
-        <p class="miedo-a">Para eso existe el <strong>cronograma mes a mes</strong>: tú solo vienes y el entrenador te dice qué trabajar hoy. Se acabó aprender a ciegas con videos de TikTok.</p>
-      </div>
-      <div class="miedo-card">
-        <div class="miedo-q">Necesito saber lo básico antes</div>
-        <p class="miedo-a"><strong>No necesitas experiencia previa.</strong> Las clases son multinivel: empiezas desde cero, con ejercicios de base, y cada elemento se aprende por etapas.</p>
-      </div>
-      <div class="miedo-card">
-        <div class="miedo-q">No soy nada flexible</div>
-        <p class="miedo-a">La flexibilidad no es un requisito, <strong>es algo que vas a ganar aquí</strong>. Cada clase incluye trabajo de piernas y espalda adaptado a tu cuerpo.</p>
-      </div>
-      <div class="miedo-card">
-        <div class="miedo-q">Me voy a quedar atrás</div>
-        <p class="miedo-a">Cada alumno sigue <strong>su propia progresión</strong>, con corrección personalizada. Nadie te compara: aquí se celebra cada logro, sea tu primera parada de manos o tu primer mortal.</p>
-      </div>
-      <div class="miedo-card">
-        <div class="miedo-q">Me da miedo lesionarme</div>
-        <p class="miedo-a">Enseñamos <strong>con técnica, no “al champazo”</strong>. No pasas a un elemento hasta tener la base, y siempre con colchonetas y asistencia del entrenador.</p>
-      </div>
-      <div class="miedo-card">
-        <div class="miedo-q">No tengo tiempo</div>
-        <p class="miedo-a"><strong>13 turnos a la semana</strong>, de lunes a domingo, desde las 6:30 am hasta las 9:55 pm. Hay un horario que encaja con tu trabajo y tus estudios.</p>
-      </div>
+    <div class="fq-list">
+      <div class="fq"><div class="fq-q">“No sé por dónde empezar”</div><div class="fq-a">El entrenador te dice qué trabajar en cada clase, con un cronograma mes a mes.</div></div>
+      <div class="fq"><div class="fq-q">“Necesito saber lo básico”</div><div class="fq-a">No hace falta experiencia: las clases son multinivel y empiezas desde cero.</div></div>
+      <div class="fq"><div class="fq-q">“No soy flexible”</div><div class="fq-a">La flexibilidad no es requisito: la ganas aquí, clase a clase.</div></div>
+      <div class="fq"><div class="fq-q">“Me voy a quedar atrás”</div><div class="fq-a">Cada uno avanza a su ritmo, con corrección personalizada. Nadie te compara.</div></div>
+      <div class="fq"><div class="fq-q">“Me da miedo lesionarme”</div><div class="fq-a">Técnica primero: no pasas a un elemento sin la base, siempre con colchonetas y asistencia.</div></div>
+      <div class="fq"><div class="fq-q">“No tengo tiempo”</div><div class="fq-a">13 turnos a la semana, de lunes a domingo, de 6:30 am a 9:55 pm.</div></div>
     </div>
 
-    <figure class="comunidad">
-      <img src="grupo-acroflex.jpg" alt="Grupo de alumnos y entrenadores de Acroflex sonriendo en el salón" loading="lazy" />
-      <figcaption>Aquí no entrenas solo: <strong>una comunidad que entrena, evoluciona y disfruta junta.</strong></figcaption>
-    </figure>
+    <div class="fotos-duo">
+      <figure><img src="entrenadora-asiste.jpg" alt="Entrenadora de Acroflex asistiendo una parada de manos" loading="lazy" /><figcaption>Siempre con un entrenador a tu lado</figcaption></figure>
+      <figure><img src="grupo-acroflex.jpg" alt="Grupo de alumnos y entrenadores de Acroflex" loading="lazy" /><figcaption>Una comunidad que entrena, evoluciona y disfruta junta</figcaption></figure>
+    </div>
 
     <div class="pasos">
       <h3>Empezar es así de <span style="color:var(--orange2);">simple</span></h3>
       <div class="pasos-grid">
-        <div class="paso"><div class="paso-num">1</div><p><strong>Escríbenos por WhatsApp</strong>Te ayudamos a elegir el horario que encaja con tu rutina.</p></div>
-        <div class="paso"><div class="paso-num">2</div><p><strong>Elige tu plan</strong>Mensualidad de 4, 8 o 12 clases. Si prefieres conocer primero, puedes tomar una clase suelta.</p></div>
-        <div class="paso"><div class="paso-num">3</div><p><strong>Ven con ropa cómoda</strong>Av. Húsares de Junín 374, piso 6, Jesús María. Del resto nos encargamos nosotros.</p></div>
+        <div class="paso"><div class="paso-num">1</div><p><strong>Deja tus datos</strong>Toma 20 segundos.</p></div>
+        <div class="paso"><div class="paso-num">2</div><p><strong>Te escribimos</strong>Elegimos juntos horario y plan.</p></div>
+        <div class="paso"><div class="paso-num">3</div><p><strong>Empieza</strong>Matrícula a S/25 y ropa cómoda.</p></div>
       </div>
-      <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20empezar%20en%20Acroflex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8%20%C2%BFMe%20ayudan%20a%20elegir%20horario%3F" target="_blank" class="btn-prueba" data-cta="miedos">Quiero empezar</a>
+      <a href="#oferta-final" class="btn-prueba" data-cta="miedos">Quiero mi matrícula a S/25</a>
     </div>
   </section>
 
   <div class="gold-sep"></div>
 
-  <!-- ─── ABOUT ─── -->
-  <section class="about" id="programa">
-    <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">El programa</span>
-    </div>
-    <h2 class="section-title">Gimnasia real con <span class="accent">progresión</span></h2>
-    <div class="section-line"></div>
+  
 
-    <div class="about-inner">
-      <div class="about-img" style="height:auto;">
-        <img src="entrenadora-asiste.jpg" alt="Entrenadora de Acroflex asistiendo a un alumno en su parada de manos" style="height:auto;" />
-      </div>
-      <div class="about-text">
-        <h3>Técnica, seguridad y avance real</h3>
-        <p>
-          AcroFlex Jóvenes y Adultos es un programa de clases presenciales de
-          <strong>acrobacia, flexibilidad y preparación física</strong> para personas desde los 14 años.
-          No importa en qué nivel estés: empezamos desde donde estás.
-        </p>
-        <p>
-          Trabajamos con <strong>progresiones seguras y personalizadas</strong> para que cada alumno avance
-          de forma real, sin saltarse pasos y sin lesionarse.
-        </p>
-        <p>
-          El enfoque es <strong>técnico y progresivo</strong>: cada movimiento tiene un porqué, y cada
-          entrenamiento te acerca a tu siguiente objetivo.
-        </p>
-        <div class="about-tags">
-          <span class="about-tag">Multinivel</span>
-          <span class="about-tag">Progresión real</span>
-          <span class="about-tag">Técnica correcta</span>
-          <span class="about-tag">Sin límite de edad</span>
-          <span class="about-tag">Presencial</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
-  <div class="gold-sep"></div>
-
-  <!-- ─── SKILLS ─── -->
-  <section class="skills">
-    <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">Lo que aprenderás</span>
-    </div>
-    <h2 class="section-title">¿Qué <span class="accent">desarrollarás</span>?</h2>
-    <div class="section-line"></div>
-
-    <div class="skills-grid">
-      <div class="skill-card featured-skill">
-        <span class="skill-featured-badge">⭐ Lo principal</span>
-        <span class="skill-icon">🤸</span>
-        <h4>Acrobacias</h4>
-        <p>Desde tus primeros elementos básicos hasta acrobacias avanzadas. Progresamos juntos con técnica correcta, control corporal y sin lesiones.</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🦵</span>
-        <h4>Flexibilidad de piernas</h4>
-        <p>Splits frontales y laterales con apertura progresiva y calentamiento adecuado para tu cuerpo.</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🌉</span>
-        <h4>Flexibilidad de espalda</h4>
-        <p>Puentes, arcos y trabajo de columna con progresiones seguras y trabajo específico de movilidad.</p>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">💪</span>
-        <h4>Fuerza y control corporal</h4>
-        <p>Preparación física, coordinación y control para sostener y ejecutar cualquier elemento correctamente.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="gold-sep"></div>
-
-  <!-- ─── MULTINIVEL BANNER ─── -->
-  <div class="multinivel-banner">
-    <h2 style="background: linear-gradient(90deg, var(--gold), #fff8b0, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: gold-shimmer 3s linear infinite;">
-      PARA TODOS. SIN EXCUSAS.
-    </h2>
-    <p style="color: rgba(255,255,255,0.6); font-size:1rem; max-width:560px; margin:0 auto;">
-      No necesitas experiencia previa. Solo las ganas de empezar y superarte.
-    </p>
-    <div class="multinivel-pills">
-      <span class="mpill mpill-gold">✦ Multinivel</span>
-      <span class="mpill mpill-orange">✦ Desde los 14 años</span>
-      <span class="mpill mpill-magenta">✦ Sin límite de edad</span>
-      <span class="mpill mpill-gold">✦ Progresión real</span>
-      <span class="mpill mpill-orange">✦ Técnica segura</span>
-    </div>
-  </div>
-
-  <div class="gold-sep"></div>
+  
 
   <!-- ─── HORARIOS ─── -->
   <section class="schedule" id="horarios">
-    <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">Octubre 2026</span>
-    </div>
+    <div style="text-align:center; margin-bottom: 6px;"><span class="section-tag">Octubre 2026</span></div>
     <h2 class="section-title">Elige tu <span class="accent">horario</span></h2>
     <div class="section-line"></div>
-    <p class="schedule-intro">Clases regulares: <strong>1hr 25min</strong> &nbsp;·&nbsp; Domingos intensivos: <strong style="color:var(--gold);">2 horas</strong> &nbsp;·&nbsp; Acroflex multinivel</p>
-
-    <p style="text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.4); margin-top:-20px; margin-bottom:32px;">
-      👆 Toca un horario para inscribirte directamente
-    </p>
-
-    <div class="new-schedule-banner">
-      <span class="banner-icon">🗓️</span>
-      <div>
-        <div class="banner-text">¡Nuevo horario!</div>
-        <div class="banner-sub">Sábados de 3:00 pm a 4:25 pm</div>
-      </div>
-      <span class="banner-icon">🔥</span>
+    <div class="hr-list">
+      <div class="hr-row"><div class="hr-day">Lunes y miércoles</div><div class="hr-times"><span class="hr-chip">11:30 am <em>solo mié</em></span><span class="hr-chip">6:30 pm</span></div></div>
+      <div class="hr-row"><div class="hr-day">Martes y jueves</div><div class="hr-times"><span class="hr-chip">6:30 am</span><span class="hr-chip">10:00 am</span><span class="hr-chip">11:30 am</span><span class="hr-chip">7:00 pm</span><span class="hr-chip">8:30 pm</span></div></div>
+      <div class="hr-row"><div class="hr-day">Viernes</div><div class="hr-times"><span class="hr-chip">11:30 am</span></div></div>
+      <div class="hr-row"><div class="hr-day">Sábados</div><div class="hr-times"><span class="hr-chip">7:30 am</span><span class="hr-chip">10:30 am</span><span class="hr-chip">3:00 pm <b class='nuevo'>¡Nuevo!</b></span></div></div>
+      <div class="hr-row"><div class="hr-day">Domingos · intensivo 2 h</div><div class="hr-times"><span class="hr-chip">9:30 am</span><span class="hr-chip">11:30 am</span></div></div>
     </div>
-
-    <div class="schedule-grid">
-
-      <div class="day-col">
-        <div class="day-header dh-lun">Lunes y Miércoles</div>
-        <div class="day-slots">
-          <a class="slot" href="#precios">
-            <span class="slot-time">11:30am – 12:55pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-note">Solo miércoles</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">6:30pm – 7:55pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="day-col">
-        <div class="day-header dh-mart">Martes y Jueves</div>
-        <div class="day-slots">
-          <a class="slot" href="#precios">
-            <span class="slot-time">6:30am – 7:55am</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">10:00am – 11:25am</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">11:30am – 12:55pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">7:00pm – 8:25pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">8:30pm – 9:55pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="day-col">
-        <div class="day-header dh-vie">Viernes</div>
-        <div class="day-slots">
-          <a class="slot" href="#precios">
-            <span class="slot-time">11:30am – 12:55pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="day-col">
-        <div class="day-header dh-sab">Sábados</div>
-        <div class="day-slots">
-          <a class="slot" href="#precios">
-            <span class="slot-time">7:30am – 8:55am</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">10:30am – 11:55am</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">3:00pm – 4:25pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-badge-new">¡Nuevo!</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="day-col">
-        <div class="day-header dh-dom">Domingos</div>
-        <div class="day-slots">
-          <a class="slot" href="#precios">
-            <span class="slot-time">9:30am – 11:30am</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-badge">Intensivo 2 horas</span>
-            <span style="display:block; margin-top:8px; font-family:'Bebas Neue',sans-serif; font-size:1.15rem; color:var(--gold); letter-spacing:1px;">S/260 × 4 clases</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-          <a class="slot" href="#precios">
-            <span class="slot-time">11:30am – 1:30pm</span>
-            <span class="slot-name">Acroflex multinivel</span>
-            <span class="slot-badge">Intensivo 2 horas</span>
-            <span style="display:block; margin-top:8px; font-family:'Bebas Neue',sans-serif; font-size:1.15rem; color:var(--gold); letter-spacing:1px;">S/260 × 4 clases</span>
-            <span class="slot-cta">✦ Inscribirme</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
+    <p class="hr-note">Clases de 1 h 25 min · Multinivel</p>
   </section>
 
   <div class="gold-sep"></div>
 
   <!-- ─── PRICING ─── -->
   <section class="pricing" id="precios">
-    <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">Mensualidades</span>
-    </div>
+    <div style="text-align:center; margin-bottom: 6px;"><span class="section-tag">Mensualidades</span></div>
     <h2 class="section-title">Elige tu <span class="accent">plan</span></h2>
     <div class="section-line"></div>
-    <p class="pricing-intro">Gimnasia · Flexibilidad · Acrobacias · Clases multinivel con progresión real</p>
-    <div class="matricula">
-      <span class="matricula-badge">⭐ Matrícula única S/50 — <strong>se paga aparte, una sola vez al inscribirte</strong></span>
-    </div>
-
-    <!-- Clase suelta -->
-    <div class="prueba-box">
-      <div>
-        <h3>🎯 ¿Prefieres conocer el curso primero?</h3>
-        <p>Puedes tomar una clase suelta y conocer el curso, al entrenador y al grupo antes de elegir tu mensualidad.</p>
-        <div class="prueba-precios"><span>Clase 1h25 · S/55</span><span>Intensiva 2h (domingo) · S/70</span></div>
+    <div class="planes">
+      <div class="plan">
+        
+        <div class="plan-n">4 clases</div>
+        <div class="plan-p">S/190</div>
+        <div class="plan-f">1 vez por semana</div>
+        
+        <a href="#oferta-final" class="plan-btn" data-plan="4 clases (S/190)">Quiero este plan</a>
       </div>
-      <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20clase%20suelta%20de%20Acroflex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="btn-prueba" data-cta="precios-suelta">Reservar clase suelta</a>
-    </div>
-
-    <!-- Domingo intensivo -->
-    <div style="max-width:1000px; margin: 0 auto 28px; background: linear-gradient(135deg, #1a0f6e, #2a1080); border: 2px solid var(--gold); border-radius: 20px; padding: 28px 40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; position:relative; overflow:hidden;">
-      <div style="position:absolute; top:-30px; right:-30px; width:140px; height:140px; background:radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
-      <div style="display:flex; align-items:center; gap:18px;">
-        <span style="font-size:2.5rem;">☀️</span>
-        <div>
-          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:2px; color:var(--gold);">DOMINGOS INTENSIVOS</div>
-          <div style="font-size:0.85rem; color:rgba(255,255,255,0.65); margin-top:4px;">4 clases · 9:30am – 11:30am &nbsp;·&nbsp; 11:30am – 1:30pm</div>
-          <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-            <span style="background:linear-gradient(90deg,var(--gold),#f7c55a); color:#1a0836; font-weight:800; font-size:0.78rem; padding:4px 14px; border-radius:50px; letter-spacing:1px;">⏱ 2 HORAS POR CLASE</span>
-            <span style="background:rgba(245,166,35,0.12); border:1px solid var(--gold); color:var(--gold); font-weight:700; font-size:0.75rem; padding:4px 12px; border-radius:50px;">El doble de entrenamiento</span>
-          </div>
-        </div>
+      <div class="plan plan-dest">
+        <span class="plan-badge">⭐ Más elegido</span>
+        <div class="plan-n">8 clases</div>
+        <div class="plan-p">S/330</div>
+        <div class="plan-f">2 veces por semana</div>
+        
+        <a href="#oferta-final" class="plan-btn" data-plan="8 clases (S/330)">Quiero este plan</a>
       </div>
-      <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <div style="font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:2px; background:linear-gradient(90deg,#c01010,#e02020); padding:8px 28px; border-radius:50px; display:inline-block;">S/260</div>
-          <div style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:6px;">Vigencia: 1 mes</div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%20Domingos%20Intensivos%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank" style="background:linear-gradient(90deg,var(--orange),var(--orange2)); color:#fff; text-decoration:none; padding:11px 24px; border-radius:50px; font-weight:700; font-size:0.85rem; white-space:nowrap; text-align:center; box-shadow:0 4px 16px rgba(255,107,26,0.4);">
-            Inscribirme ahora
-          </a>
-          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%20Domingos%20Intensivos%20de%20AcroFlex%20%F0%9F%A4%B8" target="_blank"
-             style="display:flex; align-items:center; justify-content:center; gap:7px; border:1px solid rgba(37,211,102,0.5); color:#25D366; text-decoration:none; padding:10px 20px; border-radius:50px; font-weight:700; font-size:0.82rem; white-space:nowrap;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir por WhatsApp
-          </a>
-        </div>
+      <div class="plan">
+        
+        <div class="plan-n">12 clases</div>
+        <div class="plan-p">S/470</div>
+        <div class="plan-f">3 veces por semana</div>
+        <div class="plan-x">🎁 Muñequeras de regalo</div>
+        <a href="#oferta-final" class="plan-btn" data-plan="12 clases (S/470)">Quiero este plan</a>
       </div>
     </div>
-
-    <div class="pricing-grid">
-
-      <div class="price-card">
-        <div class="pc-classes">4 <small>clases</small></div>
-        <div class="pc-price">S/190</div>
-        <div style="display:inline-block; background:rgba(255,107,26,0.12); border:1px solid rgba(255,107,26,0.4); color:var(--orange2); font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:50px; margin-bottom:18px; letter-spacing:0.5px;">⏱ 1hr 25min por clase</div>
-        <ul class="pc-features">
-          <li>🤸 Empieza con bases sólidas en acrobacias y control corporal</li>
-          <li>📅 Ideal si entrenas 1 vez por semana</li>
-        </ul>
-        <div class="pc-validity">Vigencia: 1 mes</div>
-        <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
-        <div class="pc-btns">
-          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%204%20clases%20(S%2F190)%20de%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
-          <a href="https://wa.me/51969622550?text=Hola!%20Me%20interesa%20el%20plan%20de%204%20clases%20(S%2F190)%20de%20AcroFlex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" class="pc-btn-wa">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir por WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="price-card featured">
-        <span class="pc-badge pcb-gold">⭐ MÁS ELEGIDO</span>
-        <div class="pc-classes">8 <small>clases</small></div>
-        <div class="pc-price">S/330</div>
-        <div style="display:inline-block; background:rgba(245,166,35,0.12); border:1px solid rgba(245,166,35,0.4); color:var(--gold); font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:50px; margin-bottom:18px; letter-spacing:0.5px;">⏱ 1hr 25min por clase</div>
-        <ul class="pc-features">
-          <li>🔥 Empieza a dominar nuevos elementos con técnica y control</li>
-          <li>📅 Ideal si entrenas 2 veces por semana</li>
-          <li>💰 Desde el 2do mes: S/20 de descuento en preventa (del 15 al 20 de c/mes)</li>
-        </ul>
-        <div class="pc-validity">Vigencia: 1 mes</div>
-        <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
-        <div class="pc-btns">
-          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%208%20clases%20%28S%2F330%29" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
-          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%208%20clases%20%28S%2F330%29" target="_blank" class="pc-btn-wa">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir por WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <span class="pc-badge pcb-magenta">⭐ MÁS AVANCE</span>
-        <div class="pc-classes">12 <small>clases</small></div>
-        <div class="pc-price">S/470</div>
-        <div style="display:inline-block; background:rgba(233,30,140,0.1); border:1px solid rgba(233,30,140,0.4); color:var(--magenta); font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:50px; margin-bottom:18px; letter-spacing:0.5px;">⏱ 1hr 25min por clase</div>
-        <ul class="pc-features">
-          <li>🔥 Entrena 3 veces por semana y desbloquea movimientos más avanzados</li>
-          <li>💰 Desde el 2do mes: S/20 de descuento en preventa (del 15 al 20 de c/mes)</li>
-          <li>🎁 Obsequio: muñequeras oficiales AcroFlex</li>
-        </ul>
-        <div class="pc-validity">Vigencia: 1 mes</div>
-        <div style="font-size:0.72rem; color:rgba(255,200,80,0.85); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.25); border-radius:8px; padding:7px 12px; margin-bottom:14px; line-height:1.5;">⚠️ <strong>Este precio NO incluye la matrícula.</strong> Al inscribirte por primera vez pagas S/50 adicionales de matrícula (pago único).</div>
-        <div class="pc-btns">
-          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%2012%20clases%20%28S%2F470%29" target="_blank" class="pc-btn-main">Inscribirme ahora</a>
-          <a href="https://wa.me/51969622550?text=Hola%2C%20quiero%20inscribirme%20al%20plan%20de%2012%20clases%20%28S%2F470%29" target="_blank" class="pc-btn-wa">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escribir por WhatsApp
-          </a>
-        </div>
-      </div>
-
+    <p class="plan-nota">Clases de 1 h 25 min · Vigencia 1 mes · Matrícula única <s>S/50</s> <strong style="color:var(--gold);">S/25 con la oferta</strong></p>
+    <div class="plan-extras">
+      <a href="#oferta-final" data-plan="Domingos intensivos (S/260)">☀️ Domingos intensivos (2 h): <strong>4 clases S/260</strong> →</a>
+      <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20reservar%20una%20clase%20suelta%20de%20Acroflex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8" target="_blank" data-cta="precios-suelta">🎯 ¿Quieres conocer primero? <strong>Clase suelta S/55</strong> →</a>
     </div>
   </section>
 
   <div class="gold-sep"></div>
 
-  <!-- ─── GALLERY ─── -->
-  <section class="gallery" id="galeria">
-    <div style="text-align:center; margin-bottom: 6px;">
-      <span class="section-tag">Nuestras clases</span>
-    </div>
-    <h2 class="section-title">Vívelo en <span class="accent">acción</span></h2>
-    <div class="section-line"></div>
-
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="adult-1.png" alt="Coach AcroFlex" />
-      </div>
-      <div class="gallery-item">
-        <img src="adult-5.png" alt="Clase adultos" />
-      </div>
-      <div class="gallery-item">
-        <img src="adult-3.png" alt="Flexibilidad" />
-      </div>
-      <div class="gallery-item">
-        <img src="adult-7.png" alt="Entrenamiento" />
-      </div>
-      <div class="gallery-item">
-        <img src="adult-8.png" alt="Handstand" />
-      </div>
-      <div class="gallery-item">
-        <img src="adult-9.png" alt="Acrobacias en clase" />
-      </div>
-    </div>
-  </section>
-
-  <div class="gold-sep"></div>
+  
 
   <!-- ─── INSCRIBIRSE ─── -->
-  <section class="form-section" id="inscribirse" style="text-align:center; padding: 80px 20px;">
-    <span class="section-tag">Ya no esperes</span>
+  <section class="form-section" id="oferta-final" style="text-align:center; padding: 70px 20px;">
+    <span class="section-tag">Alumnos nuevos · Hasta el viernes 9 de octubre</span>
     <h2 class="section-title" style="margin-top:16px;">TU PRIMERA ACROBACIA <span class="accent">EMPIEZA AQUÍ</span></h2>
     <div class="section-line"></div>
-    <p style="color:rgba(255,255,255,0.65); font-size:1rem; max-width:520px; margin:0 auto 36px; line-height:1.7;">
-      Escríbenos por WhatsApp y te ayudamos a elegir el horario y el plan que encajan contigo. ¡Respondemos rápido!
-    </p>
-
-    <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20empezar%20en%20Acroflex%20J%C3%B3venes%20y%20Adultos%20%F0%9F%A4%B8%20%C2%BFMe%20ayudan%20a%20elegir%20horario%3F" target="_blank" data-cta="final"
-       style="display:inline-flex; align-items:center; justify-content:center; gap:12px; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; text-decoration:none; padding:18px 44px; border-radius:50px; font-weight:800; font-size:1.1rem; box-shadow:0 6px 28px rgba(37,211,102,0.45); letter-spacing:0.5px;">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Quiero empezar
-    </a>
-
-    <p style="color:rgba(255,255,255,0.35); font-size:0.82rem; margin-top:18px;">+51 969 622 550 &nbsp;·&nbsp; +51 993 813 336</p>
+    <div class="final-form-wrap">
+      <form class="lead-form" id="form-final" data-cta="form-final" novalidate>
+          <div class="lf-title">Reserva tu matrícula a S/25 <small>(50% de descuento)</small></div>
+          <label>Tu nombre<input name="nombre" type="text" autocomplete="given-name" placeholder="Ej: Valeria" required></label>
+          <label>Tu WhatsApp<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej: 987 654 321" required></label>
+          <label>¿Qué horario te acomoda?
+            <select name="horario" required>
+              <option value="">Elige una opción</option>
+              <option>Mañana (6:30 – 11:30 am)</option>
+              <option>Mediodía (11:30 am)</option>
+              <option>Noche (6:30 – 8:30 pm)</option>
+              <option>Fin de semana</option>
+            </select>
+          </label>
+          <label>¿Qué plan te interesa?
+            <select name="plan">
+              <option value="Aún no sé">Aún no sé, quiero asesoría</option>
+              <option value="4 clases (S/190)">4 clases · S/190</option>
+              <option value="8 clases (S/330)">8 clases · S/330</option>
+              <option value="12 clases (S/470)">12 clases · S/470</option>
+              <option value="Domingos intensivos (S/260)">Domingos intensivos · S/260</option>
+            </select>
+          </label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button type="submit" class="lf-btn">Quiero mi matrícula a S/25</button>
+          <div class="lf-err" hidden>Completa tu nombre, WhatsApp y horario 🙏</div>
+          <div class="lf-legal">El 50% de descuento aplica solo a la matrícula (S/50 → S/25), con tu primera mensualidad. Alumnos nuevos, hasta el viernes 9 de octubre.</div>
+        </form>
+    </div>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-top:22px;">¿Prefieres escribirnos directo? <a href="https://wa.me/51969622550?text=%C2%A1Hola%21%20Vengo%20de%20la%20web%20y%20quiero%20mi%2050%25%20de%20descuento%20en%20la%20matr%C3%ADcula%20%F0%9F%A4%B8" target="_blank" data-cta="final-wa" style="color:#5ef08f;">WhatsApp 969 622 550</a></p>
     <p style="color:rgba(255,255,255,0.35); font-size:0.82rem; margin-top:6px;">📍 Av. Húsares de Junín 374, piso 6 · Jesús María, Lima</p>
   </section>
 
@@ -2202,6 +1914,32 @@
     const setAnnounceH = () => document.documentElement.style.setProperty('--announce-h', announce.offsetHeight + 'px');
     setAnnounceH();
     window.addEventListener('resize', setAnnounceH);
+
+    // ─── FORMULARIO INBOUND → Lead → gracias ───
+    document.querySelectorAll('.lead-form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const d = Object.fromEntries(new FormData(f));
+        const ok = d.nombre && d.nombre.trim() && d.whatsapp && d.whatsapp.replace(/\D/g,'').length >= 9 && d.horario;
+        f.querySelector('.lf-err').hidden = !!ok;
+        if (!ok) return;
+        const q = new URLSearchParams({ n: d.nombre.trim(), h: d.horario, p: d.plan || 'Aún no sé', f: f.dataset.cta });
+        const irAGracias = () => { location.href = 'gracias-adultos.html?' + q.toString(); };
+        const btn = f.querySelector('.lf-btn'); btn.disabled = true; btn.textContent = 'Enviando…';
+        // Guarda el interesado en el panel de Acroflex Reservas (si tarda, igual seguimos)
+        const envio = fetch('https://acroflex-reservas.vercel.app/api/public/leads', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+          body: JSON.stringify({ name: d.nombre.trim(), phone: d.whatsapp.trim(), schedule: d.horario, plan: d.plan || '',
+                                 offer: 'matricula-50', source: 'landing jovenes-adultos', form: f.dataset.cta, website: d.website || '' })
+        }).catch(() => null);
+        Promise.race([envio, new Promise(r => setTimeout(r, 2500))]).then(irAGracias);
+      });
+    });
+    // Botones de plan → bajan al formulario final con el plan elegido
+    document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => {
+      const sel = document.querySelector('#form-final select[name="plan"]');
+      if (sel) sel.value = a.dataset.plan;
+    }));
 
     // ─── MEDICIÓN (Meta Pixel) ───
     // Cada clic a WhatsApp se cuenta como "Contact" (evento estándar de Meta).

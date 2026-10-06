@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" /><!-- página de gracias: no indexar -->
+  <title>¡Listo! | Acroflex Jóvenes y Adultos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Montserrat',sans-serif;background:radial-gradient(circle at 50% 0%,#1535bb 0%,#060c3c 60%);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px}
+    .card{max-width:460px;width:100%;text-align:center}
+    .logo{width:84px;height:84px;border-radius:50%;margin-bottom:18px}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;letter-spacing:1px;line-height:1.05;margin-bottom:12px}
+    h1 span{color:#ff8c42}
+    p{color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:10px}
+    .oferta{display:inline-block;background:rgba(245,166,35,.12);border:1px solid #f5a623;border-radius:12px;padding:10px 16px;margin:8px 0 22px;font-weight:700}
+    .oferta s{color:rgba(255,255,255,.5)} .oferta b{color:#f5a623}
+    .btn{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(90deg,#25D366,#128C7E);color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem;padding:17px 24px;border-radius:50px;box-shadow:0 6px 24px rgba(37,211,102,.4)}
+    .nota{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:14px}
+    .dir{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:26px}
+  </style>
+  <!-- META PIXEL: aquí se registra el Lead -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1114698224661770');
+    fbq('track', 'PageView');
+    (function(){
+      var q=new URLSearchParams(location.search);
+      if (q.get('n')) fbq('track','Lead',{content_name:'matricula-50',content_category:q.get('f')||'',value:25,currency:'PEN'});
+    })();
+  </script>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="logo.png" alt="Acroflex" />
+    <h1>¡Listo, <span id="nombre">ya casi</span>! 🎉</h1>
+    <p>Tu <strong>matrícula a S/25</strong> está reservada:</p>
+    <div class="oferta">🎁 Matrícula <s>S/50</s> <b>S/25</b> con tu primera mensualidad<br><span style="font-size:.8rem;color:#ffb3c7;">⏰ Inscríbete hasta el viernes 9 de octubre</span></div>
+    <p>Último paso: <strong>envíanos el mensaje por WhatsApp</strong> y te ayudamos a elegir tu horario.</p>
+    <a id="wa" class="btn" href="https://wa.me/51969622550" target="_self">Enviar mi mensaje por WhatsApp</a>
+    <div class="nota">Se abrirá WhatsApp con tu mensaje ya escrito.</div>
+    <div class="dir">📍 Av. Húsares de Junín 374, piso 6 · Jesús María</div>
+  </div>
+  <script>
+    var q=new URLSearchParams(location.search), n=(q.get('n')||'').trim();
+    if(n){ document.getElementById('nombre').textContent=n.split(' ')[0]; }
+    var msg='¡Hola! Soy '+(n||'')+' y vengo de la web 🤸 Quiero mi 50% de descuento en la matrícula de Acroflex Jóvenes y Adultos.\nHorario que me acomoda: '+(q.get('h')||'-')+'\nPlan que me interesa: '+(q.get('p')||'Aún no sé');
+    var wa='https://wa.me/51969622550?text='+encodeURIComponent(msg);
+    document.getElementById('wa').href=wa;
+    document.getElementById('wa').addEventListener('click',function(){ if(typeof fbq==='function') fbq('track','Contact',{content_name:'lead-whatsapp',content_category:'gracias'}); });
+  </script>
+</body>
+</html>
