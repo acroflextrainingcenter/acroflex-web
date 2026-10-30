@@ -59,7 +59,7 @@ const PRECIOS = {
       { slug: "flexipower-12", n: 12, precio: 420, freq: "3 veces por semana" },
     ],
     suelta: { slug: "clase-suelta-flexipower", precio: 45 },
-    extra: { titulo: "Intensivo de sábado", texto: "4 clases intensivas de 1 h 30 min por S/ 250 · o 1 clase por S/ 65", slug: "flexipower-intensivo-4", slug2: "clase-suelta-flexipower-intensivo" },
+    extra: { titulo: "Intensivo de sábado", texto: "4 clases intensivas de 1 h 25 min por S/ 250 · o 1 clase por S/ 65", slug: "flexipower-intensivo-4", slug2: "clase-suelta-flexipower-intensivo" },
   },
   teens: {
     planes: [
