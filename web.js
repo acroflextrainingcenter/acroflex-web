@@ -50,7 +50,7 @@ const PRECIOS = {
       { slug: "acroflex-12", n: 12, precio: 470, freq: "3 veces por semana" },
     ],
     suelta: { slug: "clase-suelta-acroflex", precio: 55 },
-    extra: { titulo: "Intensivo de domingo", texto: "4 clases de 2 horas por S/ 260 · o 1 clase por S/ 80", slug: "acroflex-intensivo-4", slug2: "clase-suelta-acroflex-intensivo" },
+    extra: { titulo: "Intensivo de domingo", texto: "4 clases de 2 horas por S/ 260 · o 1 clase por S/ 70", slug: "acroflex-intensivo-4", slug2: "clase-suelta-acroflex-intensivo" },
   },
   flexipower: {
     planes: [
@@ -58,8 +58,8 @@ const PRECIOS = {
       { slug: "flexipower-8", n: 8, precio: 290, freq: "2 veces por semana", top: true },
       { slug: "flexipower-12", n: 12, precio: 420, freq: "3 veces por semana" },
     ],
-    suelta: { slug: "clase-suelta-flexipower", precio: 55 },
-    extra: { titulo: "Intensivo de sábado", texto: "4 clases intensivas por S/ 250", slug: "flexipower-intensivo-4" },
+    suelta: { slug: "clase-suelta-flexipower", precio: 50 },
+    extra: { titulo: "Intensivo de sábado", texto: "4 clases intensivas de 1 h 30 min por S/ 250 · o 1 clase por S/ 60", slug: "flexipower-intensivo-4" },
   },
   teens: {
     planes: [
