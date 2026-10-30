@@ -343,3 +343,8 @@ a{color:inherit}
 .af-page{font-family:'Barlow',system-ui,sans-serif}
 .af-page .af-hero h1,.af-page .af-grupo > h2,.af-page .af-precio{font-family:'Anton',sans-serif}
 .af-page .af-hero{padding:56px 20px 46px}
+
+/* acceso a Mi Acroflex */
+.top nav.menu a.mi-cuenta{border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 16px}
+.top nav.menu a.mi-cuenta:hover{border-color:#fff}
+@media(max-width:960px){body.menu-abierto .top nav.menu a.mi-cuenta{border:0;border-radius:0;padding:14px 0;color:var(--orange2)}}

@@ -48,7 +48,7 @@ def menu(activo, archivo=""):
     return (
         '<!-- MENU -->\n<header class="top">\n  <div class="wrap top-in">\n'
         '    <a class="top-logo" href="index.html" aria-label="Acroflex, inicio"><img src="logo.png" alt="Acroflex Training Center" width="54" height="54" /></a>\n'
-        f'    <nav class="menu" aria-label="Menú principal">{"".join(items)}</nav>\n'
+        f'    <nav class="menu" aria-label="Menú principal">{"".join(items)}<a class="mi-cuenta" href="https://acroflex-reservas.vercel.app/entrar">Mi cuenta</a></nav>\n'
         '    <a class="btn btn-orange top-cta" href="paquetes.html">Inscríbete</a>\n'
         '    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>\n'
         '  </div>\n</header>\n<!-- /MENU -->'
