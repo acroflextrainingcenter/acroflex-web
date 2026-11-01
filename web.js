@@ -80,7 +80,7 @@ function htmlHorario(curso) {
   const dias = DIAS.map((dia, i) => {
     const turnos = h.turnos.filter((t) => t[0] === i);
     const horas = turnos.length
-      ? turnos.map((t) => `<span class="hora${t[3] ? " int" : ""}">${t[1]}<small>${t[3] ? "Intensivo · " : ""}hasta ${t[2]}</small></span>`).join("")
+      ? turnos.map((t) => `<button type="button" class="hora${t[3] ? " int" : ""}" data-curso="${curso}" data-dia="${dia}" data-hora="${t[1]}" data-fin="${t[2]}"${t[3] ? " data-int" : ""}>${t[1]}<small>${t[3] ? "Intensivo · " : ""}hasta ${t[2]}</small></button>`).join("")
       : `<span class="vacio">Sin clases</span>`;
     return `<div class="dia${i === hoy ? " hoy" : ""}"><h4>${dia}${i === hoy ? "<small>Hoy</small>" : ""}</h4><div class="horas">${horas}</div></div>`;
   }).join("");
@@ -138,6 +138,53 @@ function montarBloque(el) {
 }
 
 document.querySelectorAll("[data-bloque]").forEach(montarBloque);
+
+// Al tocar un horario: comprar o escribir por WhatsApp con ese horario ya escrito.
+const PAGINA_CURSO = { adultos: "curso-jovenes-adultos.html", flexipower: "curso-flexipower.html", teens: "curso-teens.html" };
+const NOMBRE_LARGO = { adultos: "Acroflex Jóvenes y Adultos", flexipower: "FlexiPower", teens: "Acroflex Teens" };
+
+function urlComprar(curso) {
+  const aqui = document.querySelector(`[data-bloque="precio"][data-curso="${curso}"]`);
+  return aqui && !aqui.hasAttribute("data-tabs") ? "#precios" : PAGINA_CURSO[curso] + "#precios";
+}
+
+function abrirHorario(b) {
+  const curso = b.dataset.curso;
+  const texto = `${NOMBRE_LARGO[curso]} · ${b.dataset.dia} ${b.dataset.hora}${b.hasAttribute("data-int") ? " (intensivo)" : ""}`;
+  const wa = "https://wa.me/51993813336?text=" + encodeURIComponent(`Hola Acroflex 🤸 Me interesa el horario de ${texto}. ¿Hay cupo?`);
+  let hoja = document.getElementById("hoja-horario");
+  if (!hoja) {
+    hoja = document.createElement("div");
+    hoja.id = "hoja-horario";
+    hoja.className = "hoja";
+    hoja.setAttribute("role", "dialog");
+    hoja.setAttribute("aria-modal", "true");
+    document.body.appendChild(hoja);
+    hoja.addEventListener("click", (e) => { if (e.target === hoja || e.target.closest("[data-cerrar]")) cerrarHoja(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrarHoja(); });
+  }
+  hoja.innerHTML = `<div class="hoja-in">
+      <button type="button" class="hoja-x" data-cerrar aria-label="Cerrar">×</button>
+      <span class="kicker">Te interesa este horario</span>
+      <h3>${NOMBRE_LARGO[curso]}</h3>
+      <p class="hoja-hora">${b.dataset.dia} · ${b.dataset.hora} a ${b.dataset.fin}${b.hasAttribute("data-int") ? " · Intensivo" : ""}</p>
+      <a class="btn btn-orange" href="${urlComprar(curso)}" data-cerrar>Ver precios y comprar</a>
+      <a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <p class="hoja-nota">Al comprar tu paquete, eliges este horario al agendar tus clases.</p>
+    </div>`;
+  hoja.classList.add("abierta");
+  hoja.querySelector(".btn-orange").focus();
+}
+
+function cerrarHoja() {
+  const hoja = document.getElementById("hoja-horario");
+  if (hoja) hoja.classList.remove("abierta");
+}
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("button.hora");
+  if (b) abrirHorario(b);
+});
 
 // menú en celular
 const botonMenu = document.querySelector(".menu-btn");

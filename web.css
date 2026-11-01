@@ -348,3 +348,20 @@ a{color:inherit}
 .top nav.menu a.mi-cuenta{border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 16px}
 .top nav.menu a.mi-cuenta:hover{border-color:#fff}
 @media(max-width:960px){body.menu-abierto .top nav.menu a.mi-cuenta{border:0;border-radius:0;padding:14px 0;color:var(--orange2)}}
+
+/* horario clicable + ventana para comprar o escribir */
+button.hora{font:inherit;border:0;text-align:left;width:100%;cursor:pointer;color:inherit;transition:background .15s,box-shadow .15s}
+button.hora:hover,button.hora:focus-visible{background:#e6e9ff;box-shadow:0 0 0 2px var(--blue2);outline:0}
+button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
+@media(max-width:960px){button.hora{width:auto}}
+.hoja{position:fixed;inset:0;z-index:80;background:rgba(7,11,51,.55);display:none;align-items:center;justify-content:center;padding:20px}
+.hoja.abierta{display:flex}
+.hoja-in{position:relative;background:#fff;border-radius:24px;padding:28px 24px 22px;max-width:400px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:10px}
+.hoja-in h3{font-family:'Anton';font-weight:400;text-transform:uppercase;font-size:1.9rem;line-height:1;margin:4px 0 0;color:var(--navy)}
+.hoja-hora{margin:0 0 8px;font-weight:700;font-size:1.05rem;color:#323858}
+.hoja-in .btn{width:100%}
+.btn-wa{background:#25d366;color:#fff}
+.btn-wa:hover{background:#1fbf5b}
+.hoja-nota{margin:4px 0 0;font-size:.85rem;color:var(--muted);text-align:center}
+.hoja-x{position:absolute;top:10px;right:12px;border:0;background:var(--wash);width:36px;height:36px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink)}
+@media(max-width:560px){.hoja{align-items:flex-end;padding:0}.hoja-in{border-radius:24px 24px 0 0;max-width:none;padding-bottom:calc(22px + env(safe-area-inset-bottom))}}
