@@ -8,10 +8,21 @@ reciben el menú nuevo (entre <!-- MENU --> y <!-- /MENU -->).
 
 Uso: python3 _fuente/armar.py
 """
-import pathlib, re
+import hashlib, pathlib, re
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 FUENTE = RAIZ / "_fuente"
+
+
+def version(nombre):
+    """Huella corta del archivo: cambia cuando cambia el archivo, así los navegadores (Instagram incluido) no usan una copia vieja."""
+    return hashlib.md5((RAIZ / nombre).read_bytes()).hexdigest()[:8]
+
+
+def con_version(html):
+    for nombre in ["sitio.css", "web.css", "web.js"]:
+        html = re.sub(r'(href|src)="' + re.escape(nombre) + r'(\?v=[0-9a-f]+)?"', lambda m: f'{m.group(1)}="{nombre}?v={version(nombre)}"', html)
+    return html
 WA = "https://wa.me/51993813336?text=Hola%20Acroflex%20%F0%9F%A4%B8%20Quiero%20informaci%C3%B3n%20para%20inscribirme"
 WA_SVG = '<svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>'
 
@@ -95,7 +106,7 @@ def armar_pagina(fuente):
 </body>
 </html>
 """
-    (RAIZ / fuente.name).write_text(html)
+    (RAIZ / fuente.name).write_text(con_version(html))
     print("armada", fuente.name)
 
 
@@ -108,11 +119,11 @@ def poner_menu(nombre, activo):
     else:
         s = re.sub(r'<header class="af-top">.*?</header>', lambda m: nuevo, s, count=1, flags=re.S)
     s = re.sub(r'<link href="https://fonts.googleapis.com/css2[^"]*" rel="stylesheet" />', lambda m: FUENTES.split("\n")[-1], s, count=1)
-    if 'href="web.css"' not in s:
+    if 'href="web.css' not in s:
         s = s.replace('<link rel="stylesheet" href="sitio.css" />', '<link rel="stylesheet" href="sitio.css" />\n<link rel="stylesheet" href="web.css" />', 1)
-    if 'src="web.js"' not in s:
+    if 'src="web.js' not in s:
         s = s.replace("</body>", f"{flotantes()}\n<script src=\"web.js\"></script>\n</body>", 1)
-    p.write_text(s)
+    p.write_text(con_version(s))
     print("menú en", nombre)
 
 
