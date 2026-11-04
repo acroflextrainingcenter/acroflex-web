@@ -365,3 +365,31 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 .hoja-nota{margin:4px 0 0;font-size:.85rem;color:var(--muted);text-align:center}
 .hoja-x{position:absolute;top:10px;right:12px;border:0;background:var(--wash);width:36px;height:36px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink)}
 @media(max-width:560px){.hoja{align-items:flex-end;padding:0}.hoja-in{border-radius:24px 24px 0 0;max-width:none;padding-bottom:calc(22px + env(safe-area-inset-bottom))}}
+
+/* ---- Cyber Wow (se muestra solo en fechas de la promo) ---- */
+.cy-barra{display:block;background:linear-gradient(90deg,#ff7a1a,#ff4fa3 55%,#2a33ff);color:#fff;text-align:center;text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;line-height:1.35}
+.cy-barra u{margin-left:8px;font-weight:800}
+.cy-portada{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 10%,#ff4fa3 0%,transparent 45%),radial-gradient(circle at 10% 90%,#ff7a1a 0%,transparent 45%),linear-gradient(135deg,#0a0f3d,#2a1590 60%,#2a33ff);color:#fff;padding:64px 0 72px}
+.cy-portada[hidden]{display:none}
+.cy-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.cy-chip{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 16px;font-weight:600;font-size:.95rem}
+.cy-portada h1{font-size:clamp(4rem,12vw,8.5rem);margin:18px 0 6px;line-height:.9}
+.cy-portada h1 span{background:linear-gradient(90deg,#ffd23f,#ff9a4a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cy-lead{font-size:1.2rem;color:#e6e8ff;margin:0 0 26px;max-width:480px}
+.cy-ofertas{display:grid;gap:14px}
+.cy-oferta{background:#fff;color:#10142f;border-radius:22px;padding:22px 24px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.cy-oferta span{display:block;font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#e0620a}
+.cy-oferta b{display:block;font-family:'Anton';font-weight:400;font-size:2.4rem;line-height:1.05;color:#0a0f3d;margin-top:6px}
+.cy-oferta b small{font-family:'Barlow';font-size:1rem;font-weight:700;color:#4a5170}
+.cy-oferta s{color:#9aa1c4;font-size:.6em}
+.cy-oferta p{margin:6px 0 0;color:#4a5170;font-size:.95rem}
+.cy-azul{background:#fff6ee}
+.cy-letra{font-size:.82rem;color:#c9cef5;margin:2px 4px 0}
+@media(max-width:900px){.cy-in{grid-template-columns:1fr}.cy-portada{padding:40px 0 48px}}
+.cy-aviso{display:flex;flex-direction:column;gap:4px;background:linear-gradient(90deg,#fff1e6,#ffe8f3);border:1.5px solid #ffb27a;border-radius:16px;padding:14px 18px;margin-bottom:18px;color:#10142f}
+.cy-aviso s,.cy-precio s,.cy-tienda s{color:#8a90b0}
+.cy-precio{display:flex;flex-direction:column;gap:2px;background:#fff1e6;border-radius:12px;padding:8px 12px;margin:-6px 0 14px}
+.cy-precio span{font-size:.8rem;font-weight:700;color:#b45309}
+.cy-precio b{font-size:1.15rem;color:#0a0f3d}
+.plan.suelta .cy-precio{display:none}
+.cy-tienda{margin:4px 0 0;background:#fff1e6;border-radius:10px;padding:8px 10px;font-size:.85rem;color:#10142f;line-height:1.4}

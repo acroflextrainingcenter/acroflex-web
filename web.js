@@ -73,6 +73,16 @@ const PRECIOS = {
 
 const hoy = (new Date().getDay() + 6) % 7; // 0 = lunes
 
+// Cyber Wow (nov 2026): se prende y se apaga sola por fecha, hora Lima. Para verla antes: ?cyber=1 o #cyber=1
+const CYBER = { inicio: "2026-11-03T20:00:00-05:00", fin: "2026-11-06T23:59:59-05:00", finTexto: "viernes 6 de noviembre" };
+const enCyber = (() => {
+  if (/cyber=1/.test(location.search + location.hash)) return true;
+  const ahora = Date.now();
+  return ahora >= Date.parse(CYBER.inicio) && ahora <= Date.parse(CYBER.fin);
+})();
+// descuento para estudiantes antiguos: 4 clases → S/ 15; 8 o 12 → S/ 25
+const dctoCyber = (n) => (n >= 8 ? 25 : n >= 4 ? 15 : 0);
+
 function soles(n) { return "S/ " + (Number.isInteger(n) ? n : n.toFixed(2)); }
 
 function htmlHorario(curso) {
@@ -96,6 +106,7 @@ function htmlPrecios(curso) {
       <div class="freq">${pl.freq}</div>
       <div class="precio"><small>S/</small>${pl.precio}</div>
       <span class="xclase">${soles(Math.round(pl.precio / pl.n * 100) / 100)} por clase</span>
+      ${enCyber ? `<div class="cy-precio"><span>🔥 Si ya eres estudiante</span><b><s>S/ ${pl.precio}</s> S/ ${pl.precio - dctoCyber(pl.n)}</b></div>` : ""}
       <ul><li>Eliges tus horarios</li><li>1 mes desde tu 1.ª clase</li></ul>
       <a class="btn btn-orange" href="${COMPRAR + pl.slug}">Comprar</a>
     </div>`).join("");
@@ -109,9 +120,12 @@ function htmlPrecios(curso) {
       <a class="btn" href="${COMPRAR + p.suelta.slug}">Comprar</a>
     </div>`;
   const extra = p.extra
-    ? `<div class="extra-row"><div class="extra" style="grid-column:1/-1"><div><b>${p.extra.titulo}</b><span>${p.extra.texto}</span></div><span style="display:flex;gap:16px;flex-wrap:wrap"><a href="${COMPRAR + p.extra.slug}">Comprar paquete →</a>${p.extra.slug2 ? `<a href="${COMPRAR + p.extra.slug2}">Comprar 1 clase →</a>` : ""}</span></div></div>`
+    ? `<div class="extra-row"><div class="extra" style="grid-column:1/-1"><div><b>${p.extra.titulo}</b><span>${p.extra.texto}${enCyber ? " · 🔥 estudiantes: −S/ 15 en el paquete" : ""}</span></div><span style="display:flex;gap:16px;flex-wrap:wrap"><a href="${COMPRAR + p.extra.slug}">Comprar paquete →</a>${p.extra.slug2 ? `<a href="${COMPRAR + p.extra.slug2}">Comprar 1 clase →</a>` : ""}</span></div></div>`
     : "";
-  return `<div class="planes">${planes + suelta}</div>${extra}`;
+  const cyber = enCyber
+    ? `<div class="cy-aviso"><b>🔥 Cyber Wow · hasta el ${CYBER.finTexto}</b><span><b>¿Eres nuevo?</b> Matrícula <s>S/ 50</s> <b>S/ 0</b> · <b>¿Ya eres estudiante?</b> −S/ 15 en 4 clases y −S/ 25 en 8 o 12. Se aplica solo al pagar.</span></div>`
+    : "";
+  return `${cyber}<div class="planes">${planes + suelta}</div>${extra}`;
 }
 
 // <div data-bloque="horario|precio" data-curso="adultos" [data-tabs]></div>
@@ -138,6 +152,40 @@ function montarBloque(el) {
 }
 
 document.querySelectorAll("[data-bloque]").forEach(montarBloque);
+
+function cuentaRegresiva(el) {
+  const pintar = () => {
+    const ms = Math.max(0, Date.parse(CYBER.fin) - Date.now());
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
+    el.textContent = ms ? `${d ? d + " d " : ""}${h} h ${String(m).padStart(2, "0")} min` : "¡Último momento!";
+  };
+  pintar();
+  setInterval(pintar, 30000);
+}
+
+if (enCyber) {
+  document.body.classList.add("cyber");
+  const barra = document.createElement("a");
+  barra.className = "cy-barra";
+  barra.href = "paquetes.html";
+  barra.innerHTML = `🔥 <b>CYBER WOW</b> · Nuevos: matrícula S/ 0 · Estudiantes: hasta −S/ 25 · Termina en <span data-cuenta></span> <u>Ver precios</u>`;
+  document.body.prepend(barra);
+  const portada = document.getElementById("cyber-portada");
+  if (portada) portada.hidden = false;
+  document.querySelectorAll("[data-cuenta]").forEach(cuentaRegresiva);
+  // tienda: precio tachado en cada paquete que entra en la promo
+  document.querySelectorAll(".af-card").forEach((card) => {
+    const a = card.querySelector('a[href*="/comprar/"]');
+    const slug = a ? a.href.split("/comprar/")[1] : "";
+    const m = slug.match(/-(\d+)$/);
+    if (!m || /^(clase-suelta|1a1|particular|matricula)/.test(slug)) return;
+    const precio = card.querySelector(".af-precio");
+    const monto = precio ? Number(precio.textContent.replace(/[^0-9]/g, "")) : 0;
+    const dcto = dctoCyber(Number(m[1]));
+    if (!monto || !dcto) return;
+    precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 Si ya eres estudiante: <s>S/ ${monto}</s> <b>S/ ${monto - dcto}</b><br>Nuevo: matrícula <b>S/ 0</b></p>`);
+  });
+}
 
 // Al tocar un horario: comprar o escribir por WhatsApp con ese horario ya escrito.
 const PAGINA_CURSO = { adultos: "curso-jovenes-adultos.html", flexipower: "curso-flexipower.html", teens: "curso-teens.html" };
