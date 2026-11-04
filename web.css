@@ -393,3 +393,26 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 .cy-precio b{font-size:1.15rem;color:#0a0f3d}
 .plan.suelta .cy-precio{display:none}
 .cy-tienda{margin:4px 0 0;background:#fff1e6;border-radius:10px;padding:8px 10px;font-size:.85rem;color:#10142f;line-height:1.4}
+
+/* Cyber Wow: título brillante y reloj grande */
+.cy-titulo{margin:16px 0 18px}
+.cy-titulo .cy-t1{color:#fff;text-shadow:0 0 8px rgba(255,255,255,.9),0 0 22px #ff4fa3,0 0 48px #ff4fa3,0 0 90px #ff4fa3}
+.cy-titulo .cy-t2{color:#fff7c2;background:none;-webkit-text-fill-color:#fff7c2;text-shadow:0 0 8px #fff,0 0 20px #ffd23f,0 0 44px #ff9a1a,0 0 90px #ff7a1a}
+@keyframes cy-brillo{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}
+@keyframes cy-titila{0%,18%,22%,100%{opacity:1}20%{opacity:.55}}
+.cy-titulo .cy-t1{animation:cy-brillo 2.4s ease-in-out infinite}
+.cy-titulo .cy-t2{animation:cy-brillo 2.4s ease-in-out infinite .6s,cy-titila 5s linear infinite}
+.cy-reloj{display:flex;gap:12px;margin:0 0 12px}
+.cy-reloj div{background:rgba(10,15,61,.65);border:2px solid rgba(255,210,63,.75);border-radius:18px;min-width:96px;padding:12px 10px 8px;text-align:center;box-shadow:0 0 24px rgba(255,79,163,.45),inset 0 0 18px rgba(255,255,255,.06)}
+.cy-reloj b{display:block;font-family:'Anton';font-weight:400;font-size:3.6rem;line-height:1;color:#fff;text-shadow:0 0 14px rgba(255,210,63,.8);font-variant-numeric:tabular-nums}
+.cy-reloj small{display:block;margin-top:4px;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ffd23f}
+@keyframes cy-tic{0%{transform:translateY(-8px);opacity:.3}100%{transform:none;opacity:1}}
+.cy-reloj b.cambia{animation:cy-tic .35s ease-out}
+.cy-reloj.ultimo-dia div{border-color:#ff4f6d;box-shadow:0 0 30px rgba(255,79,109,.75)}
+@keyframes cy-late{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.cy-reloj.ultimo-dia{animation:cy-late 1s ease-in-out infinite}
+.cy-urge{margin:0 0 22px;font-weight:700;color:#ffe0c7}
+@media(max-width:480px){.cy-reloj{gap:8px}.cy-reloj div{min-width:0;flex:1;padding:10px 4px 6px}.cy-reloj b{font-size:2.6rem}}
+@media(prefers-reduced-motion:reduce){.cy-titulo span,.cy-reloj,.cy-reloj b.cambia{animation:none}}
+.cy-portada h1.cy-titulo span{background:none;-webkit-background-clip:border-box;background-clip:border-box}
+.cy-portada h1.cy-titulo .cy-t1{-webkit-text-fill-color:#fff;color:#fff}

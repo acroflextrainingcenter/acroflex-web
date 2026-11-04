@@ -173,6 +173,22 @@ if (enCyber) {
   const portada = document.getElementById("cyber-portada");
   if (portada) portada.hidden = false;
   document.querySelectorAll("[data-cuenta]").forEach(cuentaRegresiva);
+  // reloj grande de la portada: segundo a segundo
+  document.querySelectorAll("[data-reloj]").forEach((reloj) => {
+    const u = (k) => reloj.querySelector(`[data-u="${k}"]`);
+    const dos = (n) => String(n).padStart(2, "0");
+    const tic = () => {
+      const ms = Math.max(0, Date.parse(CYBER.fin) - Date.now());
+      const t = { d: Math.floor(ms / 864e5), h: Math.floor(ms / 36e5) % 24, m: Math.floor(ms / 6e4) % 60, s: Math.floor(ms / 1e3) % 60 };
+      for (const k in t) {
+        const el = u(k), v = dos(t[k]);
+        if (el.textContent !== v) { el.textContent = v; el.classList.remove("cambia"); void el.offsetWidth; el.classList.add("cambia"); }
+      }
+      reloj.classList.toggle("ultimo-dia", ms < 864e5);
+    };
+    tic();
+    setInterval(tic, 1000);
+  });
   // tienda: precio tachado en cada paquete que entra en la promo
   document.querySelectorAll(".af-card").forEach((card) => {
     const a = card.querySelector('a[href*="/comprar/"]');
