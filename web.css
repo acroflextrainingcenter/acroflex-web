@@ -416,3 +416,31 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 @media(prefers-reduced-motion:reduce){.cy-titulo span,.cy-reloj,.cy-reloj b.cambia{animation:none}}
 .cy-portada h1.cy-titulo span{background:none;-webkit-background-clip:border-box;background-clip:border-box}
 .cy-portada h1.cy-titulo .cy-t1{-webkit-text-fill-color:#fff;color:#fff}
+
+/* tienda y páginas legales: que los botones y el banner no tomen el azul de los links */
+.af-page .cy-barra,.af-page .cy-barra u,.af-page .btn,.af-page .btn-orange,.af-page .top nav.menu > a,.af-page .sub-btn{color:#fff}
+.af-page .top nav.menu > a{color:#dfe3ff}
+.af-page .sub-menu a{color:var(--ink)}
+@media(max-width:960px){.af-page.menu-abierto .sub-menu a,body.menu-abierto .sub-menu a{color:#dfe3ff}}
+.af-page .btn.wa{color:#fff}
+.af-page .btn-dark{color:#fff}
+
+/* Cyber: precio con descuento en grande */
+.cy-tach{font-family:'Barlow';font-size:.42em;font-weight:700;color:#8a90b0;margin-left:10px;vertical-align:middle;text-decoration:line-through}
+.plan.suelta .cy-tach{color:#9aa1cc}
+.cy-eti{align-self:flex-start;margin:8px 0 4px;background:linear-gradient(90deg,#ff7a1a,#ff4fa3);color:#fff;font-weight:800;font-size:.82rem;padding:5px 12px;border-radius:999px}
+.cy-nuevo{margin:2px 0 14px;font-size:.86rem;color:var(--muted)}
+.cy-nuevo b{color:#0a7a4f}
+
+/* tienda: elegir por edad */
+.edad{background:#fff;border:1.5px solid #dde1f2;border-radius:22px;padding:22px;margin:0 0 30px;box-shadow:0 10px 28px rgba(13,20,86,.07)}
+.edad-q{margin:0 0 14px;font-weight:800;font-size:1.25rem;color:#0a0f3d}
+.edad-op{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.edad-op button{font:inherit;text-align:left;cursor:pointer;border:2px solid #dde1f2;background:#f4f6ff;border-radius:16px;padding:16px 18px;color:#10142f;transition:border-color .15s,background .15s}
+.edad-op button b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;line-height:1;color:#0a0f3d}
+.edad-op button span{display:block;margin-top:6px;font-weight:700;color:#5a6086}
+.edad-op button:hover{border-color:#ff7a1a}
+.edad-op button.activo{border-color:#ff7a1a;background:#fff3e6}
+.edad-nota{margin:14px 0 0;font-size:.92rem;color:#5a6086}
+.af-page .edad-nota a{color:#e0620a;font-weight:800}
+@media(max-width:520px){.edad-op{grid-template-columns:1fr}}

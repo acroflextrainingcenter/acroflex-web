@@ -31,7 +31,14 @@
   <p>Elige tu paquete, paga con tarjeta y reserva tus clases. Gimnasia para todos en Jesús María, Lima.</p>
 </div></section>
 <main class="af-main">
-  <nav class="af-filtros" aria-label="Ir a"><a href="#adultos">Acroflex Jóvenes y Adultos</a><a href="#teens">Acroflex Teens</a><a href="#flexipower">FlexiPower</a><a href="#suelta">Clase suelta</a><a href="#1a1">Clases 1:1</a><a href="#matricula">Matrícula</a></nav>
+  <div class="edad" data-edad>
+    <p class="edad-q">¿Qué edad tiene quien va a entrenar?</p>
+    <div class="edad-op">
+      <button type="button" data-ver="teens"><b>7 a 13 años</b><span>Acroflex Teens</span></button>
+      <button type="button" data-ver="adultos"><b>14 años o más</b><span>Acrobacias y FlexiPower</span></button>
+    </div>
+    <p class="edad-nota" hidden>Mostrando los cursos para esa edad · <a href="#" data-ver="todo">Ver todos</a></p>
+  </div>
   <section class="af-grupo" id="adultos">
     <h2>Acroflex Jóvenes y Adultos</h2>
     <p>Acrobacias, flexibilidad y fuerza desde cero, con técnica y seguridad. Desde los 14 años, sin límite de edad. Clases de 1 h 25 min.</p>
@@ -175,7 +182,7 @@
     <h2>Clase suelta</h2>
     <p>Una clase para venir cuando puedas. Cuesta más que la clase dentro de un paquete y no paga matrícula.</p>
     <div class="af-grid">
-      <article class="af-card">
+      <article class="af-card" data-solo="adultos">
         <img src="tienda/clase-suelta-acroflex.jpg" alt="Clase suelta · Jóvenes y Adultos" loading="lazy" width="640" height="480" />
         <div class="af-card-body">
           
@@ -186,7 +193,7 @@
           <a class="af-comprar" href="https://acroflex-reservas.vercel.app/comprar/clase-suelta-acroflex">Comprar</a>
         </div>
       </article>
-      <article class="af-card">
+      <article class="af-card" data-solo="teens">
         <img src="tienda/clase-suelta-teens.jpg" alt="Clase suelta · Teens" loading="lazy" width="640" height="480" />
         <div class="af-card-body">
           
@@ -197,7 +204,7 @@
           <a class="af-comprar" href="https://acroflex-reservas.vercel.app/comprar/clase-suelta-teens">Comprar</a>
         </div>
       </article>
-      <article class="af-card">
+      <article class="af-card" data-solo="adultos">
         <img src="tienda/clase-suelta-flexipower.jpg" alt="Clase suelta · FlexiPower" loading="lazy" width="640" height="480" />
         <div class="af-card-body">
           
@@ -208,7 +215,7 @@
           <a class="af-comprar" href="https://acroflex-reservas.vercel.app/comprar/clase-suelta-flexipower">Comprar</a>
         </div>
       </article>
-      <article class="af-card">
+      <article class="af-card" data-solo="adultos">
         <img src="tienda/clase-suelta-acroflex-intensivo.jpg" alt="Clase suelta · Intensivo de domingo" loading="lazy" width="640" height="480" />
         <div class="af-card-body">
           

@@ -104,9 +104,12 @@ function htmlPrecios(curso) {
       ${pl.top ? '<span class="tag">El más elegido</span>' : ""}
       <h3>${pl.n} clases</h3>
       <div class="freq">${pl.freq}</div>
-      <div class="precio"><small>S/</small>${pl.precio}</div>
-      <span class="xclase">${soles(Math.round(pl.precio / pl.n * 100) / 100)} por clase</span>
-      ${enCyber ? `<div class="cy-precio"><span>🔥 Si ya eres estudiante</span><b><s>S/ ${pl.precio}</s> S/ ${pl.precio - dctoCyber(pl.n)}</b></div>` : ""}
+      ${enCyber
+        ? `<div class="precio"><small>S/</small>${pl.precio - dctoCyber(pl.n)}<s class="cy-tach">S/ ${pl.precio}</s></div>
+      <span class="cy-eti">🔥 Precio Cyber para estudiantes</span>
+      <p class="cy-nuevo">¿Eres nuevo? S/ ${pl.precio} y matrícula <b>S/ 0</b></p>`
+        : `<div class="precio"><small>S/</small>${pl.precio}</div>
+      <span class="xclase">${soles(Math.round(pl.precio / pl.n * 100) / 100)} por clase</span>`}
       <ul><li>Eliges tus horarios</li><li>1 mes desde tu 1.ª clase</li></ul>
       <a class="btn btn-orange" href="${COMPRAR + pl.slug}">Comprar</a>
     </div>`).join("");
@@ -199,7 +202,8 @@ if (enCyber) {
     const monto = precio ? Number(precio.textContent.replace(/[^0-9]/g, "")) : 0;
     const dcto = dctoCyber(Number(m[1]));
     if (!monto || !dcto) return;
-    precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 Si ya eres estudiante: <s>S/ ${monto}</s> <b>S/ ${monto - dcto}</b><br>Nuevo: matrícula <b>S/ 0</b></p>`);
+    precio.innerHTML = `S/ ${monto - dcto}<s class="cy-tach">S/ ${monto}</s>`;
+    precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 <b>Precio Cyber para estudiantes</b><br>¿Eres nuevo? S/ ${monto} y matrícula <b>S/ 0</b></p>`);
   });
 }
 
@@ -249,6 +253,26 @@ document.addEventListener("click", (e) => {
   const b = e.target.closest("button.hora");
   if (b) abrirHorario(b);
 });
+
+// tienda: mostrar solo los cursos para la edad elegida
+const filtroEdad = document.querySelector("[data-edad]");
+if (filtroEdad) {
+  const grupos = { teens: ["teens", "suelta", "1a1", "matricula"], adultos: ["adultos", "flexipower", "suelta", "1a1", "matricula"] };
+  const nota = filtroEdad.querySelector(".edad-nota");
+  const ver = (edad) => {
+    document.querySelectorAll(".af-grupo").forEach((g) => { g.hidden = edad !== "todo" && !grupos[edad].includes(g.id); });
+    document.querySelectorAll("[data-solo]").forEach((c) => { c.hidden = edad !== "todo" && c.dataset.solo !== edad; });
+    filtroEdad.querySelectorAll("button[data-ver]").forEach((b) => b.classList.toggle("activo", b.dataset.ver === edad));
+    nota.hidden = edad === "todo";
+    if (edad !== "todo") document.getElementById(grupos[edad][0]).scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  filtroEdad.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-ver]");
+    if (!b) return;
+    e.preventDefault();
+    ver(b.dataset.ver);
+  });
+}
 
 // menú en celular
 const botonMenu = document.querySelector(".menu-btn");
