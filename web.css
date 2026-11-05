@@ -452,6 +452,8 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 .cuidado b{display:block;font-size:1.05rem}
 .cuidado span{color:#c9cef5;font-size:.94rem}
 .cuidado-nota{margin:16px 0 0;padding:14px 18px;border-radius:16px;background:rgba(255,122,26,.16);color:#ffe2cc;font-weight:600}
+.cuidado-letra{margin:10px 2px 0;font-size:.8rem;color:#9aa0cf}
+.faq .letra{display:block;margin-top:8px;font-size:.85rem;color:#8a8fae}
 @media(max-width:520px){.cuidado-grid{grid-template-columns:1fr;gap:10px}.cuidado{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;padding:14px 16px}.cuidado i{grid-row:span 2;margin:0}}
 
 /* tu progreso: primer mes y 3 meses */
