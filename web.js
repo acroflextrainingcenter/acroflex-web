@@ -238,6 +238,7 @@ const PAGINA_CURSO = { adultos: "curso-jovenes-adultos.html", flexipower: "curso
 const NOMBRE_LARGO = { adultos: "Acroflex Jóvenes y Adultos", flexipower: "FlexiPower", teens: "Acroflex Teens" };
 
 function urlComprar(curso) {
+  if (document.querySelector(`.af-grupo#${curso}`)) return `#${curso}`; // en Precios y horarios: los paquetes están en la misma sección
   const aqui = document.querySelector(`[data-bloque="precio"][data-curso="${curso}"]`);
   return aqui && !aqui.hasAttribute("data-tabs") ? "#precios" : PAGINA_CURSO[curso] + "#precios";
 }
@@ -298,6 +299,21 @@ if (filtroEdad) {
     e.preventDefault();
     ver(b.dataset.ver);
   });
+}
+
+// links con ancla a un curso (paquetes.html#teens, #horario-teens): los horarios se arman con JS y mueven la página,
+// así que se vuelve a ubicar la sección sin animación (al cargar y otra vez cuando terminan de cargar las fotos)
+const idAncla = location.hash && CSS.escape(decodeURIComponent(location.hash.slice(1)));
+const ancla = idAncla && document.querySelector(`.af-grupo#${idAncla}, .af-horario#${idAncla}`);
+if (ancla) {
+  const ir = () => {
+    document.documentElement.style.scrollBehavior = "auto";
+    ancla.scrollIntoView({ block: "start" });
+    document.documentElement.style.scrollBehavior = "";
+  };
+  ir();
+  addEventListener("load", ir);
+  setTimeout(ir, 800);
 }
 
 // menú en celular

@@ -498,3 +498,15 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 
 /* textos pendientes de confirmar: SOLO para la revisión, no deben quedar al publicar */
 .por-confirmar{background:#fff3a6;color:#5a4500;outline:2px dashed #d4a800;border-radius:6px;padding:0 4px}
+
+/* precios y horarios en una sola página */
+.af-saltos{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.af-saltos a{background:rgba(255,255,255,.14);color:#fff;text-decoration:none;font-weight:800;font-size:.92rem;padding:9px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3)}
+.af-saltos a:hover{background:rgba(255,255,255,.24)}
+.af-grupo{scroll-margin-top:84px}
+.af-ver-horario{display:inline-flex;gap:6px;margin:0 0 16px;background:#fff3e6;color:#c2540a;font-weight:800;text-decoration:none;padding:8px 14px;border-radius:999px;font-size:.95rem}
+.af-horario{scroll-margin-top:84px;margin-top:26px;background:var(--wash);border-radius:22px;padding:22px}
+.af-horario h3{margin:0 0 12px;font-size:1.2rem;color:#0a0f3d}
+.af-horario .horario-info{margin-top:0}
+.af-horario-nota{margin:12px 0 0;font-size:.88rem;color:var(--muted)}
+@media(max-width:560px){.af-horario{padding:16px 12px;margin-left:-4px;margin-right:-4px}.af-horario .dia:has(.vacio){display:none}}

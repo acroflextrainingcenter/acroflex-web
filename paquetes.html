@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!-- ESCONDIDA DE GOOGLE mientras se rediseña: quitar esta línea al lanzar la web -->
 <meta name="robots" content="noindex, nofollow" />
-<title>Paquetes y precios — Acroflex Training Center</title>
-<meta name="description" content="Compra tus paquetes de clases de Acroflex, Teens, FlexiPower, clases 1:1 y matrícula. Pago seguro con tarjeta." />
+<title>Precios y horarios — Acroflex Training Center</title>
+<meta name="description" content="Precios y horarios de Acroflex Jóvenes y Adultos, Teens y FlexiPower en un solo lugar. Clases 1:1 y matrícula. Pago seguro con tarjeta." />
 <link rel="icon" href="logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="sitio.css?v=10d2c6d5" />
-<link rel="stylesheet" href="web.css?v=8de69431" />
+<link rel="stylesheet" href="web.css?v=c578b10d" />
 <!-- Microsoft Clarity (proyecto "Acroflex"): mapas de calor y grabaciones de visitas -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z87hg6o7b9");</script>
 </head>
@@ -29,8 +29,9 @@
 <!-- /MENU -->
 <section class="af-hero"><div class="af-hero-in">
   <p class="af-kicker">Tienda Acroflex</p>
-  <h1>Paquetes y precios</h1>
-  <p>Elige tu paquete, paga con tarjeta y reserva tus clases. Gimnasia para todos en Jesús María, Lima.</p>
+  <h1>Precios y horarios</h1>
+  <p>Elige tu curso, mira sus precios y horarios, paga con tarjeta y reserva tus clases. Gimnasia para todos en Jesús María, Lima.</p>
+  <nav class="af-saltos" aria-label="Ir a un curso"><a href="#adultos">Jóvenes y Adultos</a><a href="#teens">Teens</a><a href="#flexipower">FlexiPower</a><a href="#1a1">Clases 1:1</a></nav>
 </div></section>
 <main class="af-main">
   <div class="edad" data-edad>
@@ -44,6 +45,7 @@
   <section class="af-grupo" id="adultos">
     <h2>Acroflex Jóvenes y Adultos</h2>
     <p>Acrobacias, flexibilidad y fuerza desde cero, con técnica y seguridad. Desde los 14 años, sin límite de edad. Clases de 1 h 25 min.</p>
+    <a class="af-ver-horario" href="#horario-adultos">🗓️ Ver horarios</a>
     <div class="af-grid">
       <article class="af-card">
         <img src="tienda/acroflex-4.jpg" alt="Acroflex · 4 clases" loading="lazy" width="640" height="480" />
@@ -90,10 +92,16 @@
         </div>
       </article>
     </div>
+    <div class="af-horario" id="horario-adultos">
+      <h3>🗓️ Horarios de Jóvenes y Adultos</h3>
+      <div data-bloque="horario" data-curso="adultos"></div>
+      <p class="af-horario-nota">Toca un horario para comprar o escribirnos por WhatsApp. Pueden cambiar en feriados.</p>
+    </div>
   </section>
   <section class="af-grupo" id="teens">
     <h2>Acroflex Teens</h2>
     <p>Gimnasia y acrobacias para niñas y niños de 7 a 13 años, en grupos pequeños y con un entrenamiento técnico y seguro.</p>
+    <a class="af-ver-horario" href="#horario-teens">🗓️ Ver horarios</a>
     <div class="af-grid">
       <article class="af-card">
         <img src="tienda/teens-4.jpg" alt="Teens · 4 clases" loading="lazy" width="640" height="480" />
@@ -129,10 +137,16 @@
         </div>
       </article>
     </div>
+    <div class="af-horario" id="horario-teens">
+      <h3>🗓️ Horarios de Teens</h3>
+      <div data-bloque="horario" data-curso="teens"></div>
+      <p class="af-horario-nota">Toca un horario para comprar o escribirnos por WhatsApp. Pueden cambiar en feriados.</p>
+    </div>
   </section>
   <section class="af-grupo" id="flexipower">
     <h2>FlexiPower</h2>
     <p>Estira y fortalece: más flexibilidad, fuerza y movilidad, y menos rigidez. Desde los 15 años, para mujeres y hombres. Clases de 55 min.</p>
+    <a class="af-ver-horario" href="#horario-flexipower">🗓️ Ver horarios</a>
     <div class="af-grid">
       <article class="af-card">
         <img src="tienda/flexipower-4.jpg" alt="FlexiPower · 4 clases" loading="lazy" width="640" height="480" />
@@ -178,6 +192,11 @@
           <a class="af-comprar" href="https://acroflex-reservas.vercel.app/comprar/flexipower-intensivo-4">Comprar</a>
         </div>
       </article>
+    </div>
+    <div class="af-horario" id="horario-flexipower">
+      <h3>🗓️ Horarios de FlexiPower</h3>
+      <div data-bloque="horario" data-curso="flexipower"></div>
+      <p class="af-horario-nota">Toca un horario para comprar o escribirnos por WhatsApp. Pueden cambiar en feriados.</p>
     </div>
   </section>
   <section class="af-grupo" id="suelta">
@@ -352,6 +371,6 @@
   <a class="btn btn-orange" href="paquetes.html">Ver precios e inscribirme</a>
   <a class="btn wa" href="https://wa.me/51993813336?text=Hola%20Acroflex%20%F0%9F%A4%B8%20Quiero%20informaci%C3%B3n%20para%20inscribirme" target="_blank" rel="noopener" aria-label="WhatsApp"><svg fill="#fff" width="24" height="24" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
 </div>
-<script src="web.js?v=f4d89c34"></script>
+<script src="web.js?v=d209e837"></script>
 </body>
 </html>
