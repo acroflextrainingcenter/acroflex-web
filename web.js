@@ -131,9 +131,35 @@ function htmlPrecios(curso) {
   return `${cyber}<div class="planes">${planes + suelta}</div>${extra}`;
 }
 
+// minutos desde las 0:00 de "8:30 pm"
+function minutos(hora) {
+  const [, h, m, ap] = hora.match(/(\d+):(\d+) (am|pm)/);
+  return (Number(h) % 12 + (ap === "pm" ? 12 : 0)) * 60 + Number(m);
+}
+
+// Turnos que empiezan desde las 6 pm, para destacar que se puede entrenar después del trabajo.
+function htmlNoche(cursos) {
+  const abrev = DIAS.map((d) => d.slice(0, 3));
+  let ultima = 0;
+  const filas = cursos.map((curso) => {
+    const porHora = {};
+    HORARIOS[curso].turnos.filter((t) => minutos(t[1]) >= 18 * 60).forEach((t) => {
+      ultima = Math.max(ultima, minutos(t[2]));
+      (porHora[t[1]] = porHora[t[1]] || []).push(abrev[t[0]]);
+    });
+    const horas = Object.keys(porHora).sort((a, b) => minutos(a) - minutos(b))
+      .map((h) => `<span><b>${h}</b> ${porHora[h].join(" · ")}</span>`).join("");
+    return `<div class="noche-curso"><small>${NOMBRES[curso]}</small><div class="noche-horas">${horas}</div></div>`;
+  }).join("");
+  const fin = `${Math.floor(ultima / 60) % 12}:${String(ultima % 60).padStart(2, "0")} pm`;
+  return `<p class="noche-titulo">🌙 Clases de noche hasta las <b>${fin}</b></p>${filas}<a class="noche-link" href="horarios.html">Ver todos los horarios →</a>`;
+}
+
 // <div data-bloque="horario|precio" data-curso="adultos" [data-tabs]></div>
+// <div data-bloque="noche" data-curso="adultos,flexipower"></div>
 function montarBloque(el) {
   const tipo = el.dataset.bloque;
+  if (tipo === "noche") { el.innerHTML = htmlNoche(el.dataset.curso.split(",")); return; }
   const pintar = (curso) => { cuerpo.innerHTML = tipo === "horario" ? htmlHorario(curso) : htmlPrecios(curso); };
   const cuerpo = document.createElement("div");
   if (el.hasAttribute("data-tabs")) {

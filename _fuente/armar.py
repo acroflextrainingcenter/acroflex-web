@@ -6,6 +6,11 @@ Este script les pone la cabecera, el menú, el pie legal y los scripts, y deja
 el resultado en la raíz (<nombre>.html). La tienda y las páginas legales solo
 reciben el menú nuevo (entre <!-- MENU --> y <!-- /MENU -->).
 
+Las piezas que se repiten en varias páginas (cuidado del cuerpo, el local,
+preguntas sobre miedos) están en _fuente/bloques/<nombre>.html y se insertan con
+`<!-- BLOQUE nombre -->`. Se le pueden pasar datos: `<!-- BLOQUE nombre fondo="wash" -->`
+reemplaza {{fondo}} dentro del bloque.
+
 Uso: python3 _fuente/armar.py
 """
 import hashlib, pathlib, re
@@ -75,8 +80,16 @@ def flotantes():
     )
 
 
+def con_bloques(texto):
+    def poner(m):
+        datos = dict(re.findall(r'(\w+)="([^"]*)"', m.group(2) or ""))
+        bloque = (FUENTE / "bloques" / f"{m.group(1)}.html").read_text().strip()
+        return re.sub(r"\{\{(\w+)\}\}", lambda v: datos.get(v.group(1), ""), bloque)
+    return re.sub(r"<!-- BLOQUE ([\w-]+)((?: \w+=\"[^\"]*\")*) -->", poner, texto)
+
+
 def armar_pagina(fuente):
-    texto = fuente.read_text()
+    texto = con_bloques(fuente.read_text())
     cabecera, cuerpo = texto.split("\n", 1)
     titulo, descripcion, activo = [x.strip() for x in cabecera.split("|")]
     pie = (FUENTE / "pie.html").read_text()
