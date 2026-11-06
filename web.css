@@ -250,6 +250,7 @@ a{color:inherit}
 .top nav.menu > a,.sub-btn{color:#dfe3ff;text-decoration:none;font:inherit;font-weight:600;font-size:.98rem;background:none;border:0;cursor:pointer;padding:8px 0}
 .top nav.menu > a:hover,.sub-btn:hover,.top nav.menu a[aria-current]{color:#fff}
 .top nav.menu a[aria-current]{box-shadow:inset 0 -2px 0 var(--orange)}
+.top nav.menu .sub-menu a[aria-current]{color:var(--ink);box-shadow:none;background:var(--wash)}
 .sub{position:relative}
 .sub-menu{position:absolute;top:100%;left:-14px;min-width:230px;background:#fff;border-radius:16px;padding:8px;box-shadow:0 20px 50px rgba(7,11,51,.3);display:none;flex-direction:column}
 .sub:hover .sub-menu,.sub:focus-within .sub-menu{display:flex}
@@ -268,6 +269,7 @@ a{color:inherit}
   body.menu-abierto .sub-menu a{color:#dfe3ff;padding:10px 0}
   body.menu-abierto .sub-menu a small{color:#9aa1cc}
   body.menu-abierto .sub-menu a:hover{background:none}
+  body.menu-abierto .sub-menu a[aria-current]{color:#fff;background:none}
 }
 @media(max-width:420px){.top .top-cta{padding:10px 14px;font-size:.88rem}}
 
