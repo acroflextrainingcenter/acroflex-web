@@ -97,9 +97,8 @@ def armar_pagina(fuente):
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<link rel="canonical" href="https://acroflextrainingcenter.com/{"" if fuente.name == "index.html" else fuente.name}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- ESCONDIDA DE GOOGLE mientras se rediseña: quitar esta línea al lanzar la web -->
-<meta name="robots" content="noindex, nofollow" />
 <title>{titulo}</title>
 <meta name="description" content="{descripcion}" />
 <link rel="icon" href="logo.png" />

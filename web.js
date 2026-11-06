@@ -83,6 +83,14 @@ const enCyber = (() => {
 // descuento para estudiantes antiguos: 4 clases → S/ 15; 8 o 12 → S/ 25
 const dctoCyber = (n) => (n >= 8 ? 25 : n >= 4 ? 15 : 0);
 
+// Precios según quién mira: "nuevo" (paga matrícula la 1.ª vez) o "estudiante". Por defecto, nuevo.
+let modo = "nuevo";
+try { if (localStorage.getItem("af-modo") === "estudiante") modo = "estudiante"; } catch (e) {}
+function htmlModo() {
+  const b = (m, txt) => `<button type="button" data-modo="${m}" aria-pressed="${modo === m}">${txt}</button>`;
+  return `<div class="modo" role="group" aria-label="¿Ya entrenas en Acroflex?">${b("nuevo", "Es mi primera vez")}${b("estudiante", "Ya soy estudiante")}</div>`;
+}
+
 function soles(n) { return "S/ " + (Number.isInteger(n) ? n : n.toFixed(2)); }
 
 function htmlHorario(curso) {
@@ -104,12 +112,14 @@ function htmlPrecios(curso) {
       ${pl.top ? '<span class="tag">El más elegido</span>' : ""}
       <h3>${pl.n} clases</h3>
       <div class="freq">${pl.freq}</div>
-      ${enCyber
+      ${enCyber && modo === "estudiante"
         ? `<div class="precio"><small>S/</small>${pl.precio - dctoCyber(pl.n)}<s class="cy-tach">S/ ${pl.precio}</s></div>
-      <span class="cy-eti">🔥 Precio Cyber para estudiantes</span>
-      <p class="cy-nuevo">¿Eres nuevo? S/ ${pl.precio} y matrícula <b>S/ 0</b></p>`
+      <span class="cy-eti">🔥 Precio Cyber para estudiantes</span>`
         : `<div class="precio"><small>S/</small>${pl.precio}</div>
       <span class="xclase">${soles(Math.round(pl.precio / pl.n * 100) / 100)} por clase</span>`}
+      ${modo === "nuevo"
+        ? (enCyber ? `<p class="cy-nuevo">🔥 Matrícula <s>S/ 50</s> <b>S/ 0</b></p>` : `<p class="cy-nuevo">+ matrícula S/ 50 (solo la primera vez)</p>`)
+        : ""}
       <ul><li>Eliges tus horarios</li><li>1 mes desde tu 1.ª clase</li></ul>
       <a class="btn btn-orange" href="${COMPRAR + pl.slug}">Comprar</a>
     </div>`).join("");
@@ -123,12 +133,14 @@ function htmlPrecios(curso) {
       <a class="btn" href="${COMPRAR + p.suelta.slug}">Comprar</a>
     </div>`;
   const extra = p.extra
-    ? `<div class="extra-row"><div class="extra" style="grid-column:1/-1"><div><b>${p.extra.titulo}</b><span>${p.extra.texto}${enCyber ? " · 🔥 estudiantes: −S/ 15 en el paquete" : ""}</span></div><span style="display:flex;gap:16px;flex-wrap:wrap"><a href="${COMPRAR + p.extra.slug}">Comprar paquete →</a>${p.extra.slug2 ? `<a href="${COMPRAR + p.extra.slug2}">Comprar 1 clase →</a>` : ""}</span></div></div>`
+    ? `<div class="extra-row"><div class="extra" style="grid-column:1/-1"><div><b>${p.extra.titulo}</b><span>${p.extra.texto}${enCyber && modo === "estudiante" ? " · 🔥 estudiantes: −S/ 15 en el paquete" : ""}</span></div><span style="display:flex;gap:16px;flex-wrap:wrap"><a href="${COMPRAR + p.extra.slug}">Comprar paquete →</a>${p.extra.slug2 ? `<a href="${COMPRAR + p.extra.slug2}">Comprar 1 clase →</a>` : ""}</span></div></div>`
     : "";
   const cyber = enCyber
-    ? `<div class="cy-aviso"><b>🔥 Cyber Wow · hasta el ${CYBER.finTexto}</b><span><b>¿Eres nuevo?</b> Matrícula <s>S/ 50</s> <b>S/ 0</b> · <b>¿Ya eres estudiante?</b> −S/ 15 en 4 clases y −S/ 25 en 8 o 12. Se aplica solo al pagar.</span></div>`
+    ? `<div class="cy-aviso"><b>🔥 Cyber Wow · hasta el ${CYBER.finTexto}</b><span>${modo === "nuevo"
+      ? "Tu matrícula <s>S/ 50</s> <b>S/ 0</b> en cualquier paquete."
+      : "−S/ 15 en 4 clases y −S/ 25 en 8 o 12."} Se aplica solo al pagar.</span></div>`
     : "";
-  return `${cyber}<div class="planes">${planes + suelta}</div>${extra}`;
+  return `${htmlModo()}${cyber}<div class="planes">${planes + suelta}</div>${extra}`;
 }
 
 // minutos desde las 0:00 de "8:30 pm"
@@ -160,7 +172,8 @@ function htmlNoche(cursos) {
 function montarBloque(el) {
   const tipo = el.dataset.bloque;
   if (tipo === "noche") { el.innerHTML = htmlNoche(el.dataset.curso.split(",")); return; }
-  const pintar = (curso) => { cuerpo.innerHTML = tipo === "horario" ? htmlHorario(curso) : htmlPrecios(curso); };
+  let actual = el.dataset.curso || "adultos";
+  const pintar = (curso) => { actual = curso; cuerpo.innerHTML = tipo === "horario" ? htmlHorario(curso) : htmlPrecios(curso); };
   const cuerpo = document.createElement("div");
   if (el.hasAttribute("data-tabs")) {
     const tabs = document.createElement("div");
@@ -177,7 +190,8 @@ function montarBloque(el) {
     el.appendChild(tabs);
   }
   el.appendChild(cuerpo);
-  pintar(el.dataset.curso || "adultos");
+  el.repintar = () => pintar(actual);
+  pintar(actual);
 }
 
 document.querySelectorAll("[data-bloque]").forEach(montarBloque);
@@ -218,20 +232,47 @@ if (enCyber) {
     tic();
     setInterval(tic, 1000);
   });
-  // tienda: precio tachado en cada paquete que entra en la promo
-  document.querySelectorAll(".af-card").forEach((card) => {
-    const a = card.querySelector('a[href*="/comprar/"]');
-    const slug = a ? a.href.split("/comprar/")[1] : "";
-    const m = slug.match(/-(\d+)$/);
-    if (!m || /^(clase-suelta|1a1|particular|matricula)/.test(slug)) return;
-    const precio = card.querySelector(".af-precio");
-    const monto = precio ? Number(precio.textContent.replace(/[^0-9]/g, "")) : 0;
-    const dcto = dctoCyber(Number(m[1]));
-    if (!monto || !dcto) return;
-    precio.innerHTML = `S/ ${monto - dcto}<s class="cy-tach">S/ ${monto}</s>`;
-    precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 <b>Precio Cyber para estudiantes</b><br>¿Eres nuevo? S/ ${monto} y matrícula <b>S/ 0</b></p>`);
+}
+
+// Tienda (Precios y horarios): cada paquete grupal muestra el precio según "nuevo" o "estudiante".
+const tarjetas = [...document.querySelectorAll(".af-card")].map((card) => {
+  const a = card.querySelector('a[href*="/comprar/"]');
+  const slug = a ? a.href.split("/comprar/")[1] : "";
+  const m = slug.match(/-(\d+)$/);
+  const precio = card.querySelector(".af-precio");
+  if (!m || !precio || /^(clase-suelta|1a1|particular|matricula)/.test(slug)) return null;
+  return { card, precio, original: precio.innerHTML, monto: Number(precio.textContent.replace(/[^0-9]/g, "")), dcto: dctoCyber(Number(m[1])) };
+}).filter(Boolean);
+function pintarTienda() {
+  tarjetas.forEach((x) => {
+    x.card.querySelector(".cy-tienda")?.remove();
+    x.precio.innerHTML = x.original;
+    if (modo === "estudiante") {
+      if (!enCyber || !x.dcto) return;
+      x.precio.innerHTML = `S/ ${x.monto - x.dcto}<s class="cy-tach">S/ ${x.monto}</s>`;
+      x.precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 <b>Precio Cyber para estudiantes</b></p>`);
+    } else {
+      x.precio.insertAdjacentHTML("afterend", enCyber
+        ? `<p class="cy-tienda">🔥 Matrícula <s>S/ 50</s> <b>S/ 0</b></p>`
+        : `<p class="cy-tienda">+ matrícula S/ 50 (solo la primera vez)</p>`);
+    }
   });
 }
+if (tarjetas.length) {
+  const primero = document.querySelector(".af-grupo");
+  primero.insertAdjacentHTML("beforebegin", htmlModo());
+  pintarTienda();
+}
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".modo [data-modo]");
+  if (!b || b.dataset.modo === modo) return;
+  modo = b.dataset.modo;
+  try { localStorage.setItem("af-modo", modo); } catch (err) {}
+  document.querySelectorAll('[data-bloque="precio"]').forEach((el) => el.repintar && el.repintar());
+  document.querySelectorAll(".modo [data-modo]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.modo === modo)));
+  pintarTienda();
+});
 
 // Al tocar un horario: comprar o escribir por WhatsApp con ese horario ya escrito.
 const PAGINA_CURSO = { adultos: "curso-jovenes-adultos.html", flexipower: "curso-flexipower.html", teens: "curso-teens.html" };
