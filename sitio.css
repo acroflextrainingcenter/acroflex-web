@@ -65,7 +65,9 @@
 .af-grupo > h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 2.1rem; letter-spacing: .02em; color: var(--af-navy2); margin: 0 0 4px; }
 .af-grupo > p { margin: 0 0 16px; color: var(--af-muted); max-width: 720px; }
 .af-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
-.af-card { border: 1px solid var(--af-line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 4px 18px rgba(11,18,80,.06); transition: transform .2s, box-shadow .2s; }
+.af-card { position: relative; border: 1px solid var(--af-line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 4px 18px rgba(11,18,80,.06); transition: transform .2s, box-shadow .2s; }
+/* Toda la tarjeta lleva a comprar (antes la gente tocaba la foto y no pasaba nada) */
+.af-card .af-comprar::after { content: ""; position: absolute; inset: 0; }
 .af-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(11,18,80,.13); }
 .af-card img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; }
 .af-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
