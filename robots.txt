@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gracias-adultos.html
+
+Sitemap: https://acroflextrainingcenter.com/sitemap.xml
