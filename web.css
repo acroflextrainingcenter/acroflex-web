@@ -438,11 +438,13 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 .edad{background:#fff;border:1.5px solid #dde1f2;border-radius:22px;padding:22px;margin:0 0 30px;box-shadow:0 10px 28px rgba(13,20,86,.07)}
 .edad-q{margin:0 0 14px;font-weight:800;font-size:1.25rem;color:#0a0f3d}
 .edad-op{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.edad-op button{font:inherit;text-align:left;cursor:pointer;border:2px solid #dde1f2;background:#f4f6ff;border-radius:16px;padding:16px 18px;color:#10142f;transition:border-color .15s,background .15s}
-.edad-op button b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;line-height:1;color:#0a0f3d}
-.edad-op button span{display:block;margin-top:6px;font-weight:700;color:#5a6086}
-.edad-op button:hover{border-color:#ff7a1a}
-.edad-op button.activo{border-color:#ff7a1a;background:#fff3e6}
+.edad-op button{font:inherit;text-align:left;cursor:pointer;border:3px solid transparent;background:linear-gradient(135deg,#2a33ff,#0a0f3d);border-radius:18px;padding:20px 22px;color:#fff;box-shadow:0 12px 28px rgba(42,51,255,.28);transition:transform .15s,box-shadow .15s,border-color .15s}
+.edad-op button[data-ver="teens"]{background:linear-gradient(135deg,#ff9a1a,#e0620a);box-shadow:0 12px 28px rgba(224,98,10,.3)}
+.edad-op button b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:2.1rem;line-height:1;color:#fff}
+.edad-op button span{display:block;margin-top:8px;font-weight:600;color:rgba(255,255,255,.88);line-height:1.35}
+.edad-op button i{display:inline-block;margin-top:14px;font-style:normal;font-weight:800;font-size:.95rem;background:#fff;color:#0a0f3d;border-radius:999px;padding:8px 16px}
+.edad-op button:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(13,20,86,.3)}
+.edad-op button.activo{border-color:#ffd23f}
 .edad-nota{margin:14px 0 0;font-size:.92rem;color:#5a6086}
 .af-page .edad-nota a{color:#e0620a;font-weight:800}
 @media(max-width:520px){.edad-op{grid-template-columns:1fr}}

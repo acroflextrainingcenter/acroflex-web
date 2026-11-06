@@ -85,6 +85,7 @@ const dctoCyber = (n) => (n >= 8 ? 25 : n >= 4 ? 15 : 0);
 
 // Precios según quién mira: "nuevo" (paga matrícula la 1.ª vez) o "estudiante". Por defecto, nuevo.
 let modo = "nuevo";
+const MATRICULA = 50;
 try { if (localStorage.getItem("af-modo") === "estudiante") modo = "estudiante"; } catch (e) {}
 function htmlModo() {
   const b = (m, txt) => `<button type="button" data-modo="${m}" aria-pressed="${modo === m}">${txt}</button>`;
@@ -115,11 +116,14 @@ function htmlPrecios(curso) {
       ${enCyber && modo === "estudiante"
         ? `<div class="precio"><small>S/</small>${pl.precio - dctoCyber(pl.n)}<s class="cy-tach">S/ ${pl.precio}</s></div>
       <span class="cy-eti">🔥 Precio Cyber para estudiantes</span>`
+        : modo === "nuevo"
+        ? (enCyber
+          ? `<div class="precio"><small>S/</small>${pl.precio}<s class="cy-tach">S/ ${pl.precio + MATRICULA}</s></div>
+      <span class="cy-eti">🔥 Matrícula gratis (antes S/ ${MATRICULA})</span>`
+          : `<div class="precio"><small>S/</small>${pl.precio + MATRICULA}</div>
+      <p class="cy-nuevo">S/ ${pl.precio} + matrícula S/ ${MATRICULA} (solo la primera vez)</p>`)
         : `<div class="precio"><small>S/</small>${pl.precio}</div>
       <span class="xclase">${soles(Math.round(pl.precio / pl.n * 100) / 100)} por clase</span>`}
-      ${modo === "nuevo"
-        ? (enCyber ? `<p class="cy-nuevo">🔥 Matrícula <s>S/ 50</s> <b>S/ 0</b></p>` : `<p class="cy-nuevo">+ matrícula S/ 50 (solo la primera vez)</p>`)
-        : ""}
       <ul><li>Eliges tus horarios</li><li>1 mes desde tu 1.ª clase</li></ul>
       <a class="btn btn-orange" href="${COMPRAR + pl.slug}">Comprar</a>
     </div>`).join("");
@@ -251,10 +255,12 @@ function pintarTienda() {
       if (!enCyber || !x.dcto) return;
       x.precio.innerHTML = `S/ ${x.monto - x.dcto}<s class="cy-tach">S/ ${x.monto}</s>`;
       x.precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 <b>Precio Cyber para estudiantes</b></p>`);
+    } else if (enCyber) {
+      x.precio.innerHTML = `S/ ${x.monto}<s class="cy-tach">S/ ${x.monto + MATRICULA}</s>`;
+      x.precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">🔥 <b>Matrícula gratis</b> (antes S/ ${MATRICULA})</p>`);
     } else {
-      x.precio.insertAdjacentHTML("afterend", enCyber
-        ? `<p class="cy-tienda">🔥 Matrícula <s>S/ 50</s> <b>S/ 0</b></p>`
-        : `<p class="cy-tienda">+ matrícula S/ 50 (solo la primera vez)</p>`);
+      x.precio.innerHTML = `S/ ${x.monto + MATRICULA}<small>soles</small>`;
+      x.precio.insertAdjacentHTML("afterend", `<p class="cy-tienda">S/ ${x.monto} + matrícula S/ ${MATRICULA} (solo la primera vez)</p>`);
     }
   });
 }
