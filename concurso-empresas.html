@@ -87,24 +87,16 @@
     <div class="card">
       <form id="f" novalidate>
         <h2>Inscribe a tu equipo</h2>
-        <p class="sub">Toma 1 minuto. Te avisamos por WhatsApp si ganan.</p>
+        <p class="sub">Son solo 5 datos. Te avisamos por WhatsApp si ganan.</p>
 
-        <div class="sec">Sobre ti</div>
-        <label for="nombre">Tu nombre y apellido</label>
+        <label for="nombre">Tu nombre</label>
         <input id="nombre" name="nombre" type="text" autocomplete="name" required />
 
         <label for="whatsapp">Tu WhatsApp</label>
         <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="9XX XXX XXX" required />
 
-        <label for="instagram">Tu usuario de Instagram <small>(con el que comentaste)</small></label>
-        <input id="instagram" name="instagram" type="text" autocapitalize="off" placeholder="@tuusuario" required />
-
-        <div class="sec">Sobre tu chamba</div>
         <label for="empresa">Nombre de tu chamba <small>(empresa)</small></label>
         <input id="empresa" name="empresa" type="text" autocomplete="organization" required />
-
-        <label for="cargo">Tu cargo <small>(opcional)</small></label>
-        <input id="cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Ej.: analista, jefa de RR. HH., dueño…" />
 
         <label for="distrito">¿En qué distrito trabajan?</label>
         <select id="distrito" name="distrito" required>
@@ -117,23 +109,8 @@
           <option>Ate</option><option>Callao</option><option>Otro distrito de Lima</option><option>Trabajamos remoto</option>
         </select>
 
-        <label>¿Cuántos son en tu equipo?</label>
-        <div class="opts cols">
-          <label class="opt"><input type="radio" name="equipo" value="2 a 5" required /> 2 a 5</label>
-          <label class="opt"><input type="radio" name="equipo" value="6 a 10" /> 6 a 10</label>
-          <label class="opt"><input type="radio" name="equipo" value="11 a 20" /> 11 a 20</label>
-          <label class="opt"><input type="radio" name="equipo" value="Más de 20" /> Más de 20</label>
-        </div>
-
         <label for="porque">¿Por qué tu equipo necesita estirarse URGENTEMENTE? 😅</label>
         <textarea id="porque" name="porque" maxlength="800" placeholder="Ej.: pasamos 9 horas sentados, nadie se toca los pies y el jefe tiene la espalda de piedra…" required></textarea>
-
-        <label>Además del sorteo, ¿te gustaría recibir una propuesta de clases para tu empresa?</label>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="propuesta" value="Sí" required /> Sí, me interesa</label>
-          <label class="opt"><input type="radio" name="propuesta" value="Tal vez más adelante" /> Tal vez más adelante</label>
-          <label class="opt"><input type="radio" name="propuesta" value="Solo el sorteo" /> Por ahora solo el sorteo</label>
-        </div>
 
         <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -159,9 +136,6 @@
 
   <script>
     const f = document.getElementById('f'), err = document.getElementById('err'), btn = document.getElementById('enviar');
-    // Si llega con ?ig=usuario (desde el DM), se completa solo
-    const ig = new URLSearchParams(location.search).get('ig');
-    if (ig) f.instagram.value = '@' + ig.replace(/^@/, '');
 
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -181,14 +155,13 @@
         const r = await fetch('https://acroflex-reservas.vercel.app/api/public/leads', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: d.nombre.trim(), phone: d.whatsapp.trim(), instagram: d.instagram.trim(),
-            company: d.empresa.trim(), role: (d.cargo || '').trim(), district: d.distrito, team_size: d.equipo,
-            reason: d.porque.trim(), proposal: d.propuesta,
+            name: d.nombre.trim(), phone: d.whatsapp.trim(),
+            company: d.empresa.trim(), district: d.distrito, reason: d.porque.trim(),
             offer: 'concurso-chamba-tiesa', source: 'reel concurso empresas', form: 'concurso-empresas', website: d.website || ''
           })
         });
         if (!r.ok) throw new Error();
-        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'concurso-empresas', content_category: d.propuesta });
+        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'concurso-empresas' });
         f.hidden = true; document.getElementById('ok').hidden = false;
         document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch {
