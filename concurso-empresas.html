@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Tu chamba es la más tiesa de Lima? | Acroflex</title>
+  <meta name="description" content="Inscribe a tu equipo de trabajo y gana una clase de flexibilidad gratis en Acroflex." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="¿Tu chamba es la más tiesa de Lima? 😂" />
+  <meta property="og:description" content="Inscribe a tu equipo y gana una clase de flexibilidad gratis en Acroflex." />
+  <meta property="og:image" content="https://acroflextrainingcenter.com/img/grupo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#060c3c; --navy2:#0a1f5c; --blue:#0057ff; --orange:#ff6b1a; --gold:#f5a623; --ink:#0a0f3d; --mute:#5b6785; --line:#d9e0ef; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: #fff; line-height: 1.5; }
+    .wrap { max-width: 560px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 18px 0 0; text-align: center; }
+    header img { height: 42px; }
+    .hero { position: relative; margin-top: 18px; border-radius: 18px; overflow: hidden; }
+    .hero img { width: 100%; display: block; aspect-ratio: 3/2; object-fit: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,12,60,.85), rgba(6,12,60,0) 55%); }
+    .hero .tag { position: absolute; left: 14px; bottom: 12px; z-index: 1; background: var(--orange); color: #fff; font-weight: 800; font-size: .78rem; padding: 6px 12px; border-radius: 99px; letter-spacing: .5px; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 1; letter-spacing: 1px; margin: 22px 0 10px; }
+    h1 span { color: var(--orange); }
+    .lead { color: #c9d6f2; font-size: 1rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 6px; }
+    .chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); padding: 6px 12px; border-radius: 99px; font-size: .82rem; font-weight: 600; }
+    .card { background: #fff; color: var(--ink); border-radius: 18px; padding: 22px 18px; margin: 22px 0 28px; box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+    .card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 1px; line-height: 1.05; }
+    .card .sub { color: var(--mute); font-size: .88rem; margin: 4px 0 16px; }
+    .sec { font-size: .72rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--orange); margin: 18px 0 8px; }
+    label { display: block; font-weight: 700; font-size: .9rem; margin: 12px 0 6px; }
+    label small { font-weight: 500; color: var(--mute); }
+    input[type=text], input[type=tel], input[type=email], select, textarea {
+      width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #f6f8fd; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); background: #fff; }
+    textarea { min-height: 96px; resize: vertical; }
+    .opts { display: grid; gap: 8px; }
+    .opts.cols { grid-template-columns: 1fr 1fr; }
+    .opt { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--line); border-radius: 12px; padding: 11px 12px; font-size: .9rem; font-weight: 600; cursor: pointer; margin: 0; }
+    .opt input { accent-color: var(--orange); width: 18px; height: 18px; flex: none; }
+    .opt:has(input:checked) { border-color: var(--orange); background: #fff4ec; }
+    .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: .82rem; color: var(--mute); margin-top: 16px; }
+    .check input { margin-top: 3px; accent-color: var(--orange); width: 18px; height: 18px; flex: none; }
+    .check a { color: var(--blue); }
+    .trap { position: absolute; left: -9999px; }
+    button { width: 100%; margin-top: 18px; border: 0; border-radius: 14px; padding: 16px; font: inherit; font-weight: 800; font-size: 1.05rem; color: #fff; cursor: pointer;
+      background: linear-gradient(135deg, var(--orange), var(--gold)); box-shadow: 0 8px 20px rgba(255,107,26,.35); }
+    button:disabled { opacity: .6; cursor: wait; }
+    .err { color: #d41515; font-size: .85rem; font-weight: 600; margin-top: 10px; min-height: 1em; }
+    .ok { text-align: center; padding: 10px 4px; }
+    .ok .big { font-size: 3rem; }
+    .ok h2 { margin: 6px 0 8px; }
+    .ok p { color: var(--mute); font-size: .95rem; margin-bottom: 10px; }
+    .ok a.btn { display: block; text-decoration: none; text-align: center; margin-top: 14px; border-radius: 14px; padding: 14px; font-weight: 800; color: #fff; background: var(--blue); }
+    .ok a.btn.alt { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+    footer { text-align: center; color: #8aabcc; font-size: .78rem; padding: 0 0 30px; }
+    footer a { color: #8aabcc; }
+    [hidden] { display: none !important; }
+  </style>
+  <script>
+    window.ACROFLEX_PIXEL_ID = '1114698224661770'; // Píxel "Acroflex Web"
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.ACROFLEX_PIXEL_ID); fbq('track', 'PageView');
+  </script>
+  <script>if(/acroflextrainingcenter\.com$/.test(location.hostname))(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z87hg6o7b9");</script>
+</head>
+<body>
+  <div class="wrap">
+    <header><img src="logo.png" alt="Acroflex Training Center" /></header>
+
+    <div class="hero">
+      <img src="img/grupo.jpg" alt="Grupo entrenando y sonriendo en el salón de Acroflex" />
+      <span class="tag">🎁 CLASE GRATIS PARA TU EQUIPO</span>
+    </div>
+
+    <h1>¿Tu chamba es la <span>más tiesa</span> de Lima? 😂</h1>
+    <p class="lead">Llena este formulario para que tu equipo entre al sorteo de una <strong>clase de flexibilidad gratis</strong> en Acroflex. Sin experiencia previa: solo ganas de moverse y reírse juntos.</p>
+    <div class="chips">
+      <span class="chip">🗓️ Ganador: 20 de noviembre</span>
+      <span class="chip">📍 Equipos de trabajo en Lima</span>
+    </div>
+
+    <div class="card">
+      <form id="f" novalidate>
+        <h2>Inscribe a tu equipo</h2>
+        <p class="sub">Toma 1 minuto. Te avisamos por WhatsApp si ganan.</p>
+
+        <div class="sec">Sobre ti</div>
+        <label for="nombre">Tu nombre y apellido</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+
+        <label for="whatsapp">Tu WhatsApp</label>
+        <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="9XX XXX XXX" required />
+
+        <label for="instagram">Tu usuario de Instagram <small>(con el que comentaste)</small></label>
+        <input id="instagram" name="instagram" type="text" autocapitalize="off" placeholder="@tuusuario" required />
+
+        <div class="sec">Sobre tu chamba</div>
+        <label for="empresa">Nombre de tu chamba <small>(empresa)</small></label>
+        <input id="empresa" name="empresa" type="text" autocomplete="organization" required />
+
+        <label for="cargo">Tu cargo <small>(opcional)</small></label>
+        <input id="cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Ej.: analista, jefa de RR. HH., dueño…" />
+
+        <label for="distrito">¿En qué distrito trabajan?</label>
+        <select id="distrito" name="distrito" required>
+          <option value="">Elige un distrito</option>
+          <option>Jesús María</option><option>Lince</option><option>San Isidro</option><option>Miraflores</option>
+          <option>Magdalena del Mar</option><option>Pueblo Libre</option><option>San Miguel</option><option>Breña</option>
+          <option>Cercado de Lima</option><option>La Victoria</option><option>San Borja</option><option>Surquillo</option>
+          <option>Santiago de Surco</option><option>La Molina</option><option>Barranco</option><option>Chorrillos</option>
+          <option>San Juan de Lurigancho</option><option>Los Olivos</option><option>San Martín de Porres</option>
+          <option>Ate</option><option>Callao</option><option>Otro distrito de Lima</option><option>Trabajamos remoto</option>
+        </select>
+
+        <label>¿Cuántos son en tu equipo?</label>
+        <div class="opts cols">
+          <label class="opt"><input type="radio" name="equipo" value="2 a 5" required /> 2 a 5</label>
+          <label class="opt"><input type="radio" name="equipo" value="6 a 10" /> 6 a 10</label>
+          <label class="opt"><input type="radio" name="equipo" value="11 a 20" /> 11 a 20</label>
+          <label class="opt"><input type="radio" name="equipo" value="Más de 20" /> Más de 20</label>
+        </div>
+
+        <label for="porque">¿Por qué tu equipo necesita estirarse URGENTEMENTE? 😅</label>
+        <textarea id="porque" name="porque" maxlength="800" placeholder="Ej.: pasamos 9 horas sentados, nadie se toca los pies y el jefe tiene la espalda de piedra…" required></textarea>
+
+        <label>Además del sorteo, ¿te gustaría recibir una propuesta de clases para tu empresa?</label>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="propuesta" value="Sí" required /> Sí, me interesa</label>
+          <label class="opt"><input type="radio" name="propuesta" value="Tal vez más adelante" /> Tal vez más adelante</label>
+          <label class="opt"><input type="radio" name="propuesta" value="Solo el sorteo" /> Por ahora solo el sorteo</label>
+        </div>
+
+        <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <label class="check"><input type="checkbox" name="acepto" required /> <span>Acepto que Acroflex use estos datos para el concurso y para contactarme por WhatsApp. <a href="privacidad.html" target="_blank">Política de privacidad</a>.</span></label>
+
+        <button type="submit" id="enviar">Inscribir a mi equipo 🤸</button>
+        <div class="err" id="err" role="alert"></div>
+      </form>
+
+      <div class="ok" id="ok" hidden>
+        <div class="big">🎉</div>
+        <h2>¡Tu equipo ya está participando!</h2>
+        <p>Anunciamos al ganador el <strong>20 de noviembre</strong> en <strong>@acroflex_</strong>. Para sumar puntos, asegúrate de seguirnos y de etiquetar a tus compañeros más tiesos en el reel.</p>
+        <a class="btn" href="https://www.instagram.com/reel/Dfh0aaLROMe/" target="_blank" rel="noopener">Ir al reel a etiquetar a mi equipo</a>
+        <a class="btn alt" href="https://acroflextrainingcenter.com/" rel="noopener">Conocer Acroflex</a>
+      </div>
+    </div>
+
+    <footer>
+      Acroflex Training Center · Av. Húsares de Junín 374, Jesús María – Piso 6 · <a href="https://wa.me/51993813336">993 813 336</a>
+    </footer>
+  </div>
+
+  <script>
+    const f = document.getElementById('f'), err = document.getElementById('err'), btn = document.getElementById('enviar');
+    // Si llega con ?ig=usuario (desde el DM), se completa solo
+    const ig = new URLSearchParams(location.search).get('ig');
+    if (ig) f.instagram.value = '@' + ig.replace(/^@/, '');
+
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.textContent = '';
+      const d = Object.fromEntries(new FormData(f));
+      const digits = (d.whatsapp || '').replace(/\D/g, '');
+      if (!f.checkValidity()) {
+        const bad = f.querySelector(':invalid');
+        err.textContent = 'Te falta completar: ' + (bad.closest('.opts')?.previousElementSibling?.textContent || bad.labels?.[0]?.textContent || 'un campo').trim().replace(/\s+/g, ' ');
+        (bad.closest('.opts') || bad).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      if (digits.length < 9 || digits.length > 15) { err.textContent = 'Revisa tu número de WhatsApp (mínimo 9 dígitos).'; f.whatsapp.focus(); return; }
+
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      try {
+        const r = await fetch('https://acroflex-reservas.vercel.app/api/public/leads', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: d.nombre.trim(), phone: d.whatsapp.trim(), instagram: d.instagram.trim(),
+            company: d.empresa.trim(), role: (d.cargo || '').trim(), district: d.distrito, team_size: d.equipo,
+            reason: d.porque.trim(), proposal: d.propuesta,
+            offer: 'concurso-chamba-tiesa', source: 'reel concurso empresas', form: 'concurso-empresas', website: d.website || ''
+          })
+        });
+        if (!r.ok) throw new Error();
+        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'concurso-empresas', content_category: d.propuesta });
+        f.hidden = true; document.getElementById('ok').hidden = false;
+        document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch {
+        err.innerHTML = 'No se pudo enviar. Inténtalo otra vez o escríbenos al <a href="https://wa.me/51993813336">993 813 336</a>.';
+        btn.disabled = false; btn.textContent = 'Inscribir a mi equipo 🤸';
+      }
+    });
+  </script>
+</body>
+</html>
