@@ -1,0 +1,70 @@
+Tienda · Acroflex Training Center | Muñequeras, bloques de yoga, liga de flex, leotardos, ropa Acroflex y más. Pídelos por WhatsApp y recógelos en Jesús María. | tienda
+<section class="p-hero solo">
+  <div class="wrap p-hero-in">
+    <div>
+      <p class="migas"><a href="index.html">Inicio</a> / Tienda</p>
+      <h1 class="h-display">Tienda</h1>
+      <p class="lead">Implementos y ropa Acroflex para entrenar con más seguridad, técnica y control. Pídelos por WhatsApp y recógelos en recepción.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="tienda-pasos">
+      <div><b>1</b><span>Elige tu producto (y tu talla)</span></div>
+      <div><b>2</b><span>Pídelo por WhatsApp</span></div>
+      <div><b>3</b><span>Paga con Yape o Plin al 993 813 336 y recógelo en recepción</span></div>
+    </div>
+    <div class="tienda-grid" id="tienda" aria-live="polite">
+      <p class="tienda-cargando">Cargando productos…</p>
+    </div>
+    <p class="tienda-nota">¿Te inscribes por primera vez? También puedes agregarlos al pagar tu paquete en <a href="paquetes.html">Precios</a> y te los entregamos en tu primera clase.</p>
+  </div>
+</section>
+
+<script>
+// Tienda: productos, precios, fotos y tallas salen del panel de Acroflex (se actualizan solos)
+(function () {
+  var API = "https://acroflex-reservas.vercel.app/api/public/tienda";
+  var WA = "https://wa.me/51993813336?text=";
+  var caja = document.getElementById("tienda");
+  var soles = function (c) { var n = c / 100; return "S/ " + (n % 1 === 0 ? n : n.toFixed(2)); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var pedir = function (texto) { return WA + encodeURIComponent("Hola Acroflex 🤸 Quiero comprar: " + texto + ". ¿Está disponible?"); };
+
+  function tarjeta(p, i) {
+    var tallas = p.sizes.filter(function (z) { return z.available; });
+    var estado = !p.available ? '<span class="tienda-eti agotado">Agotado</span>' : p.few ? '<span class="tienda-eti">Últimas unidades</span>' : "";
+    var sel = tallas.length
+      ? '<select class="tienda-talla" data-i="' + i + '" aria-label="Talla de ' + esc(p.name) + '"><option value="">Elige tu talla</option>' +
+        tallas.map(function (z) { return '<option value="' + esc(z.talla) + '">Talla ' + esc(z.talla) + "</option>"; }).join("") + "</select>"
+      : "";
+    var boton = p.available
+      ? '<a class="btn btn-orange tienda-pedir" data-i="' + i + '" href="' + pedir(p.name) + '" target="_blank" rel="noopener">Pedir por WhatsApp</a>'
+      : '<a class="btn tienda-pedir off" href="' + WA + encodeURIComponent("Hola Acroflex 🤸 ¿Cuándo vuelve a haber " + p.name + "?") + '" target="_blank" rel="noopener">Avísame cuando llegue</a>';
+    return '<article class="tienda-card' + (p.available ? "" : " sin") + '">' +
+      (p.image ? '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy" width="600" height="600" />' : "") +
+      '<div class="tienda-body">' + estado + "<h3>" + esc(p.name) + '</h3><p>' + esc(p.description) + '</p><div class="tienda-precio">' + soles(p.priceCents) + "</div>" +
+      sel + boton + "</div></article>";
+  }
+
+  fetch(API)
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var items = (d && d.items) || [];
+      if (!items.length) throw new Error("vacío");
+      items.sort(function (a, b) { return (b.available ? 1 : 0) - (a.available ? 1 : 0); });
+      caja.innerHTML = items.map(tarjeta).join("");
+      caja.querySelectorAll(".tienda-talla").forEach(function (s) {
+        s.addEventListener("change", function () {
+          var p = items[s.dataset.i], a = caja.querySelector('.tienda-pedir[data-i="' + s.dataset.i + '"]');
+          a.href = pedir(p.name + (s.value ? " talla " + s.value : ""));
+        });
+      });
+    })
+    .catch(function () {
+      caja.innerHTML = '<p class="tienda-cargando">No pudimos cargar los productos. Escríbenos por <a href="' + WA + encodeURIComponent("Hola Acroflex 🤸 Quiero ver los productos de la tienda") + '" target="_blank" rel="noopener">WhatsApp</a> y te contamos qué hay.</p>';
+    });
+})();
+</script>

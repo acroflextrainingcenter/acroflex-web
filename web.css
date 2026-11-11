@@ -526,3 +526,23 @@ button.hora.int:hover{background:#ffe6cf;box-shadow:0 0 0 2px var(--orange)}
 .modo button{border:0;background:none;font:inherit;font-weight:800;font-size:.95rem;color:#4a5170;padding:10px 20px;border-radius:999px;cursor:pointer}
 .modo button[aria-pressed="true"]{background:var(--navy);color:#fff;box-shadow:0 6px 16px rgba(13,20,86,.2)}
 @media(max-width:520px){.modo{display:flex}.modo button{flex:1;padding:10px 8px;font-size:.88rem}}
+/* Tienda (tienda.html): productos que vienen del panel */
+.tienda-pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
+.tienda-pasos div{display:flex;gap:12px;align-items:center;background:var(--wash);border-radius:16px;padding:14px 16px;font-weight:600;color:var(--ink)}
+.tienda-pasos b{flex:none;width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800}
+.tienda-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.tienda-card{background:#fff;border:1px solid #e3e6f3;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(11,18,80,.06)}
+.tienda-card img{width:100%;aspect-ratio:1;object-fit:cover;background:#f4f4f6}
+.tienda-card.sin img{opacity:.5}
+.tienda-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tienda-body h3{margin:0;font-size:1.05rem;color:var(--ink);line-height:1.25}
+.tienda-body p{margin:0;font-size:.88rem;color:#4a5170;flex:1}
+.tienda-precio{font-weight:800;font-size:1.25rem;color:var(--ink)}
+.tienda-eti{align-self:flex-start;font-size:.75rem;font-weight:800;background:#fff1e6;color:#b44a00;border-radius:999px;padding:3px 10px}
+.tienda-eti.agotado{background:#eceef5;color:#4a5170}
+.tienda-talla{font:600 .92rem inherit;padding:9px 10px;border-radius:10px;border:1.5px solid #d6daea;background:#fff;color:var(--ink)}
+.tienda-pedir{text-align:center;justify-content:center}
+.tienda-pedir.off{background:var(--wash);color:var(--ink)}
+.tienda-cargando{grid-column:1/-1;color:#4a5170}
+.tienda-nota{margin-top:22px;color:#4a5170;font-size:.95rem}
+@media(max-width:720px){.tienda-pasos{grid-template-columns:1fr}.tienda-grid{grid-template-columns:repeat(2,1fr);gap:12px}.tienda-body{padding:12px}.tienda-body p{font-size:.8rem}}

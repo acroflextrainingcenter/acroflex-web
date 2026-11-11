@@ -36,6 +36,7 @@ MENU = [
     ("cursos", None, "Cursos"),
     ("horarios", "horarios.html", "Horarios"),
     ("precios", "paquetes.html", "Precios"),
+    ("tienda", "tienda.html", "Tienda"),
     ("nosotros", "nosotros.html", "Nosotros"),
     ("contacto", "contacto.html", "Contacto"),
 ]
@@ -47,6 +48,8 @@ CURSOS = [
 ]
 
 FUENTES = '<link rel="preconnect" href="https://fonts.googleapis.com" />\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />'
+
+CLARITY = '<!-- Microsoft Clarity (proyecto "Acroflex"): mapas de calor y grabaciones de visitas; solo en el dominio real -->\n<script>if(/acroflextrainingcenter\\.com$/.test(location.hostname))(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","z87hg6o7b9");</script>'
 
 
 def menu(activo, archivo=""):
@@ -105,6 +108,7 @@ def armar_pagina(fuente):
 {FUENTES}
 <link rel="stylesheet" href="sitio.css" />
 <link rel="stylesheet" href="web.css" />
+{CLARITY}
 </head>
 <body>
 <!-- Generada con _fuente/armar.py desde _fuente/paginas/{fuente.name}: editar allá -->
