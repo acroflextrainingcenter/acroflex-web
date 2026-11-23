@@ -33,6 +33,7 @@ WA_SVG = '<svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.
 
 MENU = [
     ("inicio", "index.html", "Inicio"),
+    ("verano", "verano.html", "Verano ☀️"),
     ("cursos", None, "Cursos"),
     ("horarios", "horarios.html", "Horarios"),
     ("precios", "paquetes.html", "Precios"),
@@ -93,6 +94,9 @@ def con_bloques(texto):
 
 def armar_pagina(fuente):
     texto = con_bloques(fuente.read_text())
+    # Verano: el horario sale de _fuente/verano-turnos.json (exportado de la página de turnos de verano)
+    if "/*TURNOS*/[]" in texto:
+        texto = texto.replace("/*TURNOS*/[]", (FUENTE / "verano-turnos.json").read_text().strip())
     cabecera, cuerpo = texto.split("\n", 1)
     titulo, descripcion, activo = [x.strip() for x in cabecera.split("|")]
     pie = (FUENTE / "pie.html").read_text()

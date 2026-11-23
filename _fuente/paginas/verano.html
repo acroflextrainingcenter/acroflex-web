@@ -1,0 +1,225 @@
+Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en Acroflex, Jesús María: Jóvenes y Adultos, Teens, Kids, FlexiPower, Acrodance y Base Atleta. Packs de 2 y 3 meses. | verano
+<style>
+/* Verano 2027: página propia; el horario sale de _fuente/verano-turnos.json (página de turnos de verano) */
+.v-hero{position:relative;color:#fff;background:#070b33;overflow:hidden}
+.v-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.v-hero .wrap{position:relative;padding-top:64px;padding-bottom:56px}
+.v-hero h1{font-family:'Anton';font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;margin:6px 0 14px;text-transform:uppercase}
+.v-hero h1 span{color:var(--orange)}
+.v-hero .lead{max-width:560px;color:#e6e9ff}
+.v-sellos{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+.v-sello{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.92rem}
+.v-sello.o{background:var(--orange);border-color:var(--orange)}
+.v-cursos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.v-curso{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit}
+.v-curso img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.v-curso div{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.v-curso b{font-size:1.1rem;color:var(--ink)}
+.v-curso small{color:var(--muted);font-size:.86rem}
+.v-curso span{font-size:.92rem;color:#323858}
+.v-curso em{font-style:normal;font-weight:800;color:var(--navy);margin-top:4px}
+.v-nuevo{align-self:flex-start;background:var(--orange);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px}
+.v-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.v-chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:700 .92rem 'Barlow';cursor:pointer;color:var(--ink)}
+.v-chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.v-semana{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.v-dia{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 10px}
+.v-dia h4{margin:0 0 8px;font-size:.92rem}
+.v-t{display:block;border-radius:10px;padding:7px 9px;margin-bottom:6px;font-size:.82rem;line-height:1.25;border-left:4px solid}
+.v-t b{display:block;font-size:.84rem}
+.v-t i{font-style:normal;font-size:.68rem;font-weight:800;background:var(--orange);color:#fff;border-radius:999px;padding:1px 6px;margin-left:4px}
+.c-jya{background:#fde9f1;border-color:#d6336c}.c-teens{background:#fff1e3;border-color:#f08c00}.c-kids{background:#ecf8e0;border-color:#5c940d}
+.c-flexi{background:#e3f7ee;border-color:#0ca678}.c-acro{background:#efeafd;border-color:#7048e8}.c-base{background:#e5efff;border-color:#1c7ed6}.c-cgc{background:#fff;border-color:#e8590c;box-shadow:inset 0 0 0 1.5px #c5d0ff}
+.v-vacio{color:#a3a8c6;font-size:.82rem}
+@media(max-width:900px){.v-cursos{grid-template-columns:1fr 1fr}.v-semana{grid-template-columns:1fr}.v-dia{display:grid;grid-template-columns:86px 1fr;gap:8px}.v-dia h4{margin-top:6px}.v-dia .v-vacio{display:none}}
+@media(max-width:560px){.v-cursos{grid-template-columns:1fr;gap:10px}.v-curso{flex-direction:row;align-items:stretch}.v-curso img{width:112px;aspect-ratio:auto;height:auto;min-height:112px;flex:none}.v-curso div{padding:10px 12px}.v-curso span{font-size:.86rem}}
+.v-precios{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;overflow-x:auto}
+.v-tabla{width:100%;border-collapse:collapse;min-width:520px}
+.v-tabla th,.v-tabla td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.v-tabla th small{display:block;text-transform:none;letter-spacing:0;font-weight:600}
+.v-tabla th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.v-tabla td b{font-family:'Anton';font-size:1.6rem;font-weight:400;color:var(--navy)}
+.v-tabla td small{display:block;color:var(--muted);font-size:.8rem}
+.v-tabla td s{color:#a3a8c6;font-size:.85rem;margin-left:4px}
+@media(max-width:600px){.v-precios{padding:10px}.v-tabla{min-width:0}.v-tabla thead{display:none}.v-tabla tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 8px;border-bottom:1px solid var(--line);padding:12px 4px}.v-tabla td{border:0;padding:0}.v-tabla td:first-child{grid-column:1/-1;margin-bottom:6px}.v-tabla td[data-l]::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:2px}.v-tabla td b{font-size:1.3rem}}
+.v-ahorro{display:inline-block;margin-top:4px;font-weight:800;font-size:.78rem;color:#0f7a5c;background:#e6f8f1;border-radius:999px;padding:2px 8px}
+.v-aviso{background:#fff4e8;border:1px solid #ffd8a8;border-radius:14px;padding:12px 14px;margin:0 0 14px;font-size:.95rem}
+.v-cgc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.v-cgc article{background:#fff;border:1.5px solid #c5d0ff;border-radius:20px;padding:18px}
+.v-cgc h3{margin:6px 0 4px}
+.v-cgc p{margin:0 0 6px;color:#323858;font-size:.94rem}
+@media(max-width:900px){.v-cgc{grid-template-columns:1fr}}
+</style>
+
+<section class="v-hero">
+  <img src="img/g-salon.jpg" alt="Salón de Acroflex en Jesús María" />
+  <div class="wrap">
+    <p class="migas"><a href="index.html" style="color:#fff">Inicio</a> / Verano 2027</p>
+    <h1>Verano <span>2027</span></h1>
+    <p class="lead">Nuevos horarios en la mañana, la tarde y la noche, y 3 cursos nuevos: Kids, Acrodance y Base Atleta. Clases presenciales en Jesús María.</p>
+    <div class="v-sellos">
+      <span class="v-sello o">📅 Desde el lunes 4 de enero</span>
+      <span class="v-sello" id="v-sello-mat">Matrícula S/ 25 hasta el 15 de diciembre</span>
+      <span class="v-sello">Packs de 2 y 3 meses</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-orange" href="#v-horario">Ver horarios</a>
+      <a class="btn" href="#v-precios" style="background:#fff;color:var(--navy)">Ver precios</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Cursos de verano</span><h2 class="h-display">Elige tu curso</h2></div>
+    <div class="v-cursos" id="v-cursos"></div>
+  </div>
+</section>
+
+<section class="sec" id="v-horario" style="background:var(--wash)">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Desde el 4 de enero</span><h2 class="h-display">Horario de verano</h2></div>
+    <div class="v-chips" id="v-chips-h"></div>
+    <div class="v-semana" id="v-semana"></div>
+    <p class="nota">Los turnos marcados con <b style="background:var(--orange);color:#fff;border-radius:999px;padding:0 6px">Nuevo</b> son de este verano. Los horarios pueden cambiar en feriados.</p>
+  </div>
+</section>
+
+<section class="sec" id="v-precios">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Mensualidades y packs</span><h2 class="h-display">Precios de verano</h2></div>
+    <div class="v-chips" id="v-chips-p"></div>
+    <div class="modo" role="group" aria-label="¿Ya entrenas en Acroflex?"><button type="button" data-vmodo="nuevo">Es mi primera vez</button><button type="button" data-vmodo="estudiante">Ya soy estudiante</button></div>
+    <div class="v-aviso" id="v-aviso"></div>
+    <div class="v-precios" id="v-tabla"></div>
+    <p class="nota">Los packs se pagan en un solo pago y las clases se usan durante todo el pack, aunque empieces más tarde. No se suman con otros descuentos. Pago con tarjeta o Yape/Plin al 923 043 284.</p>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--wash)">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">CGC Method · en el salón de Acroflex</span><h2 class="h-display">Verano con Cami</h2><p class="lead">Cursos de 1 clase por semana para quienes bailan, hacen gimnasia o artes marciales. Desde 9 años, 12 cupos por grupo.</p></div>
+    <div class="v-cgc" id="v-cgc"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap" style="text-align:center">
+    <h2 class="h-display">¿Dudas con tu horario?</h2>
+    <p class="lead" style="margin:0 auto 20px">Escríbenos y te ayudamos a elegir el curso y el pack.</p>
+    <a class="btn btn-orange" href="https://wa.me/51993813336?text=Hola%20Acroflex%20%F0%9F%A4%B8%20Quiero%20informaci%C3%B3n%20de%20los%20horarios%20de%20verano" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<script>
+(function () {
+  // Horario: [día 0=lunes, inicio, fin, curso, nuevo, marca] — se regenera desde la página de turnos de verano
+  var TURNOS = /*TURNOS*/[];
+  var DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+  var LIMA = function (s) { return Date.parse(s + "-05:00"); };
+  var ahora = Date.now();
+  var MAT = ahora <= LIMA("2026-12-15T23:59:59") ? 25 : 50;
+  var PREVENTA = ahora >= LIMA("2026-12-01T00:00:00") && ahora <= LIMA("2026-12-15T23:59:59");
+  var CGC_PRE = ahora <= LIMA("2026-12-10T23:59:59");
+
+  var CURSOS = [
+    { k: "jya", n: "Jóvenes y Adultos", edad: "Desde 14 años · 1 h 25", txt: "Acrobacias, flexibilidad y fuerza desde cero.", img: "img/curso-adultos.jpg", p: [190, 330, 470], int: { dia: 6, txt: "Intensivo de domingo (2 h)", p: 260, pk: [250, 245] } },
+    { k: "teens", n: "Teens", edad: "7 a 13 años · 1 h 25", txt: "Nuevo: turnos en la mañana de lunes a viernes.", img: "img/curso-teens.jpg", p: [190, 330, 470] },
+    { k: "kids", n: "Kids", edad: "4 a 6 años · 55 min", txt: "Desarrolla su psicomotricidad, coordinación y confianza jugando, siempre acompañado por un coach.", img: "img/tn-2.jpg", p: [190, 330], nuevo: 1, enero: 1 },
+    { k: "flexi", n: "FlexiPower", edad: "Desde 15 años · 55 min", txt: "Flexibilidad activa, splits y control corporal.", img: "img/curso-flexipower.jpg", p: [170, 290, 420], int: { dia: 5, txt: "Intensivo de sábado (1 h 25)", p: 250, pk: [240, 235] } },
+    { k: "acro", n: "Acrodance", edad: "Desde 9 años · 1 h 25", txt: "Acrobacia y baile en una misma clase.", img: "img/g-rueda.jpg", p: [190, 330, 470], nuevo: 1, enero: 1 },
+    { k: "base", n: "Base Atleta", edad: "Desde 9 años · 55 min", txt: "La base física de todo deportista: fuerza, explosividad y movilidad.", img: "img/adultos-3.jpg", p: [170, 290, 420], nuevo: 1, enero: 1 }
+  ];
+  var CLASE = { "Jóvenes y Adultos": "jya", "Teens": "teens", "Kids": "kids", "FlexiPower": "flexi", "Acrodance": "acro", "Base Atleta": "base" };
+  var CGC = [
+    { n: "Prepa física para bailarines", t: "Viernes 3:45 – 4:45 pm", txt: "Fuerza, saltos, resistencia y equilibrio.", reg: 220, pre: 195 },
+    { n: "Flex Elite", t: "Viernes 5:00 – 6:25 pm", txt: "Oversplit, extensiones y arcos, para quienes ya tienen base.", reg: 250, pre: 220 },
+    { n: "Power Kicks", t: "Sábado 3:30 – 4:25 pm", txt: "Flexibilidad y potencia para patadas de artes marciales.", reg: 220, pre: 195 }
+  ];
+
+  var hora = function (h) { var p = h.split(":"), H = +p[0], m = p[1]; return (H % 12 || 12) + ":" + m + (H < 12 ? " am" : " pm"); };
+  var mins = function (h) { var p = h.split(":"); return +p[0] * 60 + +p[1]; };
+  var soles = function (n) { return "S/ " + n; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var modo = "nuevo", cursoH = "todos", cursoP = "jya";
+
+  document.getElementById("v-sello-mat").textContent = MAT === 25 ? "Matrícula S/ 25 hasta el 15 de diciembre (normal S/ 50)" : "Matrícula S/ 50 (solo la primera vez)";
+
+  document.getElementById("v-cursos").innerHTML = CURSOS.map(function (c) {
+    return '<button type="button" class="v-curso" data-ir="' + c.k + '"><img src="' + c.img + '" alt="' + esc(c.n) + '" loading="lazy" width="640" height="480" /><div>' +
+      (c.nuevo ? '<span class="v-nuevo">Nuevo · desde enero</span>' : "") + "<b>" + esc(c.n) + "</b><small>" + esc(c.edad) + "</small><span>" + esc(c.txt) + "</span><em>Desde " + soles(c.p[0]) + " al mes</em></div></button>";
+  }).join("");
+
+  function chips(id, sel, conTodos) {
+    var lista = (conTodos ? [{ k: "todos", n: "Todos" }] : []).concat(CURSOS);
+    document.getElementById(id).innerHTML = lista.map(function (c) { return '<button type="button" class="v-chip" data-k="' + c.k + '" aria-pressed="' + (c.k === sel) + '">' + esc(c.n) + "</button>"; }).join("");
+  }
+
+  function pintarHorario() {
+    chips("v-chips-h", cursoH, true);
+    document.getElementById("v-semana").innerHTML = DIAS.map(function (d, i) {
+      var ts = TURNOS.filter(function (t) { return t[0] === i && (cursoH === "todos" || CLASE[t[3]] === cursoH); });
+      var html = ts.length ? ts.map(function (t) {
+        var c = t[5] === "cgc" ? "cgc" : CLASE[t[3]];
+        var nombre = t[3].replace(" · Verano con Cami", "").replace("Powerkicks", "Power Kicks").replace("Prep. Física Danza", "Prepa física");
+        var intensivo = (c === "jya" && mins(t[2]) - mins(t[1]) >= 120) || (c === "flexi" && mins(t[2]) - mins(t[1]) >= 85);
+        return '<span class="v-t c-' + c + '"><b>' + esc(nombre) + (t[4] && t[5] !== "cgc" ? "<i>Nuevo</i>" : "") + "</b>" + hora(t[1]) + " – " + hora(t[2]) + (intensivo ? " · Intensivo" : "") + (t[5] === "cgc" ? " · CGC Method" : "") + "</span>";
+      }).join("") : '<span class="v-vacio">Sin clases</span>';
+      return '<div class="v-dia"><h4>' + d + "</h4><div>" + html + "</div></div>";
+    }).join("");
+  }
+
+  // descuento por mes en los packs: estudiantes más que nuevos (nuevos S/ 5 menos)
+  function dcto(n, meses) {
+    var d = n === 4 ? (meses === 2 ? 15 : 20) : (meses === 2 ? 25 : 35);
+    return modo === "nuevo" ? d - 5 : d;
+  }
+
+  function celda(mes, meses, extra) {
+    var total = mes * meses - extra;
+    return "<b>" + soles(mes) + "</b><small>al mes" + (meses > 1 ? " · total " + soles(total) + (extra ? "<s>" + soles(mes * meses) + "</s>" : "") : "") + "</small>";
+  }
+
+  function pintarPrecios() {
+    chips("v-chips-p", cursoP, false);
+    document.querySelectorAll("[data-vmodo]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.vmodo === modo)); });
+    var c = CURSOS.filter(function (x) { return x.k === cursoP; })[0];
+    var pre2 = PREVENTA ? 30 : 0, pre3 = PREVENTA ? 50 : 0;
+    var filas = [4, 8, 12].slice(0, c.p.length).map(function (n, i) {
+      var base = c.p[i];
+      var m2 = base - dcto(n, 2), m3 = base - dcto(n, 3);
+      return "<tr><td><strong>" + n + " clases</strong><small>" + (n / 4) + " por semana</small></td><td data-l=\"1 mes\">" + celda(base, 1, 0) + "</td><td data-l=\"" + (c.enero ? "Pack enero–febrero" : "Pack 2 meses") + "\">" + celda(m2, 2, pre2) +
+        '<span class="v-ahorro">Ahorras ' + soles((base - m2) * 2 + pre2) + "</span></td><td data-l=\"" + (c.enero ? "Pack enero–marzo" : "Pack 3 meses") + "\">" + celda(m3, 3, pre3) + '<span class="v-ahorro">Ahorras ' + soles((base - m3) * 3 + pre3) + "</span></td></tr>";
+    }).join("");
+    if (c.int) {
+      filas += "<tr><td><strong>" + c.int.txt + "</strong><small>4 clases al mes</small></td><td data-l=\"1 mes\">" + celda(c.int.p, 1, 0) + "</td><td data-l=\"Pack 2 meses\">" + celda(c.int.pk[0], 2, pre2) + "</td><td data-l=\"Pack 3 meses\">" + celda(c.int.pk[1], 3, pre3) + "</td></tr>";
+    }
+    document.getElementById("v-tabla").innerHTML = '<table class="v-tabla"><thead><tr><th>' + esc(c.n) + "</th><th>1 mes</th><th>Pack 2 meses" + (c.enero ? "<small>enero y febrero</small>" : "") + "</th><th>Pack 3 meses" + (c.enero ? "<small>enero a marzo</small>" : "") + "</th></tr></thead><tbody>" + filas + "</tbody></table>" +
+      '<p style="margin:14px 0 0"><a class="btn btn-orange" target="_blank" rel="noopener" href="https://wa.me/51993813336?text=' + encodeURIComponent("Hola Acroflex 🤸 Quiero inscribirme en " + c.n + " de verano. ¿Me ayudas con el pack?") + '">Quiero inscribirme en ' + esc(c.n) + "</a></p>";
+    var aviso = [];
+    if (c.enero) aviso.push("🆕 " + c.n + " es un curso nuevo: empieza en enero. El pack de 2 meses es enero y febrero, y el de 3 meses, de enero a marzo.");
+    if (modo === "nuevo") aviso.push(MAT === 25 ? "🎉 Si te inscribes hasta el 15 de diciembre, tu matrícula es <b>S/ 25</b> (normal S/ 50). Se paga una sola vez." : "La matrícula es S/ 50 y se paga solo la primera vez.");
+    else aviso.push("💙 Como ya eres estudiante, no pagas matrícula y tus packs tienen más descuento.");
+    if (PREVENTA) aviso.push("🔥 Preventa hasta el 15 de diciembre: <b>S/ 30 menos</b> en el pack de 2 meses y <b>S/ 50 menos</b> en el de 3 meses (ya incluido).");
+    document.getElementById("v-aviso").innerHTML = aviso.join("<br>");
+  }
+
+  document.getElementById("v-cgc").innerHTML = CGC.map(function (c) {
+    return '<article><span class="v-nuevo" style="background:#3b5bdb">CGC Method</span><h3>' + esc(c.n) + "</h3><p><b>" + esc(c.t) + "</b></p><p>" + esc(c.txt) + "</p><p>" +
+      (CGC_PRE ? "<b>" + soles(c.pre) + "</b> al mes en preventa hasta el 10 de diciembre <s>" + soles(c.reg) + "</s>" : "<b>" + soles(c.reg) + "</b> al mes") + "</p>" +
+      '<a class="btn btn-orange" href="https://cursos.camilagaraycoach.com/verano?utm_source=acroflex&utm_medium=web&utm_campaign=verano27" target="_blank" rel="noopener">Ver e inscribirme</a></article>';
+  }).join("");
+
+  document.addEventListener("click", function (e) {
+    var ch = e.target.closest(".v-chip");
+    if (ch && ch.parentElement.id === "v-chips-h") { cursoH = ch.dataset.k; pintarHorario(); }
+    if (ch && ch.parentElement.id === "v-chips-p") { cursoP = ch.dataset.k; pintarPrecios(); }
+    var m = e.target.closest("[data-vmodo]");
+    if (m) { modo = m.dataset.vmodo; pintarPrecios(); }
+    var cur = e.target.closest("[data-ir]");
+    if (cur) { cursoH = cursoP = cur.dataset.ir; pintarHorario(); pintarPrecios(); document.getElementById("v-horario").scrollIntoView({ behavior: "smooth" }); }
+  });
+  pintarHorario();
+  pintarPrecios();
+})();
+</script>
