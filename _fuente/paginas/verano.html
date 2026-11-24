@@ -42,6 +42,7 @@ Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en A
 .v-tabla td small{display:block;color:var(--muted);font-size:.8rem}
 .v-tabla td s{color:#a3a8c6;font-size:.85rem;margin-left:4px}
 @media(max-width:600px){.v-precios{padding:10px}.v-tabla{min-width:0}.v-tabla thead{display:none}.v-tabla tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 8px;border-bottom:1px solid var(--line);padding:12px 4px}.v-tabla td{border:0;padding:0}.v-tabla td:first-child{grid-column:1/-1;margin-bottom:6px}.v-tabla td[data-l]::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:2px}.v-tabla td b{font-size:1.3rem}}
+.v-comprar{display:inline-block;margin-top:8px;background:var(--orange);color:#fff;font-weight:800;font-size:.82rem;border-radius:999px;padding:5px 12px;text-decoration:none}
 .v-ahorro{display:inline-block;margin-top:4px;font-weight:800;font-size:.78rem;color:#0f7a5c;background:#e6f8f1;border-radius:999px;padding:2px 8px}
 .v-aviso{background:#fff4e8;border:1px solid #ffd8a8;border-radius:14px;padding:12px 14px;margin:0 0 14px;font-size:.95rem}
 .v-cgc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -92,7 +93,7 @@ Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en A
     <div class="modo" role="group" aria-label="¿Ya entrenas en Acroflex?"><button type="button" data-vmodo="nuevo">Es mi primera vez</button><button type="button" data-vmodo="estudiante">Ya soy estudiante</button></div>
     <div class="v-aviso" id="v-aviso"></div>
     <div class="v-precios" id="v-tabla"></div>
-    <p class="nota">Los packs se pagan en un solo pago y las clases se usan durante todo el pack, aunque empieces más tarde. No se suman con otros descuentos. Pago con tarjeta o Yape/Plin al 923 043 284.</p>
+    <p class="nota">Los packs se pagan en un solo pago y las clases se usan durante todo el pack, aunque empieces más tarde. No se suman con otros descuentos. Pago con tarjeta o con Yape/Plin al 923 043 284 (subes la captura y te confirmamos en el día).</p>
   </div>
 </section>
 
@@ -123,12 +124,12 @@ Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en A
   var CGC_PRE = ahora <= LIMA("2026-12-10T23:59:59");
 
   var CURSOS = [
-    { k: "jya", n: "Jóvenes y Adultos", edad: "Desde 14 años · 1 h 25", txt: "Acrobacias, flexibilidad y fuerza desde cero.", img: "img/curso-adultos.jpg", p: [190, 330, 470], int: { dia: 6, txt: "Intensivo de domingo (2 h)", p: 260, pk: [250, 245] } },
-    { k: "teens", n: "Teens", edad: "7 a 13 años · 1 h 25", txt: "Nuevo: turnos en la mañana de lunes a viernes.", img: "img/curso-teens.jpg", p: [190, 330, 470] },
-    { k: "kids", n: "Kids", edad: "4 a 6 años · 55 min", txt: "Desarrolla su psicomotricidad, coordinación y confianza jugando, siempre acompañado por un coach.", img: "img/tn-2.jpg", p: [190, 330], nuevo: 1, enero: 1 },
-    { k: "flexi", n: "FlexiPower", edad: "Desde 15 años · 55 min", txt: "Flexibilidad activa, splits y control corporal.", img: "img/curso-flexipower.jpg", p: [170, 290, 420], int: { dia: 5, txt: "Intensivo de sábado (1 h 25)", p: 250, pk: [240, 235] } },
-    { k: "acro", n: "Acrodance", edad: "Desde 9 años · 1 h 25", txt: "Acrobacia y baile en una misma clase.", img: "img/g-rueda.jpg", p: [190, 330, 470], nuevo: 1, enero: 1 },
-    { k: "base", n: "Base Atleta", edad: "Desde 9 años · 55 min", txt: "La base física de todo deportista: fuerza, explosividad y movilidad.", img: "img/adultos-3.jpg", p: [170, 290, 420], nuevo: 1, enero: 1 }
+    { k: "jya", slug: "acroflex", n: "Jóvenes y Adultos", edad: "Desde 14 años · 1 h 25", txt: "Acrobacias, flexibilidad y fuerza desde cero.", img: "img/curso-adultos.jpg", p: [190, 330, 470], int: { dia: 6, slug: "acroflex-intensivo-4", txt: "Intensivo de domingo (2 h)", p: 260, pk: [250, 245] } },
+    { k: "teens", slug: "teens", n: "Teens", edad: "7 a 13 años · 1 h 25", txt: "Nuevo: turnos en la mañana de lunes a viernes.", img: "img/curso-teens.jpg", p: [190, 330, 470] },
+    { k: "kids", slug: "kids", n: "Kids", edad: "4 a 6 años · 55 min", txt: "Desarrolla su psicomotricidad, coordinación y confianza jugando, siempre acompañado por un coach.", img: "img/tn-2.jpg", p: [190, 330], nuevo: 1, enero: 1 },
+    { k: "flexi", slug: "flexipower", n: "FlexiPower", edad: "Desde 15 años · 55 min", txt: "Flexibilidad activa, splits y control corporal.", img: "img/curso-flexipower.jpg", p: [170, 290, 420], int: { dia: 5, slug: "flexipower-intensivo-4", txt: "Intensivo de sábado (1 h 25)", p: 250, pk: [240, 235] } },
+    { k: "acro", slug: "acrodance", n: "Acrodance", edad: "Desde 9 años · 1 h 25", txt: "Acrobacia y baile en una misma clase.", img: "img/g-rueda.jpg", p: [190, 330, 470], nuevo: 1, enero: 1 },
+    { k: "base", slug: "base-atleta", n: "Base Atleta", edad: "Desde 9 años · 55 min", txt: "La base física de todo deportista: fuerza, explosividad y movilidad.", img: "img/adultos-3.jpg", p: [170, 290, 420], nuevo: 1, enero: 1 }
   ];
   var CLASE = { "Jóvenes y Adultos": "jya", "Teens": "teens", "Kids": "kids", "FlexiPower": "flexi", "Acrodance": "acro", "Base Atleta": "base" };
   var CGC = [
@@ -142,6 +143,8 @@ Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en A
   var soles = function (n) { return "S/ " + n; };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var modo = "nuevo", cursoH = "todos", cursoP = "jya";
+  var COMPRAR = "https://acroflex-reservas.vercel.app/comprar/";
+  var comprar = function (base, meses) { return '<a class="v-comprar" href="' + COMPRAR + (meses > 1 ? "pack-" + meses + "-" : "") + base + (modo === "nuevo" ? "?primera=1" : "") + '">Comprar →</a>'; };
 
   document.getElementById("v-sello-mat").textContent = MAT === 25 ? "Matrícula S/ 25 hasta el 15 de diciembre (normal S/ 50)" : "Matrícula S/ 50 (solo la primera vez)";
 
@@ -188,14 +191,15 @@ Verano 2027 · Acroflex Training Center | Horarios y precios de verano 2027 en A
     var filas = [4, 8, 12].slice(0, c.p.length).map(function (n, i) {
       var base = c.p[i];
       var m2 = base - dcto(n, 2), m3 = base - dcto(n, 3);
-      return "<tr><td><strong>" + n + " clases</strong><small>" + (n / 4) + " por semana</small></td><td data-l=\"1 mes\">" + celda(base, 1, 0) + "</td><td data-l=\"" + (c.enero ? "Pack enero–febrero" : "Pack 2 meses") + "\">" + celda(m2, 2, pre2) +
-        '<span class="v-ahorro">Ahorras ' + soles((base - m2) * 2 + pre2) + "</span></td><td data-l=\"" + (c.enero ? "Pack enero–marzo" : "Pack 3 meses") + "\">" + celda(m3, 3, pre3) + '<span class="v-ahorro">Ahorras ' + soles((base - m3) * 3 + pre3) + "</span></td></tr>";
+      var bs = c.slug + "-" + n;
+      return "<tr><td><strong>" + n + " clases</strong><small>" + (n / 4) + " por semana</small></td><td data-l=\"1 mes\">" + celda(base, 1, 0) + comprar(bs, 1) + "</td><td data-l=\"" + (c.enero ? "Pack enero–febrero" : "Pack 2 meses") + "\">" + celda(m2, 2, pre2) +
+        '<span class="v-ahorro">Ahorras ' + soles((base - m2) * 2 + pre2) + "</span>" + comprar(bs, 2) + "</td><td data-l=\"" + (c.enero ? "Pack enero–marzo" : "Pack 3 meses") + "\">" + celda(m3, 3, pre3) + '<span class="v-ahorro">Ahorras ' + soles((base - m3) * 3 + pre3) + "</span>" + comprar(bs, 3) + "</td></tr>";
     }).join("");
     if (c.int) {
-      filas += "<tr><td><strong>" + c.int.txt + "</strong><small>4 clases al mes</small></td><td data-l=\"1 mes\">" + celda(c.int.p, 1, 0) + "</td><td data-l=\"Pack 2 meses\">" + celda(c.int.pk[0], 2, pre2) + "</td><td data-l=\"Pack 3 meses\">" + celda(c.int.pk[1], 3, pre3) + "</td></tr>";
+      filas += "<tr><td><strong>" + c.int.txt + "</strong><small>4 clases al mes</small></td><td data-l=\"1 mes\">" + celda(c.int.p, 1, 0) + comprar(c.int.slug, 1) + "</td><td data-l=\"Pack 2 meses\">" + celda(c.int.pk[0], 2, pre2) + comprar(c.int.slug, 2) + "</td><td data-l=\"Pack 3 meses\">" + celda(c.int.pk[1], 3, pre3) + comprar(c.int.slug, 3) + "</td></tr>";
     }
     document.getElementById("v-tabla").innerHTML = '<table class="v-tabla"><thead><tr><th>' + esc(c.n) + "</th><th>1 mes</th><th>Pack 2 meses" + (c.enero ? "<small>enero y febrero</small>" : "") + "</th><th>Pack 3 meses" + (c.enero ? "<small>enero a marzo</small>" : "") + "</th></tr></thead><tbody>" + filas + "</tbody></table>" +
-      '<p style="margin:14px 0 0"><a class="btn btn-orange" target="_blank" rel="noopener" href="https://wa.me/51993813336?text=' + encodeURIComponent("Hola Acroflex 🤸 Quiero inscribirme en " + c.n + " de verano. ¿Me ayudas con el pack?") + '">Quiero inscribirme en ' + esc(c.n) + "</a></p>";
+      '<p style="margin:14px 0 0;font-size:.92rem;color:var(--muted)">Pagas con tarjeta o con Yape en la página de compra. ¿Dudas? <a target="_blank" rel="noopener" href="https://wa.me/51993813336?text=' + encodeURIComponent("Hola Acroflex 🤸 Quiero inscribirme en " + c.n + " de verano. ¿Me ayudas con el pack?") + '">Escríbenos por WhatsApp</a>.</p>';
     var aviso = [];
     if (c.enero) aviso.push("🆕 " + c.n + " es un curso nuevo: empieza en enero. El pack de 2 meses es enero y febrero, y el de 3 meses, de enero a marzo.");
     if (modo === "nuevo") aviso.push(MAT === 25 ? "🎉 Si te inscribes hasta el 15 de diciembre, tu matrícula es <b>S/ 25</b> (normal S/ 50). Se paga una sola vez." : "La matrícula es S/ 50 y se paga solo la primera vez.");
